@@ -38,5 +38,5 @@ jobs:
           port: 65002
           password: ${{ secrets.FTP_PASSWORD }}
           local_path: './dist/*'
-          remote_path: 'public_html'
+          remote_path: 'domains/hisas.devmo.pro/public_html'
           sftp_only: true

@@ -1,16 +1,13 @@
-name: Build & Deploy to Git Branch
+name: Build & Deploy to Hostinger
 
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
   build-and-deploy:
-    name: Build & Publish to Deploy Branch
+    name: Build & Deploy via SFTP
     runs-on: ubuntu-latest
 
     steps:
@@ -29,8 +26,13 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Deploy to Deploy Branch
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy files via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          branch: deploy
-          folder: dist
+          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          port: 65002
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_path: './dist/*'
+          remote_path: 'public_html'
+          sftp_only: true

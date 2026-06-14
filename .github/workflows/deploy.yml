@@ -1,5 +1,8 @@
 name: Build & Deploy to Hostinger
 
+# ملاحظة: هذا الملف يستخدم بروتوكول SFTP على المنفذ 65002
+# يجب استخدام بيانات SSH (اسم المستخدم وكلمة مرور SSH) وليس FTP العادي.
+
 on:
   push:
     branches:

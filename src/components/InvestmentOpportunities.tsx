@@ -62,7 +62,13 @@ export const InvestmentOpportunities: React.FC = () => {
         <div className="grid lg:grid-cols-5 gap-10 items-stretch">
           
           {/* ROI Calculator Inputs */}
-          <div className="lg:col-span-2 p-8 bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-xl">
+          <motion.div 
+            initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-2 p-8 bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-xl"
+          >
             <div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                 <Landmark className="w-5 h-5 text-gold" />
@@ -137,10 +143,16 @@ export const InvestmentOpportunities: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Calculator Output Displays */}
-          <div className="lg:col-span-3 p-8 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white rounded-2xl border border-gold/30 shadow-2xl flex flex-col justify-between">
+          <motion.div 
+            initial={{ opacity: 0, x: isRTL ? -40 : 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-3 p-8 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white rounded-2xl border border-gold/30 shadow-2xl flex flex-col justify-between"
+          >
             <div>
               <div className="flex justify-between items-center border-b border-slate-800 pb-5 mb-8">
                 <span className="text-gold font-bold tracking-widest text-xs uppercase">{isRTL ? 'تقديرات عوائد التطوير والاستثمار' : 'Development yield projections'}</span>
@@ -203,7 +215,7 @@ export const InvestmentOpportunities: React.FC = () => {
                 <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
               </button>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

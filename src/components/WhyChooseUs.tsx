@@ -66,7 +66,7 @@ export const WhyChooseUs: React.FC = () => {
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.02 }}
               className={`glass-card p-8 rounded-xl border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:border-gold/50 cursor-pointer ${

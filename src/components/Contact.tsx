@@ -85,7 +85,13 @@ export const Contact: React.FC = () => {
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           
           {/* Information & Socials Column */}
-          <div className="lg:col-span-2 space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-2 space-y-8"
+          >
             <div className="p-8 bg-slate-900 text-white rounded-2xl border border-gold/30 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-2xl pointer-events-none" />
               
@@ -164,10 +170,16 @@ export const Contact: React.FC = () => {
                 Riyadh, An Nakheel Dist.
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Form Column */}
-          <div className="lg:col-span-3 p-8 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl">
+          <motion.div 
+            initial={{ opacity: 0, x: isRTL ? -40 : 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-3 p-8 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl"
+          >
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">
               {isRTL ? 'إرسال طلب استفسار' : 'Submit Inquiry Request'}
             </h3>
@@ -299,7 +311,7 @@ export const Contact: React.FC = () => {
                 </motion.form>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
 
         </div>
 

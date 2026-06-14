@@ -15,7 +15,11 @@ export const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Crown Prince / Vision 2030 Section */}
-        <div 
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.8 }}
           className="mb-24 p-8 md:p-12 rounded-2xl text-white relative overflow-hidden border border-gold/30 shadow-2xl bg-cover bg-center"
           style={{ backgroundImage: `url(${language === 'ar' ? '/media/visionBgAr.4e591c8841c702e189fc.png' : '/media/visionBg.ab7899944ba28a26c648.png'})` }}
         >
@@ -74,11 +78,16 @@ export const About: React.FC = () => {
               </div>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Corporate Narrative & Map Pin Grid */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8 }}
+          >
             <motion.span 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -117,10 +126,16 @@ export const About: React.FC = () => {
                 {t('about.map')}
               </p>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Interactive Map Visual */}
-          <div className="relative flex justify-center items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: isRTL ? -40 : 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8 }}
+            className="relative flex justify-center items-center"
+          >
             <div className="w-full max-w-lg aspect-[4/3] bg-slate-100 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shadow-lg overflow-hidden relative group">
               <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3 relative z-10">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">{isRTL ? 'خريطة التواجد الاستراتيجي' : 'Strategic Footprint Map'}</span>
@@ -140,16 +155,16 @@ export const About: React.FC = () => {
                 {isRTL ? 'نركز على التطوير في الرياض والمنطقة الشرقية' : 'Strategic developments in Riyadh and the Eastern Province'}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Vision & Mission Cards */}
         <div className="grid md:grid-cols-2 gap-8 mb-24">
           {/* Vision Card */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
             className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 hover:border-gold/50 transition-colors duration-300 group"
           >
@@ -166,9 +181,9 @@ export const About: React.FC = () => {
 
           {/* Mission Card */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 hover:border-gold/50 transition-colors duration-300 group"
           >
@@ -186,9 +201,9 @@ export const About: React.FC = () => {
 
         {/* CEO Message section */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8 }}
           className="p-8 md:p-12 rounded-2xl text-white border border-gold/30 shadow-2xl relative overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: "url('/media/ceoBg.797127596c7907ec61a0.jpg')" }}

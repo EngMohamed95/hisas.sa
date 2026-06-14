@@ -56,7 +56,7 @@ export const Services: React.FC = () => {
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
               whileHover={{ y: -8 }}
               className="glass-card p-8 rounded-xl relative group transition-all duration-300 overflow-hidden hover:border-gold/50 cursor-pointer"

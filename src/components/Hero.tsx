@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Building2, Users, Briefcase, TrendingUp, ChevronDown } from 'lucide-react';
 
 interface CounterProps {
@@ -30,6 +30,12 @@ const AnimatedCounter: React.FC<CounterProps> = ({ value, suffix = '', duration 
 
 export const Hero: React.FC = () => {
   const { t, language } = useLanguage();
+  const { scrollY } = useScroll();
+
+  // Scroll transforms for premium parallax effect
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const scale = useTransform(scrollY, [0, 500], [1.05, 1.15]);
+  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   const stats = [
     { value: 750, suffix: '+', textKey: 'hero.stat.units', icon: Building2 },
@@ -46,16 +52,21 @@ export const Hero: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-primary-dark pt-20">
       {/* Background Image with Parallax & Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+      <motion.div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: `url(${language === 'ar' ? '/media/heroBgAr.6c9a91f749f4169b965f.jpg' : '/media/heroBg.84ea385be791e4c5d28a.jpg'})`,
+          y,
+          scale
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/80 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/50 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-16 flex flex-col justify-center items-center text-center">
+      <motion.div 
+        style={{ opacity: textOpacity }}
+        className="relative z-10 max-w-7xl mx-auto px-6 w-full py-16 flex flex-col justify-center items-center text-center"
+      >
         {/* Animated Saudi Flag Monogram Element */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -149,7 +160,7 @@ export const Hero: React.FC = () => {
           <span className="text-xs tracking-widest uppercase opacity-75">{t('nav.about')}</span>
           <ChevronDown className="w-5 h-5" />
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -126,14 +126,15 @@ export const FeaturedProjects: React.FC = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-10">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
                 layout
                 key={project.id}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
                 className="group relative bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800/80 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 onClick={() => handleOpenProject(project)}
               >

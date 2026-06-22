@@ -84,7 +84,7 @@ export const ContactPage: React.FC = () => {
         style={{ backgroundImage: "url('/media/contactBg.4c922b1f0bb49a20cde1.jpg')" }}
       >
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px] z-0" />
+        <div className="absolute inset-0 bg-slate-950/40 z-0" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <span className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
             {t('nav.contact')}

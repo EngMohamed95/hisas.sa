@@ -17,7 +17,7 @@ export const AboutPage: React.FC = () => {
         style={{ backgroundImage: "url('/media/heroBg.84ea385be791e4c5d28a.jpg')" }}
       >
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px] z-0" />
+        <div className="absolute inset-0 bg-slate-950/40 z-0" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.span 
             initial={{ opacity: 0, y: -10 }}

@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-slate-200/30 glass-nav ${isScrolled ? 'shadow-md py-3' : 'py-4.5'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-lg ${isScrolled ? 'py-2 shadow-sm' : 'py-3.5'}`}>
       {/* Scroll Progress Bar */}
       <div 
         className="absolute top-0 left-0 h-[3px] bg-gold-gradient transition-all duration-100" 

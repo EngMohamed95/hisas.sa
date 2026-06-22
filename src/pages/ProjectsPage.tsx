@@ -101,7 +101,7 @@ export const ProjectsPage: React.FC = () => {
         style={{ backgroundImage: "url('/media/ceoBg.797127596c7907ec61a0.jpg')" }}
       >
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px] z-0" />
+        <div className="absolute inset-0 bg-slate-950/40 z-0" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <span className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
             {t('nav.projects')}

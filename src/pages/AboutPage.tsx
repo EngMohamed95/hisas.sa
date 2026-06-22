@@ -8,12 +8,12 @@ export const AboutPage: React.FC = () => {
   const { t, isRTL, language } = useLanguage();
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 transition-colors duration-300">
       <SEO titleKey="nav.about" descriptionKey="about.text" />
       
       {/* Page Header */}
       <section 
-        className="relative py-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
+        className="relative pt-36 pb-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
         style={{ backgroundImage: "url('/media/heroBg.84ea385be791e4c5d28a.jpg')" }}
       >
         {/* Dark overlay for contrast */}
@@ -55,10 +55,10 @@ export const AboutPage: React.FC = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-gold mb-6 border-b border-slate-200 pb-4">
                 {t('vision.leader.title')}
               </h2>
-              <p className="text-slate-700 leading-relaxed mb-4 text-sm md:text-base font-normal">
+              <p className="text-slate-700 leading-relaxed mb-4 text-base md:text-lg lg:text-xl font-normal">
                 {t('vision.leader.text1')}
               </p>
-              <p className="text-slate-700 leading-relaxed text-sm md:text-base font-normal">
+              <p className="text-slate-700 leading-relaxed text-base md:text-lg lg:text-xl font-normal">
                 {t('vision.leader.text2')}
               </p>
             </div>
@@ -92,13 +92,13 @@ export const AboutPage: React.FC = () => {
             <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-6 leading-snug">
               {t('about.subtitle')}
             </h2>
-            <p className="text-slate-600 leading-relaxed text-base md:text-lg mb-8">
+            <p className="text-slate-600 leading-relaxed text-lg md:text-xl lg:text-2xl mb-8">
               {t('about.text')}
             </p>
 
             <div className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 items-start shadow-sm">
               <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
-              <p className="text-sm font-medium text-slate-700 leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl font-medium text-slate-700 leading-relaxed">
                 {t('about.map')}
               </p>
             </div>
@@ -148,7 +148,7 @@ export const AboutPage: React.FC = () => {
             <h4 className="text-xl font-bold text-slate-900 mb-4">
               {t('about.vision.title')}
             </h4>
-            <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+            <p className="text-slate-600 leading-relaxed text-base md:text-lg lg:text-xl">
               {t('about.vision.text')}
             </p>
           </motion.div>
@@ -167,7 +167,7 @@ export const AboutPage: React.FC = () => {
             <h4 className="text-xl font-bold text-slate-900 mb-4">
               {t('about.mission.title')}
             </h4>
-            <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+            <p className="text-slate-600 leading-relaxed text-base md:text-lg lg:text-xl">
               {t('about.mission.text')}
             </p>
           </motion.div>
@@ -196,7 +196,7 @@ export const AboutPage: React.FC = () => {
             
             <div className={`flex-grow text-center ${isRTL ? 'md:text-right' : 'md:text-left'}`}>
               <span className="text-gold font-bold uppercase tracking-widest text-xs block mb-2">{t('ceo.title')}</span>
-              <p className="text-slate-700 text-base md:text-lg italic leading-relaxed mb-6 font-normal">
+              <p className="text-slate-700 text-lg md:text-xl lg:text-2xl italic leading-relaxed mb-6 font-normal">
                 "{t('ceo.text')}"
               </p>
               

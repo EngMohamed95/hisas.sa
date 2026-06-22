@@ -29,12 +29,12 @@ export const InvestmentPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 transition-colors duration-300">
       <SEO titleKey="nav.investment" descriptionKey="invest.subtitle" />
 
       {/* Page Header */}
       <section 
-        className="relative py-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
+        className="relative pt-36 pb-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
         style={{ backgroundImage: "url('/images/riyadh_skyline_luxury.png')" }}
       >
         {/* Dark overlay for contrast */}
@@ -58,7 +58,7 @@ export const InvestmentPage: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
               {isRTL ? 'الاستثمار العقاري الساحلي والريادي في المملكة' : 'Coastal & Strategic Real Estate Investment'}
             </h2>
-            <p className="text-slate-600 leading-relaxed text-sm sm:text-base mb-6">
+            <p className="text-slate-600 leading-relaxed text-base sm:text-lg lg:text-xl mb-6">
               {isRTL
                 ? 'تقدم شركة حصص العقارية فرصاً استثمارية ممتازة مبنية على التحليل المالي الدقيق والفرص التنموية ذات العوائد المرتفعة. نركز مشاريعنا في مناطق النمو الاستراتيجي بالمنطقة الشرقية وكورنيش الخبر الفاخر، وشمال العاصمة الرياض بالتماشي التام مع مستهدفات التنمية الإسكانية لرؤية 2030.'
                 : 'HISAS Real Estate offers signature investment options based on diligent financial screening and high-yield properties. We center our pipeline in high-growth districts across Al-Khobar Corniche and North Riyadh, complying fully with the housing expansion targets of Saudi Vision 2030.'}

@@ -78,7 +78,7 @@ export const Services: React.FC = () => {
                 {t(service.titleKey)}
               </h3>
               
-              <p className="text-slate-600 text-sm md:text-base leading-relaxed relative z-10">
+              <p className="text-slate-600 text-base md:text-lg lg:text-xl leading-relaxed relative z-10">
                 {t(service.descKey)}
               </p>
 
@@ -96,7 +96,7 @@ export const Services: React.FC = () => {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <p className="text-slate-500 text-sm font-medium">
+          <p className="text-slate-500 text-base md:text-lg lg:text-xl font-medium">
             {t('partners.text')}
           </p>
         </motion.div>

@@ -43,7 +43,7 @@ export const About: React.FC = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-slate-700 leading-relaxed mb-4 text-sm md:text-base font-normal"
+                className="text-slate-700 leading-relaxed mb-4 text-base md:text-lg lg:text-xl font-normal"
               >
                 {t('vision.leader.text1')}
               </motion.p>
@@ -52,7 +52,7 @@ export const About: React.FC = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-slate-700 leading-relaxed text-sm md:text-base font-normal"
+                className="text-slate-700 leading-relaxed text-base md:text-lg lg:text-xl font-normal"
               >
                 {t('vision.leader.text2')}
               </motion.p>
@@ -110,7 +110,7 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-slate-600 leading-relaxed text-lg mb-8"
+              className="text-slate-600 leading-relaxed text-xl md:text-2xl mb-8"
             >
               {t('about.text')}
             </motion.p>
@@ -122,7 +122,7 @@ export const About: React.FC = () => {
               className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 items-start shadow-sm"
             >
               <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
-              <p className="text-sm font-medium text-slate-700">
+              <p className="text-base md:text-lg lg:text-xl font-medium text-slate-700">
                 {t('about.map')}
               </p>
             </motion.div>
@@ -174,7 +174,7 @@ export const About: React.FC = () => {
             <h4 className="text-xl font-bold text-slate-900 mb-4">
               {t('about.vision.title')}
             </h4>
-            <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+            <p className="text-slate-600 leading-relaxed text-base md:text-lg lg:text-xl">
               {t('about.vision.text')}
             </p>
           </motion.div>
@@ -193,7 +193,7 @@ export const About: React.FC = () => {
             <h4 className="text-xl font-bold text-slate-900 mb-4">
               {t('about.mission.title')}
             </h4>
-            <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+            <p className="text-slate-600 leading-relaxed text-base md:text-lg lg:text-xl">
               {t('about.mission.text')}
             </p>
           </motion.div>
@@ -223,7 +223,7 @@ export const About: React.FC = () => {
             
             <div className={`flex-grow text-center ${isRTL ? 'md:text-right' : 'md:text-left'}`}>
               <span className="text-gold font-bold uppercase tracking-widest text-xs block mb-2">{t('ceo.title')}</span>
-              <p className="text-slate-700 text-base md:text-lg italic leading-relaxed mb-6 font-normal">
+              <p className="text-slate-700 text-lg md:text-xl lg:text-2xl italic leading-relaxed mb-6 font-normal">
                 "{t('ceo.text')}"
               </p>
               

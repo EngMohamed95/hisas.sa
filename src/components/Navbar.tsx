@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { Globe, Menu, X, ArrowDownToLine } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -7,9 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar: React.FC = () => {
   const { language, toggleLanguage, t, isRTL } = useLanguage();
+  const location = useLocation();
+  const isHome = location.pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  const showWhiteText = isHome && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,7 +72,11 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-lg ${isScrolled ? 'py-2 shadow-sm' : 'py-3.5'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      !showWhiteText 
+        ? 'py-2 shadow-sm bg-white/90 backdrop-blur-md border-b border-slate-200/50' 
+        : 'py-3.5 bg-transparent'
+    }`}>
       {/* Scroll Progress Bar */}
       <div 
         className="absolute top-0 left-0 h-[3px] bg-gold-gradient transition-all duration-100" 
@@ -81,7 +89,7 @@ export const Navbar: React.FC = () => {
           <img 
             src={language === 'ar' ? '/media/logoAr.0172cb44b0f8e289a021fa0170c5cecd.svg' : '/media/logo.3bd38394fef4850d36326cef27b3bc07.svg'} 
             alt="HISAS Logo" 
-            className="h-11 w-auto transition-all duration-300 logo-black"
+            className={`h-11 w-auto transition-all duration-300 ${!showWhiteText ? 'logo-black' : 'logo-white'}`}
           />
         </Link>
 
@@ -92,10 +100,14 @@ export const Navbar: React.FC = () => {
               key={link.key}
               to={link.path}
               className={({ isActive }) =>
-                `hover:text-gold transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-gold after:transition-all after:duration-300 ${
-                  isActive 
-                    ? 'text-gold after:w-full' 
-                    : 'after:w-0 hover:after:w-full text-slate-700'
+                `transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:transition-all after:duration-300 ${
+                  !showWhiteText
+                    ? isActive
+                      ? 'text-gold after:w-full after:bg-gold'
+                      : 'text-slate-700 hover:text-gold after:w-0 hover:after:w-full after:bg-gold'
+                    : isActive
+                      ? 'text-white after:w-full after:bg-white'
+                      : 'text-white/80 hover:text-white after:w-0 hover:after:w-full after:bg-white'
                 }`
               }
             >
@@ -109,7 +121,11 @@ export const Navbar: React.FC = () => {
           {/* Language Switcher */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-350 text-slate-700 hover:border-gold hover:text-gold transition-all duration-200 font-sans text-sm"
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-all duration-200 font-sans text-sm ${
+              !showWhiteText
+                ? 'border-slate-300 text-slate-700 hover:border-gold hover:text-gold'
+                : 'border-white/30 text-white hover:border-white hover:text-white'
+            }`}
           >
             <Globe className="w-4 h-4" />
             <span>{language === 'ar' ? 'English' : 'عربي'}</span>
@@ -129,13 +145,21 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-3 lg:hidden">
           <button
             onClick={toggleLanguage}
-            className="p-2 rounded-full transition-colors hover:bg-slate-200 text-slate-700"
+            className={`p-2 rounded-full transition-colors ${
+              !showWhiteText
+                ? 'hover:bg-slate-200 text-slate-700'
+                : 'hover:bg-white/10 text-white'
+            }`}
           >
             <Globe className="w-5 h-5" />
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 rounded-full transition-colors hover:bg-slate-200 text-slate-700"
+            className={`p-2 rounded-full transition-colors ${
+              !showWhiteText
+                ? 'hover:bg-slate-200 text-slate-700'
+                : 'hover:bg-white/10 text-white'
+            }`}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

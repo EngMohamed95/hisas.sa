@@ -133,7 +133,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{isRTL ? 'العنوان الرئيسي' : 'Headquarters'}</span>
-                    <p className="text-xs text-slate-650 leading-relaxed">
+                    <p className="text-sm md:text-base text-slate-650 leading-relaxed">
                       {t('info.address.desc')}
                     </p>
                   </div>
@@ -146,7 +146,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{t('info.cr')}</span>
-                    <p className="text-sm font-semibold font-sans text-slate-700">
+                    <p className="text-sm md:text-base text-slate-700 leading-relaxed font-sans">
                       7035818439
                     </p>
                   </div>
@@ -196,7 +196,7 @@ export const Contact: React.FC = () => {
                   <h4 className="text-xl font-bold text-slate-900 mb-3">
                     {isRTL ? 'تم الإرسال بنجاح' : 'Submitted Successfully'}
                   </h4>
-                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p className="text-slate-600 text-base md:text-lg lg:text-xl leading-relaxed">
                     {t('contact.success')}
                   </p>
                   <button

@@ -32,26 +32,26 @@ export const Footer: React.FC = () => {
         <div className="grid md:grid-cols-4 gap-10 pb-12 border-b border-slate-200">
           
           {/* Logo & Corporate profile */}
-          <div className="md:col-span-2 space-y-4">
+          <div className="md:col-span-2 space-y-6">
             <div className="flex items-center gap-3">
               <img 
-                src={isRTL ? '/media/footerLogoAr.076dd28b9bb3def840ed6d52b27b73e5.svg' : '/media/footerLogoEn.2b4ef1f170a79e5d45cd9187a390aa7e.svg'} 
+                src={isRTL ? '/media/logoAr.0172cb44b0f8e289a021fa0170c5cecd.svg' : '/media/logo.3bd38394fef4850d36326cef27b3bc07.svg'} 
                 alt="HISAS Footer Logo" 
-                className="h-12 w-auto logo-black"
+                className="h-16 w-auto logo-black"
               />
             </div>
             
-            <p className="text-xs md:text-sm text-slate-550 leading-relaxed max-w-sm">
-              {t('about.text').slice(0, 180)}...
+            <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-md">
+              {t('about.text').slice(0, 220)}...
             </p>
           </div>
 
           {/* Links Grid */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider">
+            <h4 className="text-lg font-bold text-slate-800 uppercase tracking-wider">
               {isRTL ? 'خريطة الموقع' : 'Sitemap'}
             </h4>
-            <ul className="space-y-2 text-xs md:text-sm">
+            <ul className="space-y-2.5 text-base md:text-lg">
               {menuLinks.map((link) => (
                 <li key={link.key}>
                   <Link
@@ -68,10 +68,13 @@ export const Footer: React.FC = () => {
           {/* Vision 2030 & Socials */}
           <div className="space-y-6 flex flex-col justify-between items-start md:items-end">
             {/* Vision 2030 Badge */}
-            <div className="flex flex-col items-start md:items-end bg-gold/5 p-4 rounded-xl border border-gold/15 max-w-[180px]">
-              <span className="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">Aligns with</span>
-              <div className="text-gold font-extrabold text-2xl tracking-widest font-sans">VISION رؤية</div>
-              <div className="text-gold font-black text-3xl font-sans mt-[-5px]">2030</div>
+            <div className="flex flex-col items-start md:items-end p-2">
+              <span className="text-xs text-slate-500 uppercase tracking-widest block mb-2">{isRTL ? 'يتوافق مع رؤية' : 'Aligns with'}</span>
+              <img 
+                src={isRTL ? '/media/visionAr.8ea2518142f2b5561868.png' : '/media/vision.390db8987ebc3ae87adc.png'} 
+                alt="Saudi Vision 2030" 
+                className="h-16 w-auto object-contain"
+              />
             </div>
 
             {/* Social Links */}
@@ -82,10 +85,10 @@ export const Footer: React.FC = () => {
                   href={soc.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-gold hover:border-gold transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-gold hover:border-gold transition-all duration-300"
                   aria-label={soc.label}
                 >
-                  <soc.icon className="w-4 h-4" />
+                  <soc.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
@@ -93,20 +96,20 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom copyright row */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-sm md:text-base text-slate-500 gap-4">
           <div>
             <p>{t('nav.home') === 'الرئيسية' ? 'حقوق الطبع والنشر © ٢٠٢٦ حصص العقارية. جميع الحقوق محفوظة.' : 'Copyright © 2026 HISAS Real Estate. All rights reserved.'}</p>
           </div>
 
           {/* Back to top & Info */}
           <div className="flex items-center gap-6">
-            <span className="font-sans text-slate-550">CR 7035818439</span>
+            <span className="font-sans text-slate-555">CR 7035818439</span>
             <button
               onClick={handleBackToTop}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-gold hover:border-gold transition-colors duration-200"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-gold hover:border-gold transition-colors duration-200"
             >
               <span>{t('misc.backToTop')}</span>
-              <ArrowUp className="w-3.5 h-3.5" />
+              <ArrowUp className="w-4 h-4" />
             </button>
           </div>
         </div>

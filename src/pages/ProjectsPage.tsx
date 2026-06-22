@@ -92,12 +92,12 @@ export const ProjectsPage: React.FC = () => {
   );
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 transition-colors duration-300">
       <SEO titleKey="nav.projects" descriptionKey="projects.subtitle" />
 
       {/* Page Header */}
       <section 
-        className="relative py-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
+        className="relative pt-36 pb-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
         style={{ backgroundImage: "url('/media/ceoBg.797127596c7907ec61a0.jpg')" }}
       >
         {/* Dark overlay for contrast */}
@@ -177,7 +177,7 @@ export const ProjectsPage: React.FC = () => {
                     <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 group-hover:text-gold transition-colors duration-300">
                       {t(project.brandKey)}
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
+                    <p className="text-slate-600 text-base md:text-lg lg:text-xl leading-relaxed mb-6 line-clamp-3">
                       {t(project.descKey)}
                     </p>
                   </div>
@@ -309,7 +309,7 @@ export const ProjectsPage: React.FC = () => {
                       <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-3 border-b border-slate-200 pb-2">
                         {isRTL ? 'نظرة عامة على المشروع' : 'Project Overview'}
                       </h4>
-                      <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
+                      <p className="text-slate-700 leading-relaxed text-base sm:text-lg lg:text-xl">
                         {t(activeProject.descKey)}
                       </p>
                     </div>

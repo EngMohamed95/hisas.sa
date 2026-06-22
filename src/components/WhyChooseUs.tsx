@@ -88,7 +88,7 @@ export const WhyChooseUs: React.FC = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-slate-600 text-base md:text-lg lg:text-xl leading-relaxed">
                 {t(reason.descKey)}
               </p>
             </motion.div>

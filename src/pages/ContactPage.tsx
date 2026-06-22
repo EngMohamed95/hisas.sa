@@ -75,12 +75,12 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 transition-colors duration-300">
       <SEO titleKey="nav.contact" descriptionKey="contact.subtitle" />
 
       {/* Page Header */}
       <section 
-        className="relative py-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
+        className="relative pt-36 pb-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
         style={{ backgroundImage: "url('/media/contactBg.4c922b1f0bb49a20cde1.jpg')" }}
       >
         {/* Dark overlay for contrast */}
@@ -149,7 +149,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{isRTL ? 'العنوان الرئيسي' : 'Headquarters'}</span>
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-sm md:text-base text-slate-600 leading-relaxed">
                       {t('info.address.desc')}
                     </p>
                   </div>
@@ -162,7 +162,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{t('info.cr')}</span>
-                    <p className="text-sm font-semibold font-sans text-slate-700">
+                    <p className="text-sm md:text-base text-slate-700 leading-relaxed font-sans">
                       7035818439
                     </p>
                   </div>
@@ -211,7 +211,7 @@ export const ContactPage: React.FC = () => {
                   <h4 className="text-xl font-bold text-slate-900 mb-3">
                     {isRTL ? 'تم الإرسال بنجاح' : 'Submitted Successfully'}
                   </h4>
-                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p className="text-slate-600 text-base md:text-lg lg:text-xl leading-relaxed">
                     {t('contact.success')}
                   </p>
                   <button

@@ -46,12 +46,12 @@ export const ServicesPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 transition-colors duration-300">
       <SEO titleKey="nav.services" descriptionKey="services.subtitle" />
 
       {/* Page Header */}
       <section 
-        className="relative py-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
+        className="relative pt-36 pb-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
         style={{ backgroundImage: "url('/media/servicesBg.fa72d1598baae5011fcf.jpg')" }}
       >
         {/* Dark overlay for contrast */}
@@ -89,7 +89,7 @@ export const ServicesPage: React.FC = () => {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
                     {t(service.titleKey)}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  <p className="text-slate-600 text-base md:text-lg lg:text-xl leading-relaxed mb-6">
                     {t(service.descKey)}
                   </p>
                 </div>
@@ -97,7 +97,7 @@ export const ServicesPage: React.FC = () => {
                 <div className="border-t border-slate-100 pt-5 mt-4">
                   <ul className="space-y-2.5">
                     {service.details.map((detail, idx) => (
-                      <li key={idx} className="flex gap-2 items-start text-xs md:text-sm text-slate-700">
+                      <li key={idx} className="flex gap-2 items-start text-sm md:text-base text-slate-700">
                         <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                         <span>{detail}</span>
                       </li>
@@ -115,7 +115,7 @@ export const ServicesPage: React.FC = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               {isRTL ? 'منهجية التطوير في حصص' : 'Development Lifecycle Methodology'}
             </h3>
-            <p className="text-slate-500 text-sm md:text-base">
+            <p className="text-slate-500 text-base md:text-lg lg:text-xl">
               {isRTL 
                 ? 'رحلة تشييد الأبراء والمجمعات الفاخرة من الفكرة الأولية حتى نسلمكم المفتاح.'
                 : 'The structural journey of high-rise towers from initial concept to handing over your keys.'}
@@ -138,7 +138,7 @@ export const ServicesPage: React.FC = () => {
                 <h4 className="font-bold text-slate-900 mb-2 text-sm md:text-base">
                   {step.title}
                 </h4>
-                <p className="text-slate-500 text-xs md:text-sm max-w-[180px] mx-auto leading-relaxed">
+                <p className="text-slate-500 text-sm md:text-base max-w-[180px] mx-auto leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -152,7 +152,7 @@ export const ServicesPage: React.FC = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
               {isRTL ? 'ركائز نهتدي بها في كل تفصيل' : 'Foundational Pillars of Excellence'}
             </h3>
-            <p className="text-slate-600 leading-relaxed text-sm md:text-base mb-6">
+            <p className="text-slate-600 leading-relaxed text-base md:text-lg lg:text-xl mb-6">
               {isRTL
                 ? 'لا نعتبر التطوير العقاري مجرد عملية بناء، بل هو صياغة فخامة تليق بتطلعات عملائنا. نحرص في جميع مراحل المشاريع على التخطيط الدقيق للتدفقات النقدية ونسبة الأمان المالي وضبط معايير الجودة لتفوق توقعات المستثمرين والنخبة.'
                 : 'We do not view development as just building structures, but as formulating lifestyle luxury matching our clients ambitions. At every project stage, we manage financial flows, ensure project protection, and raise quality to exceed investor expectations.'}

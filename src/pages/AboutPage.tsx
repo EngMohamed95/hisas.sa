@@ -12,8 +12,12 @@ export const AboutPage: React.FC = () => {
       <SEO titleKey="nav.about" descriptionKey="about.text" />
       
       {/* Page Header */}
-      <section className="relative py-20 overflow-hidden bg-slate-100/60 border-b border-slate-200/80 text-slate-800">
-        <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-white/50 to-transparent z-0" />
+      <section 
+        className="relative py-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
+        style={{ backgroundImage: "url('/media/heroBg.84ea385be791e4c5d28a.jpg')" }}
+      >
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px] z-0" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.span 
             initial={{ opacity: 0, y: -10 }}
@@ -26,7 +30,7 @@ export const AboutPage: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold font-heading text-slate-900"
+            className="text-3xl md:text-5xl font-bold font-heading text-white"
           >
             {t('about.subtitle')}
           </motion.h1>

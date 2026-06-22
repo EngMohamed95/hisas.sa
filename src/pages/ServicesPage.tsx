@@ -50,13 +50,17 @@ export const ServicesPage: React.FC = () => {
       <SEO titleKey="nav.services" descriptionKey="services.subtitle" />
 
       {/* Page Header */}
-      <section className="relative py-20 overflow-hidden bg-slate-100/60 border-b border-slate-200/80 text-slate-800">
-        <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-white/50 to-transparent z-0" />
+      <section 
+        className="relative py-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
+        style={{ backgroundImage: "url('/media/servicesBg.fa72d1598baae5011fcf.jpg')" }}
+      >
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px] z-0" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <span className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
             {t('nav.services')}
           </span>
-          <h1 className="text-3xl md:text-5xl font-bold font-heading text-slate-900">
+          <h1 className="text-3xl md:text-5xl font-bold font-heading text-white">
             {t('services.title')}
           </h1>
         </div>

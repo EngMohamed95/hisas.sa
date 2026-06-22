@@ -2,70 +2,65 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
 import { Eye, ShieldCheck, MapPin } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
-export const About: React.FC = () => {
+export const AboutPage: React.FC = () => {
   const { t, isRTL, language } = useLanguage();
 
   return (
-    <section id="about" className="py-24 bg-slate-50 relative overflow-hidden transition-colors duration-300">
-      {/* Decorative Blur Backgrounds */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+    <div className="pt-24 min-h-screen bg-slate-50 transition-colors duration-300">
+      <SEO titleKey="nav.about" descriptionKey="about.text" />
+      
+      {/* Page Header */}
+      <section className="relative py-20 overflow-hidden bg-slate-100/60 border-b border-slate-200/80 text-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-white/50 to-transparent z-0" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <motion.span 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3"
+          >
+            {t('nav.about')}
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl font-bold font-heading text-slate-900"
+          >
+            {t('about.subtitle')}
+          </motion.h1>
+        </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      {/* Main Content Details */}
+      <div className="max-w-7xl mx-auto px-6 py-20 space-y-24">
         
         {/* Crown Prince / Vision 2030 Section */}
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.8 }}
-          className="mb-24 p-8 md:p-12 rounded-2xl text-slate-800 relative overflow-hidden border border-gold/30 shadow-md bg-cover bg-center"
+          className="p-8 md:p-12 rounded-2xl text-slate-800 relative overflow-hidden border border-gold/30 shadow-md bg-cover bg-center"
           style={{ backgroundImage: `url(${language === 'ar' ? '/media/visionBgAr.4e591c8841c702e189fc.png' : '/media/visionBg.ab7899944ba28a26c648.png'})` }}
         >
-          {/* Overlay to darken background image */}
           <div className="absolute inset-0 bg-white/90 backdrop-blur-[1px]" />
           
           <div className="grid md:grid-cols-3 gap-8 items-center relative z-10">
-            {/* Quote / Emblem */}
             <div className={`md:col-span-2 flex flex-col justify-center ${isRTL ? 'text-right' : 'text-left'}`}>
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="text-2xl md:text-3xl font-bold text-gold mb-6 border-b border-slate-200 pb-4"
-              >
+              <h2 className="text-2xl md:text-3xl font-bold text-gold mb-6 border-b border-slate-200 pb-4">
                 {t('vision.leader.title')}
-              </motion.h2>
-              <motion.p 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-slate-700 leading-relaxed mb-4 text-sm md:text-base font-normal"
-              >
+              </h2>
+              <p className="text-slate-700 leading-relaxed mb-4 text-sm md:text-base font-normal">
                 {t('vision.leader.text1')}
-              </motion.p>
-              <motion.p 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-slate-700 leading-relaxed text-sm md:text-base font-normal"
-              >
+              </p>
+              <p className="text-slate-700 leading-relaxed text-sm md:text-base font-normal">
                 {t('vision.leader.text2')}
-              </motion.p>
+              </p>
             </div>
 
             {/* Crown Prince MBS Portrait */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="flex flex-col items-center justify-center relative rounded-xl overflow-hidden border border-gold/30 shadow-md group aspect-[4/5] bg-slate-100 max-w-[240px] mx-auto w-full"
-            >
+            <div className="flex flex-col items-center justify-center relative rounded-xl overflow-hidden border border-gold/30 shadow-md group aspect-[4/5] bg-slate-100 max-w-[240px] mx-auto w-full">
               <img 
                 src="/media/mbs.5e6835360ca59b176b86.jpg" 
                 alt="HRH Crown Prince Mohammed bin Salman" 
@@ -76,67 +71,43 @@ export const About: React.FC = () => {
                 <span className="text-[10px] text-gold font-bold tracking-[0.2em] block uppercase">{isRTL ? 'رؤية ٢٠٣٠' : 'VISION 2030'}</span>
                 <span className="text-[9px] text-slate-700 font-semibold mt-0.5 block">{isRTL ? 'طموحنا عنان السماء' : '"Our ambition is the sky"'}</span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
 
         {/* Corporate Narrative & Map Pin Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
+            initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <motion.span 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-gold font-bold tracking-widest uppercase text-sm block mb-3"
-            >
+            <span className="text-gold font-bold tracking-widest uppercase text-sm block mb-3">
               {t('about.title')}
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-snug"
-            >
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-6 leading-snug">
               {t('about.subtitle')}
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-slate-600 leading-relaxed text-lg mb-8"
-            >
+            </h2>
+            <p className="text-slate-600 leading-relaxed text-base md:text-lg mb-8">
               {t('about.text')}
-            </motion.p>
+            </p>
 
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 items-start shadow-sm"
-            >
+            <div className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 items-start shadow-sm">
               <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
-              <p className="text-sm font-medium text-slate-700">
+              <p className="text-sm font-medium text-slate-700 leading-relaxed">
                 {t('about.map')}
               </p>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Interactive Map Visual */}
           <motion.div 
-            initial={{ opacity: 0, x: isRTL ? -40 : 40 }}
+            initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
             className="relative flex justify-center items-center"
           >
-            <div className="w-full max-w-lg aspect-[4/3] bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between shadow-md overflow-hidden relative group">
+            <div className="w-full max-w-lg aspect-[4/3] bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between shadow-lg overflow-hidden relative group">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 relative z-10">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">{isRTL ? 'خريطة التواجد الاستراتيجي' : 'Strategic Footprint Map'}</span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
@@ -159,13 +130,12 @@ export const About: React.FC = () => {
         </div>
 
         {/* Vision & Mission Cards */}
-        <div className="grid md:grid-cols-2 gap-8 mb-24">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Vision Card */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
             className="p-8 rounded-xl border border-slate-200 bg-white shadow-sm hover:border-gold/50 transition-colors duration-300 group"
           >
             <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:scale-105 transition-transform duration-300">
@@ -181,10 +151,10 @@ export const About: React.FC = () => {
 
           {/* Mission Card */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
             className="p-8 rounded-xl border border-slate-200 bg-white shadow-sm hover:border-gold/50 transition-colors duration-300 group"
           >
             <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:scale-105 transition-transform duration-300">
@@ -201,10 +171,9 @@ export const About: React.FC = () => {
 
         {/* CEO Message section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="p-8 md:p-12 rounded-2xl text-slate-800 border border-gold/30 shadow-md relative overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: "url('/media/ceoBg.797127596c7907ec61a0.jpg')" }}
         >
@@ -236,6 +205,6 @@ export const About: React.FC = () => {
         </motion.div>
 
       </div>
-    </section>
+    </div>
   );
 };

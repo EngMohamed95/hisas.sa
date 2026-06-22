@@ -24,7 +24,7 @@ export const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-slate-50 dark:bg-slate-900/40 relative overflow-hidden transition-colors duration-300">
+    <section id="services" className="py-24 bg-slate-50 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
@@ -42,7 +42,7 @@ export const Services: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
+            className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
             {t('services.subtitle')}
           </motion.h2>
@@ -69,16 +69,16 @@ export const Services: React.FC = () => {
                 <img 
                   src={service.icon} 
                   alt="" 
-                  className="w-full h-full object-contain dark:brightness-200 dark:contrast-150 transition-all duration-500" 
+                  className="w-full h-full object-contain transition-all duration-500" 
                 />
               </div>
 
               {/* Service Details */}
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-gold transition-colors duration-300">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-gold transition-colors duration-300">
                 {t(service.titleKey)}
               </h3>
               
-              <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed relative z-10">
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed relative z-10">
                 {t(service.descKey)}
               </p>
 
@@ -96,7 +96,7 @@ export const Services: React.FC = () => {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
+          <p className="text-slate-500 text-sm font-medium">
             {t('partners.text')}
           </p>
         </motion.div>

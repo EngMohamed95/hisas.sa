@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, ShieldCheck, Send, CheckCircle2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { SEO } from '../components/SEO';
 
-export const Contact: React.FC = () => {
+export const ContactPage: React.FC = () => {
   const { t, isRTL } = useLanguage();
+  const location = useLocation();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,8 +17,23 @@ export const Contact: React.FC = () => {
     classification: 'investor',
     message: ''
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  // Pre-fill message on load if navigated from Investment Page
+  useEffect(() => {
+    if (location.state) {
+      const state = location.state as { prefillMessage?: string; classification?: string };
+      if (state.prefillMessage) {
+        setFormData((prev) => ({
+          ...prev,
+          message: state.prefillMessage || '',
+          classification: state.classification || 'investor'
+        }));
+      }
+    }
+  }, [location.state]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -56,40 +75,33 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-50 relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-gold font-bold tracking-widest uppercase text-sm block mb-3 font-sans"
-          >
-            {t('nav.contact')}
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
-          >
-            {t('contact.title')}
-          </motion.h2>
-          <div className="w-16 h-[2px] bg-gold-gradient mx-auto" />
-        </div>
+    <div className="pt-24 min-h-screen bg-slate-50 transition-colors duration-300">
+      <SEO titleKey="nav.contact" descriptionKey="contact.subtitle" />
 
+      {/* Page Header */}
+      <section className="relative py-20 overflow-hidden bg-slate-100/60 border-b border-slate-200/80 text-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-white/50 to-transparent z-0" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <span className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
+            {t('nav.contact')}
+          </span>
+          <h1 className="text-3xl md:text-5xl font-bold font-heading text-slate-900">
+            {t('contact.title')}
+          </h1>
+        </div>
+      </section>
+
+      {/* Main Content Section */}
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        
         {/* Contact Form and Details Layout */}
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           
           {/* Information & Socials Column */}
           <motion.div 
-            initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
+            initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
             className="lg:col-span-2 space-y-8"
           >
             <div className="p-8 bg-gold/5 text-slate-800 rounded-2xl border border-gold/25 shadow-md relative overflow-hidden">
@@ -120,8 +132,8 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{t('info.email')}</span>
-                    <a href="mailto:hisas.realestate@gmail.com" className="text-sm font-semibold font-sans text-slate-700 hover:text-gold transition-colors">
-                      hisas.realestate@gmail.com
+                    <a href="mailto:info@hisas.sa" className="text-sm font-semibold font-sans text-slate-700 hover:text-gold transition-colors">
+                      info@hisas.sa
                     </a>
                   </div>
                 </div>
@@ -133,7 +145,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{isRTL ? 'العنوان الرئيسي' : 'Headquarters'}</span>
-                    <p className="text-xs text-slate-650 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {t('info.address.desc')}
                     </p>
                   </div>
@@ -154,9 +166,9 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Simulated Interactive HQ Map */}
+            {/* HQ Map Indicator */}
             <div className="aspect-[4/3] rounded-2xl border border-slate-200 bg-white p-4 relative overflow-hidden group shadow-md">
-              <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:16px_16px]" />
+              <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:16px_16px]" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                 <div className="relative">
                   <span className="absolute -inset-3 rounded-full bg-gold/30 animate-ping" />
@@ -174,14 +186,13 @@ export const Contact: React.FC = () => {
 
           {/* Form Column */}
           <motion.div 
-            initial={{ opacity: 0, x: isRTL ? -40 : 40 }}
+            initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-3 p-8 bg-white border border-slate-200 rounded-2xl shadow-md"
+            viewport={{ once: true }}
+            className="lg:col-span-3 p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-md"
           >
             <h3 className="text-xl font-bold text-slate-900 mb-6">
-              {isRTL ? 'إرسال طلب استفسار' : 'Submit Inquiry Request'}
+              {isRTL ? 'إرسال طلب استفسار عقاري' : 'Submit Property Inquiry'}
             </h3>
 
             <AnimatePresence mode="wait">
@@ -207,7 +218,7 @@ export const Contact: React.FC = () => {
                   </button>
                 </motion.div>
               ) : (
-                <motion.form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Classification Select */}
                   <div>
                     <label className="text-xs text-slate-500 block mb-2 uppercase tracking-wider">
@@ -296,7 +307,7 @@ export const Contact: React.FC = () => {
                     <button
                       disabled={isSubmitting}
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 rounded-lg shadow-xl disabled:opacity-50 hover:scale-[1.01] transition-transform cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 rounded-lg shadow-md disabled:opacity-50 hover:scale-[1.01] transition-transform cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span className="w-5 h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" />
@@ -308,7 +319,7 @@ export const Contact: React.FC = () => {
                       )}
                     </button>
                   </div>
-                </motion.form>
+                </form>
               )}
             </AnimatePresence>
           </motion.div>
@@ -316,6 +327,6 @@ export const Contact: React.FC = () => {
         </div>
 
       </div>
-    </section>
+    </div>
   );
 };

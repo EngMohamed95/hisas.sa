@@ -27,7 +27,7 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center justify-center">
+    <div className="fixed inset-0 z-[100] bg-slate-50 flex flex-col items-center justify-center">
       <div className="text-center max-w-sm px-6">
         
         {/* Animated Golden Logo Monogram SVG */}
@@ -36,8 +36,8 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
             <defs>
               <linearGradient id="logo-gold" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#02464f" />
-                <stop offset="50%" stop-color="#b69f6a" />
-                <stop offset="100%" stop-color="#8f806c" />
+                <stop offset="50%" stop-color="#086E7B" />
+                <stop offset="100%" stop-color="#011c20" />
               </linearGradient>
             </defs>
             {/* Draw Path Animation using Framer Motion */}
@@ -77,26 +77,26 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-xl font-bold tracking-widest text-white mb-2 uppercase"
+          className="text-xl font-bold tracking-widest text-slate-900 mb-2 uppercase"
         >
           HISAS REAL ESTATE
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
+          animate={{ opacity: 0.8 }}
           transition={{ delay: 0.5 }}
-          className="text-[10px] tracking-[0.2em] text-gold uppercase mb-6"
+          className="text-[10px] tracking-[0.2em] text-gold font-bold uppercase mb-6"
         >
           Saudi Developer • نطور بثقة
         </motion.p>
 
         {/* Progress Value */}
-        <div className="font-sans text-xs font-semibold tracking-widest text-slate-400">
-          <span className="text-white text-lg font-bold">{progress}</span>%
+        <div className="font-sans text-xs font-semibold tracking-widest text-slate-500">
+          <span className="text-slate-900 text-lg font-bold">{progress}</span>%
         </div>
 
         {/* Progress Bar Container */}
-        <div className="w-48 h-[2px] bg-slate-800 rounded-full mx-auto mt-4 overflow-hidden relative">
+        <div className="w-48 h-[2px] bg-slate-200 rounded-full mx-auto mt-4 overflow-hidden relative">
           <div
             className="h-full bg-gold-gradient transition-all duration-100 rounded-full"
             style={{ width: `${progress}%` }}

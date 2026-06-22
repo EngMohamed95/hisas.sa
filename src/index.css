@@ -65,30 +65,26 @@
 
 @layer base {
   body {
-    @apply antialiased overflow-x-hidden;
-    font-family: 'Montserrat', 'JannaLT', 'NotoKufi', sans-serif;
+    @apply antialiased overflow-x-hidden text-slate-800 dark:text-slate-100 bg-white dark:bg-luxury-darkBg;
+    font-family: 'iwanzaza', 'Inter', 'Manrope', 'Montserrat', sans-serif;
   }
   
   /* Set specific typography font list when language matches Arabic */
   [dir="rtl"] body, .rtl body, :lang(ar) {
-    font-family: 'JannaLT', 'NotoKufi', sans-serif;
+    font-family: 'iwanzaza', 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6, .font-heading {
-    font-family: 'PlusJakartaSans', 'Montserrat', sans-serif;
+    font-family: 'iwanzaza', 'Inter', 'Manrope', 'PlusJakartaSans', sans-serif;
+    @apply tracking-tight;
   }
 
-  /* Apply iwanzaza font ONLY to primary headings (h1, h2, and .font-heading) in Arabic */
-  [dir="rtl"] h1, [dir="rtl"] h2, .rtl h1, .rtl h2, :lang(ar) h1, :lang(ar) h2,
+  /* Headings for Arabic language */
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+  .rtl h1, .rtl h2, .rtl h3, .rtl h4, .rtl h5, .rtl h6,
+  :lang(ar) h1, :lang(ar) h2, :lang(ar) h3, :lang(ar) h4, :lang(ar) h5, :lang(ar) h6,
   [dir="rtl"] .font-heading, .rtl .font-heading, :lang(ar) .font-heading {
-    font-family: 'iwanzaza', 'JannaLT', 'NotoKufi', sans-serif;
-  }
-
-  /* Smaller headings and subheaders use JannaLT for clean legibility */
-  [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
-  .rtl h3, .rtl h4, .rtl h5, .rtl h6,
-  :lang(ar) h3, :lang(ar) h4, :lang(ar) h5, :lang(ar) h6 {
-    font-family: 'JannaLT', 'NotoKufi', sans-serif;
+    font-family: 'iwanzaza', 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
   }
 }
 
@@ -144,18 +140,18 @@
 
 /* Metallic gold text and border styles */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #b69f6a 0%, #e2d2af 45%, #b69f6a 70%, #8f806c 100%);
+  background: linear-gradient(135deg, #02464f 0%, #086E7B 45%, #02464f 70%, #011c20 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #b69f6a 0%, #e2d2af 50%, #8f806c 100%);
+  background: linear-gradient(135deg, #02464f 0%, #086E7B 50%, #011c20 100%);
 }
 
 .border-gold-gradient {
-  border-image: linear-gradient(135deg, #b69f6a 0%, #e2d2af 50%, #8f806c 100%) 1;
+  border-image: linear-gradient(135deg, #02464f 0%, #086E7B 50%, #011c20 100%) 1;
 }
 
 /* Custom animations and marquee adjustments */

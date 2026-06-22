@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { Twitter, Linkedin, ArrowUp } from 'lucide-react';
 
@@ -15,28 +16,20 @@ export const Footer: React.FC = () => {
   ];
 
   const menuLinks = [
-    { key: 'nav.home', href: '#home' },
-    { key: 'nav.about', href: '#about' },
-    { key: 'nav.services', href: '#services' },
-    { key: 'nav.projects', href: '#projects' },
-    { key: 'nav.investment', href: '#investment' },
-    { key: 'nav.contact', href: '#contact' },
+    { key: 'nav.home', path: '/' },
+    { key: 'nav.about', path: '/about' },
+    { key: 'nav.services', path: '/services' },
+    { key: 'nav.projects', path: '/projects' },
+    { key: 'nav.investment', path: '/investment' },
+    { key: 'nav.contact', path: '/contact' },
   ];
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 py-16 transition-colors duration-300">
+    <footer className="bg-slate-50 text-slate-600 border-t border-slate-200 py-16 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Top footer row */}
-        <div className="grid md:grid-cols-4 gap-10 pb-12 border-b border-slate-900">
+        <div className="grid md:grid-cols-4 gap-10 pb-12 border-b border-slate-200">
           
           {/* Logo & Corporate profile */}
           <div className="md:col-span-2 space-y-4">
@@ -44,30 +37,29 @@ export const Footer: React.FC = () => {
               <img 
                 src={isRTL ? '/media/footerLogoAr.076dd28b9bb3def840ed6d52b27b73e5.svg' : '/media/footerLogoEn.2b4ef1f170a79e5d45cd9187a390aa7e.svg'} 
                 alt="HISAS Footer Logo" 
-                className="h-12 w-auto brightness-200 invert"
+                className="h-12 w-auto logo-black"
               />
             </div>
             
-            <p className="text-xs md:text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs md:text-sm text-slate-550 leading-relaxed max-w-sm">
               {t('about.text').slice(0, 180)}...
             </p>
           </div>
 
           {/* Links Grid */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+            <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider">
               {isRTL ? 'خريطة الموقع' : 'Sitemap'}
             </h4>
             <ul className="space-y-2 text-xs md:text-sm">
               {menuLinks.map((link) => (
                 <li key={link.key}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleScrollTo(e, link.href)}
-                    className="hover:text-gold transition-colors duration-200"
+                  <Link
+                    to={link.path}
+                    className="hover:text-gold text-slate-600 transition-colors duration-200"
                   >
                     {t(link.key)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -76,7 +68,7 @@ export const Footer: React.FC = () => {
           {/* Vision 2030 & Socials */}
           <div className="space-y-6 flex flex-col justify-between items-start md:items-end">
             {/* Vision 2030 Badge */}
-            <div className="flex flex-col items-start md:items-end bg-slate-900/60 p-4 rounded-xl border border-slate-900 max-w-[180px]">
+            <div className="flex flex-col items-start md:items-end bg-gold/5 p-4 rounded-xl border border-gold/15 max-w-[180px]">
               <span className="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">Aligns with</span>
               <div className="text-gold font-extrabold text-2xl tracking-widest font-sans">VISION رؤية</div>
               <div className="text-gold font-black text-3xl font-sans mt-[-5px]">2030</div>
@@ -90,7 +82,7 @@ export const Footer: React.FC = () => {
                   href={soc.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-gold transition-all duration-300"
+                  className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-gold hover:border-gold transition-all duration-300"
                   aria-label={soc.label}
                 >
                   <soc.icon className="w-4 h-4" />
@@ -108,10 +100,10 @@ export const Footer: React.FC = () => {
 
           {/* Back to top & Info */}
           <div className="flex items-center gap-6">
-            <span className="font-sans">CR 7035818439</span>
+            <span className="font-sans text-slate-550">CR 7035818439</span>
             <button
               onClick={handleBackToTop}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-800 text-slate-500 hover:text-gold hover:border-gold transition-colors duration-200"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-gold hover:border-gold transition-colors duration-200"
             >
               <span>{t('misc.backToTop')}</span>
               <ArrowUp className="w-3.5 h-3.5" />

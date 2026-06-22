@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -10,24 +10,16 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || saved === 'light') return saved;
-    return 'dark'; // Luxury default is dark mode
-  });
+  const theme: Theme = 'light';
 
   useEffect(() => {
     const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    root.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    // Light mode only
   };
 
   return (

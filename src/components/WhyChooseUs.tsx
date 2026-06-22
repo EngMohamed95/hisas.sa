@@ -34,7 +34,7 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section id="why-choose-us" className="py-24 bg-luxury-lightBg dark:bg-luxury-darkBg relative overflow-hidden transition-colors duration-300">
+    <section id="why-choose-us" className="py-24 bg-slate-50 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Title */}
@@ -52,7 +52,7 @@ export const WhyChooseUs: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
+            className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
             {t('whyUs.subtitle')}
           </motion.h2>
@@ -69,7 +69,7 @@ export const WhyChooseUs: React.FC = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.02 }}
-              className={`glass-card p-8 rounded-xl border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:border-gold/50 cursor-pointer ${
+              className={`glass-card p-8 rounded-xl border border-slate-200 transition-all duration-300 hover:border-gold/50 cursor-pointer ${
                 index === 4 ? 'md:col-span-2 lg:col-span-1' : ''
               }`}
             >
@@ -78,17 +78,17 @@ export const WhyChooseUs: React.FC = () => {
                 <img 
                   src={reason.icon} 
                   alt="" 
-                  className="w-full h-full object-contain dark:brightness-200 dark:contrast-150 transition-all duration-300" 
+                  className="w-full h-full object-contain transition-all duration-300" 
                 />
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
+              <h3 className="text-lg font-bold text-slate-900 mb-3">
                 {t(reason.titleKey)}
               </h3>
 
               {/* Description */}
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 {t(reason.descKey)}
               </p>
             </motion.div>

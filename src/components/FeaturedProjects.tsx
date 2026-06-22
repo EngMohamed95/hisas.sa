@@ -79,7 +79,7 @@ export const FeaturedProjects: React.FC = () => {
   );
 
   return (
-    <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-900/40 relative transition-colors duration-300">
+    <section id="projects" className="py-24 bg-slate-50 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
@@ -97,7 +97,7 @@ export const FeaturedProjects: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
+            className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
             {t('projects.subtitle')}
           </motion.h2>
@@ -111,8 +111,8 @@ export const FeaturedProjects: React.FC = () => {
                 onClick={() => setFilter(type)}
                 className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   filter === type
-                    ? 'bg-gold-gradient text-slate-900 shadow-lg'
-                    : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-gold'
+                    ? 'bg-gold-gradient text-white shadow-lg'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:border-gold'
                 }`}
               >
                 {type === 'all' && t('projects.category.all')}
@@ -135,7 +135,7 @@ export const FeaturedProjects: React.FC = () => {
                 viewport={{ once: true, amount: 0.15 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ delay: index * 0.15, duration: 0.6 }}
-                className="group relative bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800/80 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                className="group relative bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 onClick={() => handleOpenProject(project)}
               >
                 {/* Image Container */}
@@ -156,15 +156,15 @@ export const FeaturedProjects: React.FC = () => {
 
                 {/* Card Details */}
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-gold transition-colors duration-300">
                     {t(project.brandKey)}
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
                     {t(project.descKey)}
                   </p>
 
-                  <div className="flex flex-wrap items-center justify-between border-t border-slate-100 dark:border-slate-900 pt-5 gap-4">
-                    <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs md:text-sm">
+                  <div className="flex flex-wrap items-center justify-between border-t border-slate-100 pt-5 gap-4">
+                    <div className="flex items-center gap-2 text-slate-500 text-xs md:text-sm">
                       <MapPin className="w-4 h-4 text-gold" />
                       <span>{t(project.locationKey)}</span>
                     </div>
@@ -196,7 +196,7 @@ export const FeaturedProjects: React.FC = () => {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 30, opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="relative w-full max-w-5xl bg-white dark:bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-5xl bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col"
             >
               {/* Close Button */}
               <button
@@ -235,7 +235,7 @@ export const FeaturedProjects: React.FC = () => {
                   )}
 
                   <div className="absolute bottom-6 left-6 right-6">
-                    <span className="bg-gold text-slate-950 font-bold px-3 py-1 rounded text-xs uppercase mb-2 inline-block">
+                    <span className="bg-gold text-white font-bold px-3 py-1 rounded text-xs uppercase mb-2 inline-block">
                       {activeProject.category === 'single' ? t('projects.category.1') : t('projects.category.2')}
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
@@ -248,32 +248,32 @@ export const FeaturedProjects: React.FC = () => {
                 <div className="p-6 md:p-8">
                   {/* Grid Specs */}
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                    <div className="bg-slate-100 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-                      <span className="text-xs text-slate-500 dark:text-slate-400 block mb-1">{t('projects.location.label')}</span>
-                      <div className="flex items-center gap-1.5 font-bold text-slate-800 dark:text-slate-200 text-sm">
+                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                      <span className="text-xs text-slate-500 block mb-1">{t('projects.location.label')}</span>
+                      <div className="flex items-center gap-1.5 font-bold text-slate-800 text-sm">
                         <Compass className="w-4 h-4 text-gold" />
                         <span>{t(activeProject.locationKey)}</span>
                       </div>
                     </div>
 
-                    <div className="bg-slate-100 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-                      <span className="text-xs text-slate-500 dark:text-slate-400 block mb-1">{t('projects.units.label')}</span>
-                      <div className="flex items-center gap-1.5 font-bold text-slate-800 dark:text-slate-200 text-sm">
+                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                      <span className="text-xs text-slate-500 block mb-1">{t('projects.units.label')}</span>
+                      <div className="flex items-center gap-1.5 font-bold text-slate-800 text-sm">
                         <Building className="w-4 h-4 text-gold" />
                         <span>{activeProject.units}</span>
                       </div>
                     </div>
 
-                    <div className="bg-slate-100 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-                      <span className="text-xs text-slate-500 dark:text-slate-400 block mb-1">{t('invest.calc.roi')}</span>
-                      <div className="flex items-center gap-1.5 font-bold text-slate-800 dark:text-slate-200 text-sm">
+                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                      <span className="text-xs text-slate-500 block mb-1">{t('invest.calc.roi')}</span>
+                      <div className="flex items-center gap-1.5 font-bold text-slate-800 text-sm">
                         <Activity className="w-4 h-4 text-gold" />
                         <span className="text-emerald-500">{activeProject.roi}</span>
                       </div>
                     </div>
 
-                    <div className="bg-slate-100 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-                      <span className="text-xs text-slate-500 dark:text-slate-400 block mb-1">{t('projects.status.label')}</span>
+                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                      <span className="text-xs text-slate-500 block mb-1">{t('projects.status.label')}</span>
                       <span className="text-xs font-bold px-2 py-1 bg-gold/15 text-gold border border-gold/30 rounded inline-block">
                         {t(activeProject.statusKey)}
                       </span>
@@ -281,10 +281,10 @@ export const FeaturedProjects: React.FC = () => {
                   </div>
 
                   {/* Complete Copy */}
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-800 pb-2">
+                  <h4 className="text-lg font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">
                     {isRTL ? 'نظرة عامة على المشروع' : 'Project Overview'}
                   </h4>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-6">
+                  <p className="text-slate-700 leading-relaxed text-base mb-6">
                     {t(activeProject.descKey)}
                   </p>
                 </div>

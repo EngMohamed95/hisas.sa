@@ -31,7 +31,7 @@ export const Blog: React.FC = () => {
   ];
 
   return (
-    <section id="blog" className="py-24 bg-slate-50 dark:bg-slate-900/40 relative transition-colors duration-300">
+    <section id="blog" className="py-24 bg-slate-50 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
@@ -49,7 +49,7 @@ export const Blog: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
+            className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
             {t('blog.subtitle')}
           </motion.h2>
@@ -65,11 +65,11 @@ export const Blog: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800/80 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
+              className="bg-white rounded-xl border border-slate-200 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
             >
               <div className="p-8">
                 {/* Meta details */}
-                <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-4 font-sans">
+                <div className="flex items-center gap-4 text-xs text-slate-500 mb-4 font-sans">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-3.5 h-3.5 text-gold" />
                     <span>{t('blog.date')}</span>
@@ -81,23 +81,23 @@ export const Blog: React.FC = () => {
                 </div>
 
                 {/* Badge */}
-                <span className="inline-block bg-slate-100 dark:bg-slate-900 text-gold text-[10px] font-bold uppercase px-2.5 py-1 rounded-md mb-4 border border-slate-200 dark:border-slate-800">
+                <span className="inline-block bg-slate-50 text-gold text-[10px] font-bold uppercase px-2.5 py-1 rounded-md mb-4 border border-slate-200">
                   {post.badge}
                 </span>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 line-clamp-2 leading-snug group-hover:text-gold transition-colors duration-300">
+                <h3 className="text-lg font-bold text-slate-900 mb-3 line-clamp-2 leading-snug group-hover:text-gold transition-colors duration-300">
                   {t(post.titleKey)}
                 </h3>
 
                 {/* Description */}
-                <p className="text-slate-600 dark:text-slate-400 text-xs md:text-sm leading-relaxed line-clamp-3">
+                <p className="text-slate-600 text-xs md:text-sm leading-relaxed line-clamp-3">
                   {t(post.descKey)}
                 </p>
               </div>
 
               {/* Call to action footer */}
-              <div className="px-8 pb-8 pt-4 border-t border-slate-100 dark:border-slate-900/50">
+              <div className="px-8 pb-8 pt-4 border-t border-slate-100">
                 <div className="flex items-center gap-1 text-gold font-bold text-xs group-hover:translate-x-1 transition-transform">
                   <span>{t('blog.readMore')}</span>
                   <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />

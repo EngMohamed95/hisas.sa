@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { motion } from 'framer-motion';
-import { Landmark, TrendingUp, Calendar, Coins, ArrowRight, ShieldCheck } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Landmark, TrendingUp, Calendar, Coins, ArrowRight, ShieldCheck, PieChart, BadgePercent } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
-export const InvestmentOpportunities: React.FC = () => {
+export const InvestmentPage: React.FC = () => {
   const { t, isRTL } = useLanguage();
+  const navigate = useNavigate();
   const [investValue, setInvestValue] = useState<number>(1000000); // 1 Million SAR default
   const [selectedProject, setSelectedProject] = useState<'alvera' | 'nexus'>('alvera');
 
@@ -19,56 +21,86 @@ export const InvestmentOpportunities: React.FC = () => {
   };
 
   const handleCTA = () => {
-    const contactEl = document.querySelector('#contact');
-    if (contactEl) {
-      contactEl.scrollIntoView({ behavior: 'smooth' });
-      // Pre-fill input details if form supports it
-      const messageTextarea = document.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
-      if (messageTextarea) {
-        messageTextarea.value = isRTL 
-          ? `أرغب في مناقشة فرصة استثمارية بقيمة ${formatCurrency(investValue)} في مشروع ${selectedProject === 'alvera' ? 'أبراج ألفيرا' : 'أبراج نكسيوس'}.`
-          : `I would like to discuss an investment opportunity of ${formatCurrency(investValue)} in project ${selectedProject === 'alvera' ? 'Alvera Towers' : 'Nexus Towers'}.`;
-      }
-    }
+    const prefillMessage = isRTL 
+      ? `أرغب في مناقشة فرصة استثمارية بقيمة ${formatCurrency(investValue)} في مشروع ${selectedProject === 'alvera' ? 'أبراج ألفيرا' : 'أبراج نكسيوس'}.`
+      : `I would like to discuss an investment opportunity of ${formatCurrency(investValue)} in project ${selectedProject === 'alvera' ? 'Alvera Towers' : 'Nexus Towers'}.`;
+    
+    navigate('/contact', { state: { prefillMessage, classification: 'investor' } });
   };
 
   return (
-    <section id="investment" className="py-24 bg-slate-50 relative transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-gold font-bold tracking-widest uppercase text-sm block mb-3"
-          >
+    <div className="pt-24 min-h-screen bg-slate-50 transition-colors duration-300">
+      <SEO titleKey="nav.investment" descriptionKey="invest.subtitle" />
+
+      {/* Page Header */}
+      <section className="relative py-20 overflow-hidden bg-slate-100/60 border-b border-slate-200/80 text-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-white/50 to-transparent z-0" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <span className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
             {t('nav.investment')}
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
-          >
-            {t('invest.subtitle')}
-          </motion.h2>
-          <div className="w-16 h-[2px] bg-gold-gradient mx-auto" />
+          </span>
+          <h1 className="text-3xl md:text-5xl font-bold font-heading text-slate-900">
+            {t('invest.title')}
+          </h1>
+        </div>
+      </section>
+
+      {/* Main Content Section */}
+      <div className="max-w-7xl mx-auto px-6 py-16 space-y-16">
+        
+        {/* Intro Grid */}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+              {isRTL ? 'الاستثمار العقاري الساحلي والريادي في المملكة' : 'Coastal & Strategic Real Estate Investment'}
+            </h2>
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base mb-6">
+              {isRTL
+                ? 'تقدم شركة حصص العقارية فرصاً استثمارية ممتازة مبنية على التحليل المالي الدقيق والفرص التنموية ذات العوائد المرتفعة. نركز مشاريعنا في مناطق النمو الاستراتيجي بالمنطقة الشرقية وكورنيش الخبر الفاخر، وشمال العاصمة الرياض بالتماشي التام مع مستهدفات التنمية الإسكانية لرؤية 2030.'
+                : 'HISAS Real Estate offers signature investment options based on diligent financial screening and high-yield properties. We center our pipeline in high-growth districts across Al-Khobar Corniche and North Riyadh, complying fully with the housing expansion targets of Saudi Vision 2030.'}
+            </p>
+            <div className="space-y-4">
+              <div className="flex gap-3 items-center">
+                <BadgePercent className="w-5 h-5 text-gold flex-shrink-0" />
+                <span className="text-sm font-semibold text-slate-700">
+                  {isRTL ? 'معدل عائد داخلي مستهدف يتراوح بين 18% و 24%' : 'Target IRR yields spanning 18% to 24% annually'}
+                </span>
+              </div>
+              <div className="flex gap-3 items-center">
+                <PieChart className="w-5 h-5 text-gold flex-shrink-0" />
+                <span className="text-sm font-semibold text-slate-700">
+                  {isRTL ? 'محفظة أصول متنوعة وشفافية كاملة عبر برنامج وافي' : 'Diversified asset model with full Wafi regulated disclosure'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 className="text-lg font-bold text-slate-900 mb-4">
+              {isRTL ? 'مزايا الشراكة الاستثمارية مع حصص' : 'Advantages of HISAS Alliances'}
+            </h3>
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-600">
+              <li className="flex gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+                <span>{isRTL ? 'دراسات جدوى مالية موثقة ومعتمدة من جهات تقييم مرخصة.' : 'Verified financial feasibility studies from certified valuers.'}</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+                <span>{isRTL ? 'تمويل مرن وهياكل استثمارية تناسب كبار المستثمرين والشركات.' : 'Flexible investment brackets custom-structured for family offices and corporates.'}</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+                <span>{isRTL ? 'أولوية التملك وحجز الوحدات السكنية بأسعار تفضيلية خلال مرحلة الإطلاق.' : 'First-look priority bookings at preferred early pricing brackets.'}</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        {/* Dashboard Grid */}
+        {/* Dashboard Grid - Calculator */}
         <div className="grid lg:grid-cols-5 gap-10 items-stretch">
           
           {/* ROI Calculator Inputs */}
-          <motion.div 
-            initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-2 p-8 bg-white rounded-2xl border border-slate-200 flex flex-col justify-between shadow-md"
-          >
+          <div className="lg:col-span-2 p-8 bg-white rounded-2xl border border-slate-200 flex flex-col justify-between shadow-md">
             <div>
               <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                 <Landmark className="w-5 h-5 text-gold" />
@@ -85,8 +117,8 @@ export const InvestmentOpportunities: React.FC = () => {
                     onClick={() => setSelectedProject('alvera')}
                     className={`py-2 px-3 text-xs font-bold rounded-md transition-colors ${
                       selectedProject === 'alvera'
-                        ? 'bg-gold text-white shadow-md'
-                        : 'text-slate-700'
+                        ? 'bg-gold text-white shadow-md font-bold'
+                        : 'text-slate-700 hover:text-gold'
                     }`}
                   >
                     {t('projects.brand.alvera').split(' (')[0]}
@@ -95,8 +127,8 @@ export const InvestmentOpportunities: React.FC = () => {
                     onClick={() => setSelectedProject('nexus')}
                     className={`py-2 px-3 text-xs font-bold rounded-md transition-colors ${
                       selectedProject === 'nexus'
-                        ? 'bg-gold text-white shadow-md'
-                        : 'text-slate-700'
+                        ? 'bg-gold text-white shadow-md font-bold'
+                        : 'text-slate-700 hover:text-gold'
                     }`}
                   >
                     {t('projects.brand.nexus').split(' (')[0]}
@@ -143,20 +175,14 @@ export const InvestmentOpportunities: React.FC = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Calculator Output Displays */}
-          <motion.div 
-            initial={{ opacity: 0, x: isRTL ? -40 : 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-3 p-8 bg-gold/5 text-slate-800 rounded-2xl border border-gold/25 shadow-md flex flex-col justify-between"
-          >
+          <div className="lg:col-span-3 p-8 bg-gold/5 text-slate-800 rounded-2xl border border-gold/25 shadow-md flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-center border-b border-gold/15 pb-5 mb-8">
                 <span className="text-slate-800 font-bold tracking-widest text-xs uppercase">{isRTL ? 'تقديرات عوائد التطوير والاستثمار' : 'Development yield projections'}</span>
-                <span className="bg-gold/15 text-gold border border-gold/30 rounded text-xs font-semibold px-2 py-0.5">
+                <span className="bg-gold/15 text-gold border border-gold/30 rounded text-xs font-semibold px-2 py-0.5 font-sans">
                   Vision 2030 Compatible
                 </span>
               </div>
@@ -168,7 +194,7 @@ export const InvestmentOpportunities: React.FC = () => {
                     <TrendingUp className="w-4 h-4 text-gold" />
                     <span className="text-xs uppercase font-medium tracking-wide">{t('invest.calc.roi')}</span>
                   </div>
-                  <h4 className="text-3xl font-extrabold text-gold-gradient tracking-tight">
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-gold-gradient tracking-tight">
                     {(irr * 100).toFixed(1)}%
                   </h4>
                 </div>
@@ -178,7 +204,7 @@ export const InvestmentOpportunities: React.FC = () => {
                     <Calendar className="w-4 h-4 text-gold" />
                     <span className="text-xs uppercase font-medium tracking-wide">{t('invest.calc.duration')}</span>
                   </div>
-                  <h4 className="text-3xl font-extrabold text-slate-800 tracking-tight">
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight">
                     {durationMonths} {isRTL ? 'شهراً' : 'Months'}
                   </h4>
                 </div>
@@ -188,7 +214,7 @@ export const InvestmentOpportunities: React.FC = () => {
                     <Coins className="w-4 h-4 text-gold" />
                     <span className="text-xs uppercase font-medium tracking-wide">{t('invest.calc.profit')}</span>
                   </div>
-                  <h4 className="text-3xl font-extrabold text-slate-800 tracking-tight">
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight font-sans">
                     {formatCurrency(profit)}
                   </h4>
                 </div>
@@ -198,7 +224,7 @@ export const InvestmentOpportunities: React.FC = () => {
                     <Landmark className="w-4 h-4 text-gold" />
                     <span className="text-xs uppercase font-medium tracking-wide">{t('invest.calc.total')}</span>
                   </div>
-                  <h4 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
                     {formatCurrency(totalPayout)}
                   </h4>
                 </div>
@@ -215,11 +241,11 @@ export const InvestmentOpportunities: React.FC = () => {
                 <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
               </button>
             </div>
-          </motion.div>
+          </div>
 
         </div>
 
       </div>
-    </section>
+    </div>
   );
 };

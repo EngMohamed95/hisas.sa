@@ -14,10 +14,10 @@ export default {
           dark: '#011c20',    // Very Dark Teal
         },
         gold: {
-          DEFAULT: '#b69f6a', // Official Metallic Gold
-          light: '#e2d2af',   // Light Sand/Gold
-          dark: '#8f806c',    // Secondary Sand/Bronze
-          metallic: 'linear-gradient(135deg, #b69f6a 0%, #e2d2af 50%, #8f806c 100%)',
+          DEFAULT: '#02464f', // Official Corporate Teal (replacing Gold)
+          light: '#086E7B',   // Medium Teal
+          dark: '#011c20',    // Very Dark Teal
+          metallic: 'linear-gradient(135deg, #02464f 0%, #086E7B 50%, #011c20 100%)',
         },
         luxury: {
           lightBg: '#f8f8f8',  // Official Light BG
@@ -29,10 +29,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Montserrat', 'JannaLT', 'NotoKufi', 'sans-serif'],
-        arabic: ['JannaLT', 'NotoKufi', 'sans-serif'],
-        english: ['Montserrat', 'PlusJakartaSans', 'sans-serif'],
-        heading: ['iwanzaza', 'Montserrat', 'PlusJakartaSans', 'sans-serif'],
+        sans: ['iwanzaza', 'Inter', 'Cairo', 'Tajawal', 'sans-serif'],
+        arabic: ['iwanzaza', 'Cairo', 'Tajawal', 'sans-serif'],
+        english: ['Inter', 'Manrope', 'sans-serif'],
+        heading: ['iwanzaza', 'Cairo', 'Inter', 'sans-serif'],
       },
       animation: {
         'infinite-scroll': 'infinite-scroll 40s linear infinite',

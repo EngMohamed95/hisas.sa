@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Building2, Users, Briefcase, TrendingUp, ChevronDown } from 'lucide-react';
 
 interface CounterProps {
@@ -29,13 +30,9 @@ const AnimatedCounter: React.FC<CounterProps> = ({ value, suffix = '', duration 
 };
 
 export const Hero: React.FC = () => {
-  const { t, language } = useLanguage();
-  const { scrollY } = useScroll();
-
-  // Scroll transforms for premium parallax effect
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const scale = useTransform(scrollY, [0, 500], [1.05, 1.15]);
-  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const { t, language, isRTL } = useLanguage();
+  const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const stats = [
     { value: 750, suffix: '+', textKey: 'hero.stat.units', icon: Building2 },
@@ -44,84 +41,137 @@ export const Hero: React.FC = () => {
     { value: 1.8, suffix: 'B+', textKey: 'stats.value.label', isDecimal: true, icon: TrendingUp },
   ];
 
+  const slides = [
+    {
+      titleKey: 'hero.slide1.title',
+      highlightKey: 'hero.slide1.highlight',
+      subtitleKey: 'hero.slide1.subtitle',
+      ctaText: t('hero.cta'),
+      secondaryCtaText: t('hero.secondaryCta'),
+      ctaPath: '/investment',
+      secondaryCtaPath: '/contact'
+    },
+    {
+      titleKey: 'hero.slide2.title',
+      highlightKey: 'hero.slide2.highlight',
+      subtitleKey: 'hero.slide2.subtitle',
+      ctaText: t('projects.explore'),
+      secondaryCtaText: t('hero.secondaryCta'),
+      ctaPath: '/projects',
+      secondaryCtaPath: '/contact'
+    },
+    {
+      titleKey: 'hero.slide3.title',
+      highlightKey: 'hero.slide3.highlight',
+      subtitleKey: 'hero.slide3.subtitle',
+      ctaText: t('hero.cta'),
+      secondaryCtaText: t('hero.secondaryCta'),
+      ctaPath: '/investment',
+      secondaryCtaPath: '/contact'
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   const handleScrollTo = (id: string) => {
     const el = document.querySelector(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-primary-dark pt-20">
-      {/* Background Image with Parallax & Overlay */}
-      <motion.div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: `url(${language === 'ar' ? '/media/heroBgAr.6c9a91f749f4169b965f.jpg' : '/media/heroBg.84ea385be791e4c5d28a.jpg'})`,
-          y,
-          scale
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/80 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/50 to-transparent" />
-
-      <motion.div 
-        style={{ opacity: textOpacity }}
-        className="relative z-10 max-w-7xl mx-auto px-6 w-full py-16 flex flex-col justify-center items-center text-center"
+    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
       >
+        <source src="/hero_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Dark Overlay for cinematic contrast */}
+      <div className="absolute inset-0 bg-slate-950/65 backdrop-blur-[0.5px] z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-16 flex flex-col justify-center items-center text-center">
         {/* Animated Saudi Flag Monogram Element */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-6 px-4 py-1.5 rounded-full border border-gold/40 bg-primary-dark/70 backdrop-blur-md text-gold text-xs font-semibold uppercase tracking-widest flex items-center gap-2"
+          className="mb-6 px-4 py-1.5 rounded-full border border-gold/30 bg-white/10 backdrop-blur-md text-gold text-xs font-semibold uppercase tracking-widest flex items-center gap-2 shadow-sm"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>{t('info.address.title')}</span>
         </motion.div>
 
-        {/* Text Reveal Title */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight max-w-5xl"
-        >
-          {t('hero.title')}{' '}
-          <span className="text-gold-gradient block mt-2">{t('nav.projects')}</span>
-        </motion.h1>
+        {/* Content Slider Container */}
+        <div className="w-full max-w-5xl min-h-[280px] sm:min-h-[220px] md:min-h-[240px] flex flex-col items-center justify-center overflow-hidden relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="flex flex-col items-center justify-center text-center"
+            >
+              {/* Slide Title */}
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight max-w-5xl">
+                {t(slides[currentSlide].titleKey)}{' '}
+                <span className="text-gold-gradient block mt-2">
+                  {t(slides[currentSlide].highlightKey)}
+                </span>
+              </h1>
 
-        {/* Subtitle */}
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-          className="text-lg md:text-xl text-slate-300 max-w-3xl mb-10 leading-relaxed"
-        >
-          {t('hero.subtitle')}
-        </motion.p>
+              {/* Slide Subtitle */}
+              <p className="text-base md:text-lg text-slate-200 max-w-3xl mb-10 leading-relaxed font-normal">
+                {t(slides[currentSlide].subtitleKey)}
+              </p>
 
-        {/* CTAs */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 mb-16 justify-center w-full max-w-md sm:max-w-none"
-        >
-          <button
-            onClick={() => handleScrollTo('#investment')}
-            className="px-8 py-4 bg-gold-gradient text-slate-900 font-bold rounded-lg shadow-xl hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 hover:shadow-gold/25"
-          >
-            {t('hero.cta')}
-          </button>
-          <button
-            onClick={() => handleScrollTo('#contact')}
-            className="px-8 py-4 bg-slate-900/60 backdrop-blur-md text-white font-bold rounded-lg border border-slate-700 hover:border-gold hover:text-gold transition-all duration-300"
-          >
-            {t('hero.secondaryCta')}
-          </button>
-        </motion.div>
+              {/* Slide CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md sm:max-w-none">
+                <button
+                  onClick={() => navigate(slides[currentSlide].ctaPath)}
+                  className="px-8 py-4 bg-gold-gradient text-white font-bold rounded-lg shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 hover:shadow-gold/20 cursor-pointer"
+                >
+                  {slides[currentSlide].ctaText}
+                </button>
+                <button
+                  onClick={() => navigate(slides[currentSlide].secondaryCtaPath)}
+                  className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-lg border border-white/20 hover:border-gold hover:bg-white/20 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-sm cursor-pointer"
+                >
+                  {slides[currentSlide].secondaryCtaText}
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Slide Bullet Indicators */}
+        <div className="flex gap-2.5 mt-8 z-20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                currentSlide === index ? 'bg-gold w-8' : 'bg-white/40 hover:bg-white/60'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
 
         {/* Floating Statistics Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-16">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
@@ -143,7 +193,7 @@ export const Hero: React.FC = () => {
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 )}
               </h3>
-              <p className="text-xs md:text-sm text-slate-400 font-medium tracking-wide">
+              <p className="text-xs md:text-sm text-slate-300 font-semibold tracking-wide">
                 {t(stat.textKey)}
               </p>
             </motion.div>
@@ -155,12 +205,12 @@ export const Hero: React.FC = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
           onClick={() => handleScrollTo('#about')}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer text-slate-400 hover:text-gold transition-colors duration-300 flex flex-col items-center gap-1"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer text-slate-300 hover:text-gold transition-colors duration-300 flex flex-col items-center gap-1 animate-bounce"
         >
           <span className="text-xs tracking-widest uppercase opacity-75">{t('nav.about')}</span>
           <ChevronDown className="w-5 h-5" />
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };

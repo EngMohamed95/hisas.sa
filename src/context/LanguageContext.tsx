@@ -72,6 +72,17 @@ const translations: Record<Language, Record<string, string>> = {
     'ceo.name': 'أ. مشعل بن صالح الحواس',
     'ceo.text': 'في حصص العقارية، نؤمن عميقاً أن العقار ليس مجرد جدران خرسانية تُبنى للبيع، بل هو قيمة مستدامة تُشيد، وثقة راسخة تُزرع، وتجربة معيشية استثنائية تُحترم. تنطلق رؤيتنا من فهم دقيق لاحتياجات السوق العقاري الفاخر في المملكة، وتصميم فرص استثمارية فريدة لشركائنا. نعدكم بأن تكون مشاريعنا القادمة نموذجاً يحتذى به في التميز الهندسي، وأن تظل الشفافية والصدق معاييرنا الثابتة.',
 
+    // Hero Slides
+    'hero.slide1.title': 'نطور بثقة',
+    'hero.slide1.highlight': 'أبراج سكنية فاخرة',
+    'hero.slide1.subtitle': 'شريكك الاستراتيجي في صياغة مستقبل التطوير العقاري الفاخر بالمملكة العربية السعودية.',
+    'hero.slide2.title': 'إطلالات بحرية ساحرة',
+    'hero.slide2.highlight': 'أيقونة الخبر ألفيرا',
+    'hero.slide2.subtitle': 'تصميم عصري جريء على واجهة الخبر البحرية يلبي تطلعات النخبة والمستثمرين.',
+    'hero.slide3.title': 'بيئة معيشية ذكية',
+    'hero.slide3.highlight': 'مجمع نكسيوس الرياض',
+    'hero.slide3.subtitle': 'مجمعات سكنية متكاملة الخدمات في شمال الرياض بالتماشي مع رؤية 2030.',
+
     // Why Choose Us
     'whyUs.title': 'لماذا حصص العقارية؟',
     'whyUs.subtitle': 'مقومات التميز التي تجعلنا الخيار الأول للمستثمرين والنخبة',
@@ -225,6 +236,17 @@ const translations: Record<Language, Record<string, string>> = {
     'ceo.title': 'CEO Message',
     'ceo.name': 'Mr. Meshal bin Saleh Al-Hawas',
     'ceo.text': 'At HISAS Real Estate, we deeply believe that real estate is not merely concrete walls built for sale, but a lasting value erected, a firm trust planted, and an exceptional living experience respected. Our vision originates from a precise understanding of the luxury market needs in the Kingdom, creating highly-rewarding investment structures for our partners. We promise you that our upcoming projects will stand as architectural benchmarks, and that transparency and integrity will remain our unchanging standards.',
+
+    // Hero Slides
+    'hero.slide1.title': 'We Develop with Confidence',
+    'hero.slide1.highlight': 'Luxury Residential Towers',
+    'hero.slide1.subtitle': 'Your strategic partner in shaping the future of luxury real estate development in Saudi Arabia.',
+    'hero.slide2.title': 'Enchanting Waterfront Views',
+    'hero.slide2.highlight': 'Alvera Tower Khobar',
+    'hero.slide2.subtitle': 'Bold high-rise architectural icon on Al-Khobar waterfront tailored for elites and investors.',
+    'hero.slide3.title': 'Smart Living Environments',
+    'hero.slide3.highlight': 'Nexus Complex Riyadh',
+    'hero.slide3.subtitle': 'Integrated-service smart residential towers in North Riyadh aligning with Vision 2030.',
 
     // Why Choose Us
     'whyUs.title': 'Why HISAS Real Estate?',

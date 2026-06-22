@@ -30,7 +30,7 @@ const AnimatedCounter: React.FC<CounterProps> = ({ value, suffix = '', duration 
 };
 
 export const Hero: React.FC = () => {
-  const { t, language, isRTL } = useLanguage();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 

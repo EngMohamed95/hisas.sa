@@ -78,7 +78,7 @@ export const ServicesPage: React.FC = () => {
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: i * 0.15 }}
                 className="bg-white leaf-shape border border-slate-200 p-8 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between"
               >

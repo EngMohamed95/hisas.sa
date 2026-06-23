@@ -37,7 +37,7 @@ export const WhyChooseUs: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-10 leading-normal tracking-[0.02em]"
           >
@@ -52,7 +52,7 @@ export const WhyChooseUs: React.FC = () => {
               key={index}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="min-h-[258px] bg-white px-5 py-9 leaf-shape flex flex-col items-center justify-start"
             >

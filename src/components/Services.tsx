@@ -32,7 +32,7 @@ export const Services: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
@@ -48,7 +48,7 @@ export const Services: React.FC = () => {
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
               whileHover={{ y: -8 }}
               className="glass-card p-8 leaf-shape relative group transition-all duration-300 overflow-hidden hover:border-gold/50 cursor-pointer"
@@ -84,7 +84,7 @@ export const Services: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ delay: 0.4 }}
           className="mt-16 text-center"
         >

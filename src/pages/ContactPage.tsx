@@ -105,7 +105,7 @@ export const ContactPage: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="lg:col-span-2 space-y-8"
           >
             <div className="p-8 bg-gold/5 text-slate-800 leaf-shape border border-gold/25 shadow-md relative overflow-hidden">
@@ -192,7 +192,7 @@ export const ContactPage: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="lg:col-span-3 p-6 sm:p-8 bg-white border border-slate-200 leaf-shape shadow-md"
           >
             <h3 className="text-xl font-bold text-slate-900 mb-6">

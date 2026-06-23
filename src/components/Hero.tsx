@@ -106,7 +106,8 @@ export const Hero: React.FC = () => {
         {/* Animated Saudi Flag Monogram Element */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8 }}
           className="mb-6 px-4 py-1.5 rounded-full border border-white/25 bg-slate-950/35 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-widest flex items-center gap-2 shadow-sm"
         >
@@ -178,7 +179,7 @@ export const Hero: React.FC = () => {
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: i * 0.15, duration: 0.8 }}
               className="glass-card p-6 rounded-xl text-center group hover:border-gold/50 transition-all duration-300 hover:translate-y-[-5px]"
             >

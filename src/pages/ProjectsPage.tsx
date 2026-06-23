@@ -135,7 +135,8 @@ export const ProjectsPage: React.FC = () => {
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.15 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
                   className="grid lg:grid-cols-12 gap-8 lg:gap-12 bg-white leaf-shape border border-slate-200 p-6 md:p-10 shadow-lg relative items-start"

@@ -55,10 +55,10 @@ export const InvestmentPage: React.FC = () => {
         {/* Intro Grid */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-7 leading-normal tracking-[0.02em]">
               {isRTL ? 'الاستثمار العقاري الساحلي والريادي في المملكة' : 'Coastal & Strategic Real Estate Investment'}
             </h2>
-            <p className="text-slate-600 leading-relaxed text-base sm:text-lg lg:text-xl mb-6">
+            <p className="text-slate-700 leading-loose text-lg md:text-xl mb-8 font-medium tracking-[0.01em]">
               {isRTL
                 ? 'تقدم شركة حصص العقارية فرصاً استثمارية ممتازة مبنية على التحليل المالي الدقيق والفرص التنموية ذات العوائد المرتفعة. نركز مشاريعنا في مناطق النمو الاستراتيجي بالمنطقة الشرقية وكورنيش الخبر الفاخر، وشمال العاصمة الرياض بالتماشي التام مع مستهدفات التنمية الإسكانية لرؤية 2030.'
                 : 'HISAS Real Estate offers signature investment options based on diligent financial screening and high-yield properties. We center our pipeline in high-growth districts across Al-Khobar Corniche and North Riyadh, complying fully with the housing expansion targets of Saudi Vision 2030.'}
@@ -66,34 +66,34 @@ export const InvestmentPage: React.FC = () => {
             <div className="space-y-4">
               <div className="flex gap-3 items-center">
                 <BadgePercent className="w-5 h-5 text-gold flex-shrink-0" />
-                <span className="text-sm font-semibold text-slate-700">
+                <span className="text-base md:text-lg font-bold text-slate-800 leading-relaxed">
                   {isRTL ? 'معدل عائد داخلي مستهدف يتراوح بين 18% و 24%' : 'Target IRR yields spanning 18% to 24% annually'}
                 </span>
               </div>
               <div className="flex gap-3 items-center">
                 <PieChart className="w-5 h-5 text-gold flex-shrink-0" />
-                <span className="text-sm font-semibold text-slate-700">
+                <span className="text-base md:text-lg font-bold text-slate-800 leading-relaxed">
                   {isRTL ? 'محفظة أصول متنوعة وشفافية كاملة عبر برنامج وافي' : 'Diversified asset model with full Wafi regulated disclosure'}
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white p-8 leaf-shape border border-slate-200 shadow-sm">
-            <h3 className="text-lg font-bold text-slate-900 mb-4">
+          <div className="bg-white p-8 md:p-10 leaf-shape border border-slate-200 shadow-sm">
+            <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 mb-6 leading-normal">
               {isRTL ? 'مزايا الشراكة الاستثمارية مع حصص' : 'Advantages of HISAS Alliances'}
             </h3>
-            <ul className="space-y-3 text-xs sm:text-sm text-slate-600">
-              <li className="flex gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+            <ul className="space-y-5 text-base md:text-lg text-slate-700 font-medium leading-loose">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0 mt-3" />
                 <span>{isRTL ? 'دراسات جدوى مالية موثقة ومعتمدة من جهات تقييم مرخصة.' : 'Verified financial feasibility studies from certified valuers.'}</span>
               </li>
-              <li className="flex gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+              <li className="flex gap-3">
+                <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0 mt-3" />
                 <span>{isRTL ? 'تمويل مرن وهياكل استثمارية تناسب كبار المستثمرين والشركات.' : 'Flexible investment brackets custom-structured for family offices and corporates.'}</span>
               </li>
-              <li className="flex gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+              <li className="flex gap-3">
+                <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0 mt-3" />
                 <span>{isRTL ? 'أولوية التملك وحجز الوحدات السكنية بأسعار تفضيلية خلال مرحلة الإطلاق.' : 'First-look priority bookings at preferred early pricing brackets.'}</span>
               </li>
             </ul>

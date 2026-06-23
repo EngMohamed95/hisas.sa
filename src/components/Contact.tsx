@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
           <motion.span 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4 font-sans"
           >
             {t('nav.contact')}
@@ -72,7 +72,7 @@ export const Contact: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
@@ -88,7 +88,7 @@ export const Contact: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-2 space-y-8"
           >
@@ -176,7 +176,7 @@ export const Contact: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, x: isRTL ? -40 : 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-3 p-8 bg-white border border-slate-200 leaf-shape shadow-md"
           >

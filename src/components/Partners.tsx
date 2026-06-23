@@ -26,7 +26,7 @@ export const Partners: React.FC = () => {
         <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4 font-sans"
         >
           {t('partners.title')}
@@ -34,7 +34,7 @@ export const Partners: React.FC = () => {
         <motion.h2
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900"
         >
           {t('partners.subtitle')}

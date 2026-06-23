@@ -71,7 +71,7 @@ export const FeaturedProjects: React.FC = () => {
           <motion.span 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4"
           >
             {t('nav.projects')}
@@ -79,7 +79,7 @@ export const FeaturedProjects: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
@@ -115,7 +115,8 @@ export const FeaturedProjects: React.FC = () => {
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.15 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
                   className="grid lg:grid-cols-12 gap-8 lg:gap-12 bg-white leaf-shape border border-slate-200 p-6 md:p-10 shadow-lg relative items-center"

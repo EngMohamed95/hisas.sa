@@ -41,7 +41,7 @@ export const InvestmentOpportunities: React.FC = () => {
           <motion.span 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4"
           >
             {t('nav.investment')}
@@ -49,7 +49,7 @@ export const InvestmentOpportunities: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
@@ -65,25 +65,25 @@ export const InvestmentOpportunities: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-2 p-8 bg-white leaf-shape border border-slate-200 flex flex-col justify-between shadow-md"
           >
             <div>
-              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-2 leading-normal">
                 <Landmark className="w-5 h-5 text-gold" />
                 <span>{isRTL ? 'تخصيص قيمة الاستثمار' : 'Customize Investment Value'}</span>
               </h3>
 
               {/* Project Toggle */}
               <div className="mb-8">
-                <label className="text-xs text-slate-500 block mb-3 uppercase tracking-wider">
+                <label className="text-sm text-slate-600 font-bold block mb-3 uppercase tracking-wider">
                   {isRTL ? 'اختر علامة المشروع العقاري' : 'Select Project Brand'}
                 </label>
                 <div className="grid grid-cols-2 gap-3 bg-slate-100 p-1 rounded-lg">
                   <button
                     onClick={() => setSelectedProject('narme')}
-                    className={`py-2 px-3 text-xs font-bold rounded-md transition-colors ${
+                    className={`py-3 px-3 text-sm font-bold rounded-md transition-colors ${
                       selectedProject === 'narme'
                         ? 'bg-gold text-white shadow-md'
                         : 'text-slate-700'
@@ -93,7 +93,7 @@ export const InvestmentOpportunities: React.FC = () => {
                   </button>
                   <button
                     onClick={() => setSelectedProject('hsquare')}
-                    className={`py-2 px-3 text-xs font-bold rounded-md transition-colors ${
+                    className={`py-3 px-3 text-sm font-bold rounded-md transition-colors ${
                       selectedProject === 'hsquare'
                         ? 'bg-gold text-white shadow-md'
                         : 'text-slate-700'
@@ -107,10 +107,10 @@ export const InvestmentOpportunities: React.FC = () => {
               {/* Slider Input */}
               <div className="mb-6">
                 <div className="flex justify-between items-center mb-3">
-                  <label className="text-xs text-slate-500 block uppercase tracking-wider">
+                  <label className="text-sm text-slate-600 font-bold block uppercase tracking-wider">
                     {t('invest.calc.label')}
                   </label>
-                  <span className="text-gold font-bold font-sans text-sm">
+                  <span className="text-gold font-bold font-sans text-base">
                     {formatCurrency(investValue)}
                   </span>
                 </div>
@@ -136,7 +136,7 @@ export const InvestmentOpportunities: React.FC = () => {
             <div className="mt-8 border-t border-slate-100 pt-6">
               <div className="flex gap-3 items-start">
                 <ShieldCheck className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-sm md:text-base text-slate-600 leading-loose font-medium">
                   {isRTL 
                     ? 'جميع استثمارات حصص العقارية متوافقة مع أنظمة الهيئة العامة للعقار وهيئة السوق المالية ومرخصة بالكامل عبر نظام وافي للبيع على الخارطة.'
                     : 'All HISAS real estate investment options are fully compliant with the Real Estate General Authority regulations and licensed via the Wafi off-plan registry.'}
@@ -149,7 +149,7 @@ export const InvestmentOpportunities: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, x: isRTL ? -40 : 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-3 p-8 bg-gold/5 text-slate-800 leaf-shape border border-gold/25 shadow-md flex flex-col justify-between"
           >

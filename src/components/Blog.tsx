@@ -39,7 +39,7 @@ export const Blog: React.FC = () => {
           <motion.span 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4 font-sans"
           >
             {isRTL ? 'المقالات والتحليلات' : 'Insights & News'}
@@ -47,7 +47,7 @@ export const Blog: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
@@ -63,7 +63,7 @@ export const Blog: React.FC = () => {
               key={post.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
               className="bg-white leaf-shape border border-slate-200 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
             >

@@ -127,7 +127,7 @@ export const Hero: React.FC = () => {
               className="flex flex-col items-center justify-center text-center"
             >
               {/* Slide Title */}
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight max-w-5xl">
+              <h1 className="hero-slide-title text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight max-w-5xl">
                 {t(slides[currentSlide].titleKey)}{' '}
                 <span className="block mt-2 text-white drop-shadow-[0_3px_16px_rgba(0,0,0,0.75)]">
                   {t(slides[currentSlide].highlightKey)}

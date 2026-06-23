@@ -21,6 +21,7 @@ export const Footer: React.FC = () => {
     { key: 'nav.services', path: '/services' },
     { key: 'nav.projects', path: '/projects' },
     { key: 'nav.investment', path: '/investment' },
+    { key: 'nav.blog', path: '/blog' },
     { key: 'nav.contact', path: '/contact' },
   ];
 

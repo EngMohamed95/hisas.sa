@@ -81,12 +81,13 @@ export const ContactPage: React.FC = () => {
       {/* Page Header */}
       <section 
         className="relative pt-36 pb-24 overflow-hidden bg-cover bg-center border-b border-slate-200/80 text-white"
-        style={{ backgroundImage: "url('/media/contactBg.4c922b1f0bb49a20cde1.jpg')" }}
+        style={{ backgroundImage: "url('/images/nexus_tower_luxury.png')" }}
       >
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-slate-950/40 z-0" />
+        <div className="absolute inset-0 bg-slate-950/55 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/35 to-slate-950/30 z-0" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <span className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
+          <span className="text-white font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
             {t('nav.contact')}
           </span>
           <h1 className="text-3xl md:text-5xl font-bold font-heading text-white">
@@ -108,10 +109,10 @@ export const ContactPage: React.FC = () => {
             viewport={{ once: false }}
             className="lg:col-span-2 space-y-8"
           >
-            <div className="p-8 bg-gold/5 text-slate-800 leaf-shape border border-gold/25 shadow-md relative overflow-hidden">
+            <div className="p-8 md:p-10 bg-gold/5 text-slate-800 leaf-shape border border-gold/25 shadow-md relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-2xl pointer-events-none" />
               
-              <h3 className="text-xl font-bold text-slate-900 mb-6 border-b border-gold/15 pb-3">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-8 border-b border-gold/15 pb-4 leading-normal">
                 {isRTL ? 'تفاصيل الاتصال الرسمية' : 'Official Contact Info'}
               </h3>
 
@@ -122,8 +123,8 @@ export const ContactPage: React.FC = () => {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{t('info.phone')}</span>
-                    <a href="tel:+966555625502" className="text-sm font-semibold font-sans text-slate-700 hover:text-gold transition-colors">
+                    <span className="text-sm text-slate-600 block uppercase tracking-wider font-bold mb-1">{t('info.phone')}</span>
+                    <a href="tel:+966555625502" className="text-base md:text-lg font-bold font-sans text-slate-800 hover:text-gold transition-colors">
                       +966 55 562 5502
                     </a>
                   </div>
@@ -135,8 +136,8 @@ export const ContactPage: React.FC = () => {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{t('info.email')}</span>
-                    <a href="mailto:info@hisas.sa" className="text-sm font-semibold font-sans text-slate-700 hover:text-gold transition-colors">
+                    <span className="text-sm text-slate-600 block uppercase tracking-wider font-bold mb-1">{t('info.email')}</span>
+                    <a href="mailto:info@hisas.sa" className="text-base md:text-lg font-bold font-sans text-slate-800 hover:text-gold transition-colors">
                       info@hisas.sa
                     </a>
                   </div>
@@ -148,8 +149,8 @@ export const ContactPage: React.FC = () => {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{isRTL ? 'العنوان الرئيسي' : 'Headquarters'}</span>
-                    <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                    <span className="text-sm text-slate-600 block uppercase tracking-wider font-bold mb-1">{isRTL ? 'العنوان الرئيسي' : 'Headquarters'}</span>
+                    <p className="text-base md:text-lg text-slate-700 leading-relaxed font-medium">
                       {t('info.address.desc')}
                     </p>
                   </div>
@@ -161,8 +162,8 @@ export const ContactPage: React.FC = () => {
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{t('info.cr')}</span>
-                    <p className="text-sm md:text-base text-slate-700 leading-relaxed font-sans">
+                    <span className="text-sm text-slate-600 block uppercase tracking-wider font-bold mb-1">{t('info.cr')}</span>
+                    <p className="text-base md:text-lg text-slate-800 leading-relaxed font-sans font-bold">
                       7035818439
                     </p>
                   </div>
@@ -178,11 +179,11 @@ export const ContactPage: React.FC = () => {
                   <span className="absolute -inset-3 rounded-full bg-gold/30 animate-ping" />
                   <MapPin className="w-10 h-10 text-gold drop-shadow-lg" />
                 </div>
-                <span className="bg-slate-800 text-gold text-[10px] font-bold py-1.5 px-3 rounded shadow-md mt-3 whitespace-nowrap">
+                <span className="bg-slate-800 text-gold text-sm font-bold py-2 px-4 rounded shadow-md mt-3 whitespace-nowrap">
                   {isRTL ? 'موقع مكاتب حصص' : 'HISAS Executive Offices'}
                 </span>
               </div>
-              <div className="absolute bottom-4 left-4 text-[10px] text-slate-500 font-sans">
+              <div className="absolute bottom-4 left-4 text-xs md:text-sm text-slate-500 font-sans">
                 Riyadh, An Nakheel Dist.
               </div>
             </div>
@@ -193,9 +194,9 @@ export const ContactPage: React.FC = () => {
             initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
-            className="lg:col-span-3 p-6 sm:p-8 bg-white border border-slate-200 leaf-shape shadow-md"
+            className="lg:col-span-3 p-8 md:p-10 bg-white border border-slate-200 leaf-shape shadow-md"
           >
-            <h3 className="text-xl font-bold text-slate-900 mb-6">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-8 leading-normal">
               {isRTL ? 'إرسال طلب استفسار عقاري' : 'Submit Property Inquiry'}
             </h3>
 
@@ -216,7 +217,7 @@ export const ContactPage: React.FC = () => {
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
-                    className="mt-6 px-6 py-2.5 bg-slate-900 text-white font-semibold rounded-lg hover:scale-105 transition-transform"
+                    className="mt-6 px-7 py-3 bg-slate-900 text-white text-base md:text-lg font-bold rounded-lg hover:scale-105 transition-transform"
                   >
                     {isRTL ? 'إرسال رسالة أخرى' : 'Send Another Message'}
                   </button>
@@ -225,14 +226,14 @@ export const ContactPage: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Classification Select */}
                   <div>
-                    <label className="text-xs text-slate-500 block mb-2 uppercase tracking-wider">
+                    <label className="text-sm md:text-base text-slate-600 font-bold block mb-3 uppercase tracking-wider">
                       {t('contact.classification')}
                     </label>
                     <select
                       name="classification"
                       value={formData.classification}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-gold"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-5 py-4 text-base md:text-lg text-slate-800 focus:outline-none focus:border-gold"
                     >
                       <option value="investor">{t('contact.classification.investor')}</option>
                       <option value="buyer">{t('contact.classification.buyer')}</option>
@@ -242,7 +243,7 @@ export const ContactPage: React.FC = () => {
 
                   {/* Name */}
                   <div>
-                    <label className="text-xs text-slate-500 block mb-2 uppercase tracking-wider">
+                    <label className="text-sm md:text-base text-slate-600 font-bold block mb-3 uppercase tracking-wider">
                       {t('contact.name')} *
                     </label>
                     <input
@@ -252,7 +253,7 @@ export const ContactPage: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder={t('contact.name.placeholder')}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-5 py-4 text-base md:text-lg text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold"
                     />
                   </div>
 
@@ -260,7 +261,7 @@ export const ContactPage: React.FC = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Email */}
                     <div>
-                      <label className="text-xs text-slate-500 block mb-2 uppercase tracking-wider">
+                      <label className="text-sm md:text-base text-slate-600 font-bold block mb-3 uppercase tracking-wider">
                         {t('contact.email')} *
                       </label>
                       <input
@@ -270,13 +271,13 @@ export const ContactPage: React.FC = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder={t('contact.email.placeholder')}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-lg px-5 py-4 text-base md:text-lg text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold"
                       />
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label className="text-xs text-slate-500 block mb-2 uppercase tracking-wider">
+                      <label className="text-sm md:text-base text-slate-600 font-bold block mb-3 uppercase tracking-wider">
                         {t('contact.phone')} *
                       </label>
                       <input
@@ -286,14 +287,14 @@ export const ContactPage: React.FC = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder={t('contact.phone.placeholder')}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold text-left font-sans"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-lg px-5 py-4 text-base md:text-lg text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold text-left font-sans"
                       />
                     </div>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="text-xs text-slate-500 block mb-2 uppercase tracking-wider">
+                    <label className="text-sm md:text-base text-slate-600 font-bold block mb-3 uppercase tracking-wider">
                       {t('contact.message')}
                     </label>
                     <textarea
@@ -302,7 +303,7 @@ export const ContactPage: React.FC = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder={t('contact.message.placeholder')}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-5 py-4 text-base md:text-lg text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold"
                     />
                   </div>
 
@@ -311,13 +312,13 @@ export const ContactPage: React.FC = () => {
                     <button
                       disabled={isSubmitting}
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 leaf-shape shadow-md disabled:opacity-50 hover:scale-[1.01] transition-transform cursor-pointer"
+                      className="w-full flex items-center justify-center gap-3 bg-gold-gradient text-white text-base md:text-lg font-extrabold py-4 md:py-5 leaf-shape shadow-md disabled:opacity-50 hover:scale-[1.01] transition-transform cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span className="w-5 h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" />
                       ) : (
                         <>
-                          <Send className="w-4 h-4" />
+                          <Send className="w-5 h-5" />
                           <span>{t('contact.send')}</span>
                         </>
                       )}

@@ -9,13 +9,14 @@ interface SEOProps {
 }
 
 export const SEO: React.FC<SEOProps> = ({ 
+  titleKey = 'hero.title',
   descriptionKey = 'about.text', 
   type = 'website' 
 }) => {
   const { language, t } = useLanguage();
   
   const companyName = language === 'ar' ? 'شركة حصص العقارية | HISAS Real Estate' : 'HISAS Real Estate | Saudi Property Developer';
-  const pageTitle = `${companyName} - ${t('hero.title')}`;
+  const pageTitle = `${companyName} - ${t(titleKey)}`;
   const description = t(descriptionKey);
   
   const keywords = language === 'ar' 

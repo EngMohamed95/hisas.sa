@@ -57,7 +57,7 @@ export const ServicesPage: React.FC = () => {
         {/* Dark overlay for contrast */}
         <div className="absolute inset-0 bg-slate-950/40 z-0" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <span className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
+          <span className="text-white font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3">
             {t('nav.services')}
           </span>
           <h1 className="text-3xl md:text-5xl font-bold font-heading text-white">

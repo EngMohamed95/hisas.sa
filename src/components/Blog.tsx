@@ -1,112 +1,95 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { articles } from '../data/articles';
 
 export const Blog: React.FC = () => {
   const { t, isRTL } = useLanguage();
 
-  const posts = [
-    {
-      id: 1,
-      titleKey: 'blog.1.title',
-      descKey: 'blog.1.desc',
-      readTime: isRTL ? '٤ دقائق قراءة' : '4 min read',
-      badge: isRTL ? 'دراسات السوق' : 'Market Analysis'
-    },
-    {
-      id: 2,
-      titleKey: 'blog.2.title',
-      descKey: 'blog.2.desc',
-      readTime: isRTL ? '٣ دقائق قراءة' : '3 min read',
-      badge: isRTL ? 'أخبار الشركة' : 'Press Release'
-    },
-    {
-      id: 3,
-      titleKey: 'blog.3.title',
-      descKey: 'blog.3.desc',
-      readTime: isRTL ? '٥ دقائق قراءة' : '5 min read',
-      badge: isRTL ? 'ابتكار وتطوير' : 'Sustainability'
-    }
-  ];
-
   return (
     <section id="blog" className="py-24 bg-slate-50 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
-            className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4 font-sans"
+            className="text-gold font-bold tracking-widest uppercase text-lg md:text-xl block mb-5 font-sans"
           >
             {isRTL ? 'المقالات والتحليلات' : 'Insights & News'}
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
+            className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-7 leading-normal"
           >
             {t('blog.subtitle')}
           </motion.h2>
           <div className="w-16 h-[2px] bg-gold-gradient mx-auto" />
         </div>
 
-        {/* Blog Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
-            <motion.article
-              key={post.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="bg-white leaf-shape border border-slate-200 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
-            >
-              <div className="p-8">
-                {/* Meta details */}
-                <div className="flex items-center gap-4 text-xs text-slate-500 mb-4 font-sans">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5 text-gold" />
-                    <span>{t('blog.date')}</span>
+          {articles.map((post, index) => {
+            const content = isRTL ? post.ar : post.en;
+
+            return (
+              <motion.article
+                key={post.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                className="bg-white leaf-shape border border-slate-200 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+              >
+                <div className="p-8 md:p-9">
+                  <div className="flex items-center gap-4 text-sm text-slate-500 mb-5 font-sans">
+                    <div className="flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4 text-gold" />
+                      <span>{content.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Clock className="w-4 h-4 text-gold" />
+                      <span>{content.readTime}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-gold" />
-                    <span>{post.readTime}</span>
-                  </div>
+
+                  <span className="inline-block bg-slate-50 text-gold text-xs font-bold uppercase px-3 py-1.5 rounded-md mb-5 border border-slate-200">
+                    {content.badge}
+                  </span>
+
+                  <h3 className="text-2xl font-extrabold text-slate-900 mb-4 line-clamp-3 leading-normal group-hover:text-gold transition-colors duration-300">
+                    {content.title}
+                  </h3>
+
+                  <p className="text-slate-600 text-base md:text-lg leading-loose line-clamp-3">
+                    {content.excerpt}
+                  </p>
                 </div>
 
-                {/* Badge */}
-                <span className="inline-block bg-slate-50 text-gold text-[10px] font-bold uppercase px-2.5 py-1 rounded-md mb-4 border border-slate-200">
-                  {post.badge}
-                </span>
-
-                {/* Title */}
-                <h3 className="text-lg font-bold text-slate-900 mb-3 line-clamp-2 leading-snug group-hover:text-gold transition-colors duration-300">
-                  {t(post.titleKey)}
-                </h3>
-
-                {/* Description */}
-                <p className="text-slate-600 text-xs md:text-sm leading-relaxed line-clamp-3">
-                  {t(post.descKey)}
-                </p>
-              </div>
-
-              {/* Call to action footer */}
-              <div className="px-8 pb-8 pt-4 border-t border-slate-100">
-                <div className="flex items-center gap-1 text-gold font-bold text-xs group-hover:translate-x-1 transition-transform">
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="px-8 md:px-9 pb-8 pt-5 border-t border-slate-100 flex items-center gap-2 text-gold font-extrabold text-base group-hover:gap-3 transition-all"
+                >
                   <span>{t('blog.readMore')}</span>
-                  <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
-                </div>
-              </div>
-            </motion.article>
-          ))}
+                  <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
+                </Link>
+              </motion.article>
+            );
+          })}
         </div>
 
+        <div className="mt-12 text-center">
+          <Link
+            to="/blog"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gold-gradient text-white font-extrabold leaf-shape shadow-md hover:scale-[1.02] transition-transform"
+          >
+            {isRTL ? 'عرض كل المقالات' : 'View All Articles'}
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -23,7 +23,7 @@ export const AboutPage: React.FC = () => {
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
-            className="text-gold font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3"
+            className="text-white font-bold tracking-widest uppercase text-xs sm:text-sm block mb-3"
           >
             {t('nav.about')}
           </motion.span>
@@ -91,7 +91,7 @@ export const AboutPage: React.FC = () => {
             <span className="text-gold font-bold tracking-[0.12em] uppercase text-base md:text-lg block mb-4">
               {t('about.title')}
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-normal tracking-[0.03em]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-normal tracking-[0.03em]">
               {t('about.subtitle')}
             </h2>
             <p className="text-slate-600 leading-relaxed text-lg md:text-xl lg:text-2xl mb-8">

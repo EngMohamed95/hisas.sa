@@ -59,9 +59,6 @@ export const Navbar: React.FC = () => {
     };
 
     frame();
-    
-    // Simulate file download
-    alert(language === 'ar' ? 'جاري تحميل الملف التعريفي لشركة حصص العقارية...' : 'Downloading HISAS Real Estate profile...');
   };
 
   const navLinks = [
@@ -70,6 +67,7 @@ export const Navbar: React.FC = () => {
     { key: 'nav.services', path: '/services' },
     { key: 'nav.projects', path: '/projects' },
     { key: 'nav.investment', path: '/investment' },
+    { key: 'nav.blog', path: '/blog' },
     { key: 'nav.contact', path: '/contact' },
   ];
 
@@ -134,13 +132,15 @@ export const Navbar: React.FC = () => {
           </button>
 
           {/* Download PDF Button */}
-          <button
+          <a
+            href="/company-profile.pdf"
+            download="HISAS-company-profile.pdf"
             onClick={handleDownloadProfile}
             className="flex items-center gap-2 bg-gold-gradient text-white font-semibold px-5 py-2.5 rounded-lg shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 hover:shadow-gold/20"
           >
             <ArrowDownToLine className="w-4 h-4" />
             <span>{t('nav.downloadProfile')}</span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Action */}
@@ -189,13 +189,18 @@ export const Navbar: React.FC = () => {
                   {t(link.key)}
                 </Link>
               ))}
-              <button
-                onClick={handleDownloadProfile}
+              <a
+                href="/company-profile.pdf"
+                download="HISAS-company-profile.pdf"
+                onClick={() => {
+                  handleDownloadProfile();
+                  setIsMobileMenuOpen(false);
+                }}
                 className="flex items-center justify-center gap-2 bg-gold-gradient text-white font-bold w-full py-3.5 rounded-lg shadow-lg"
               >
                 <ArrowDownToLine className="w-5 h-5" />
                 <span>{t('nav.downloadProfile')}</span>
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

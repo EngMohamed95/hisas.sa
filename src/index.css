@@ -66,16 +66,16 @@
 @layer base {
   body {
     @apply antialiased overflow-x-hidden text-slate-800 dark:text-slate-100 bg-white dark:bg-luxury-darkBg;
-    font-family: 'iwanzaza', 'Inter', 'Manrope', 'Montserrat', sans-serif;
+    font-family: 'NotoKufi', 'iwanzaza', 'Inter', 'Manrope', 'Montserrat', sans-serif;
   }
   
   /* Set specific typography font list when language matches Arabic */
   [dir="rtl"] body, .rtl body, :lang(ar) {
-    font-family: 'iwanzaza', 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+    font-family: 'NotoKufi', 'iwanzaza', 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6, .font-heading {
-    font-family: 'iwanzaza', 'Inter', 'Manrope', 'PlusJakartaSans', sans-serif;
+    font-family: 'NotoKufi', 'iwanzaza', 'Inter', 'Manrope', 'PlusJakartaSans', sans-serif;
     @apply tracking-tight;
   }
 
@@ -84,10 +84,34 @@
   .rtl h1, .rtl h2, .rtl h3, .rtl h4, .rtl h5, .rtl h6,
   :lang(ar) h1, :lang(ar) h2, :lang(ar) h3, :lang(ar) h4, :lang(ar) h5, :lang(ar) h6,
   [dir="rtl"] .font-heading, .rtl .font-heading, :lang(ar) .font-heading {
-    font-family: 'iwanzaza', 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+    font-family: 'NotoKufi', 'iwanzaza', 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
     letter-spacing: 0.01em;
     line-height: 1.45;
     word-spacing: 0.04em;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 22px !important;
+}
+
+p {
+  font-size: 16px !important;
+}
+
+.hero-slide-title {
+  font-size: 36px !important;
+}
+
+@media (min-width: 768px) {
+  .hero-slide-title {
+    font-size: 60px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-slide-title {
+    font-size: 72px !important;
   }
 }
 

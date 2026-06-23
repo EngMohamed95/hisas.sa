@@ -101,7 +101,7 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-normal tracking-[0.03em]"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-normal tracking-[0.03em]"
             >
               {t('about.subtitle')}
             </motion.h2>

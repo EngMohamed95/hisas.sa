@@ -20,6 +20,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.whyUs': 'لماذا حصص',
     'nav.projects': 'مشاريعنا',
     'nav.investment': 'الاستثمار',
+    'nav.blog': 'المقالات',
     'nav.contact': 'تواصل معنا',
     'nav.downloadProfile': 'تحميل الملف التعريفي',
     
@@ -185,6 +186,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.whyUs': 'Why HISAS',
     'nav.projects': 'Our Projects',
     'nav.investment': 'Investment',
+    'nav.blog': 'Articles',
     'nav.contact': 'Contact Us',
     'nav.downloadProfile': 'Download Profile',
     

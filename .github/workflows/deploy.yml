@@ -32,6 +32,9 @@ jobs:
       - name: Build Project
         run: npm run build
 
+      - name: Skip large profile PDF in deploy
+        run: rm -f dist/company-profile.pdf
+
       - name: Deploy files via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         timeout-minutes: 10

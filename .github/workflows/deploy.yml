@@ -32,9 +32,6 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Check SFTP connection
-        run: nc -vz -w 20 "${{ secrets.FTP_SERVER }}" "${{ env.DEPLOY_PORT }}"
-
       - name: Deploy files via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         timeout-minutes: 10

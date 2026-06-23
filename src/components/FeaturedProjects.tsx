@@ -124,7 +124,7 @@ export const FeaturedProjects: React.FC = () => {
                   {/* Left Column - Large Image Showcase (5 Columns) with Thumbnail Selector */}
                   <div className="lg:col-span-5 w-full flex flex-col gap-4">
                     <div className="w-full overflow-hidden relative leaf-shape group">
-                      <div className="aspect-[3/4] w-full overflow-hidden relative bg-slate-950">
+                      <div className="aspect-[4/3] sm:aspect-[3/4] w-full overflow-hidden relative bg-slate-950">
                         <img
                           src={currentImage}
                           alt={t(project.brandKey)}
@@ -161,7 +161,7 @@ export const FeaturedProjects: React.FC = () => {
                   <div className={`lg:col-span-7 flex flex-col justify-between ${isRTL ? 'text-right' : 'text-left'}`}>
                     <div>
                       {project.logo && (
-                        <div className="mb-4 h-12 flex items-center justify-start">
+                        <div className={`mb-4 h-12 flex items-center ${isRTL ? 'justify-end' : 'justify-start'}`}>
                           <img src={project.logo} alt="Project Logo" className="h-full object-contain" />
                         </div>
                       )}
@@ -176,12 +176,12 @@ export const FeaturedProjects: React.FC = () => {
                     </p>
 
                     {/* Metrics Box Grid */}
-                    <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
                       <div className="bg-slate-50 p-4 leaf-shape border border-slate-200 shadow-sm">
                         <span className="text-[10px] text-slate-500 block mb-1 uppercase font-semibold">{t('projects.location.label')}</span>
                         <div className="flex items-center gap-1.5 font-bold text-slate-800 text-xs sm:text-sm">
                           <Compass className="w-4 h-4 text-gold flex-shrink-0" />
-                          <span className="truncate">{t(project.locationKey)}</span>
+                          <span className="min-w-0 break-words">{t(project.locationKey)}</span>
                         </div>
                       </div>
 
@@ -203,8 +203,8 @@ export const FeaturedProjects: React.FC = () => {
 
                       <div className="bg-slate-50 p-4 leaf-shape border border-slate-200 shadow-sm">
                         <span className="text-[10px] text-slate-500 block mb-1 uppercase font-semibold">{t('projects.status.label')}</span>
-                        <span className="text-[10px] font-bold px-2 py-0.5 bg-gold/15 text-gold border border-gold/30 rounded inline-block truncate">
-                          {t(project.statusKey)}
+                        <span className="text-[10px] font-bold px-2 py-0.5 bg-gold/15 text-gold border border-gold/30 rounded inline-block">
+                          <span className="break-words">{t(project.statusKey)}</span>
                         </span>
                       </div>
                     </div>

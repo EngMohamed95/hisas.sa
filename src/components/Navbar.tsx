@@ -83,13 +83,13 @@ export const Navbar: React.FC = () => {
         style={{ width: `${scrollProgress}%`, right: isRTL ? 0 : 'auto', left: isRTL ? 'auto' : 0 }} 
       />
 
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img 
             src={showWhiteText ? whiteLogoSrc : blackLogoSrc} 
             alt="HISAS Logo" 
-            className={`${showWhiteText ? 'h-16' : 'h-11'} w-auto transition-all duration-300`}
+            className={`${showWhiteText ? 'h-14 sm:h-16' : 'h-10 sm:h-11'} max-w-[185px] sm:max-w-none w-auto transition-all duration-300`}
           />
         </Link>
 
@@ -144,7 +144,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Action */}
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={toggleLanguage}
             className={`p-2 rounded-full transition-colors ${
@@ -178,13 +178,13 @@ export const Navbar: React.FC = () => {
             transition={{ duration: 0.3 }}
             className="lg:hidden w-full border-t border-slate-200 dark:border-slate-800 glass-nav overflow-hidden shadow-2xl"
           >
-            <div className="px-6 py-6 flex flex-col gap-5">
+            <div className="px-4 py-5 flex flex-col gap-3 max-h-[calc(100vh-72px)] overflow-y-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.key}
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-gold dark:hover:text-gold transition-colors py-2 block"
+                  className="text-base font-bold text-slate-800 dark:text-slate-200 hover:text-gold dark:hover:text-gold transition-colors py-2.5 block"
                 >
                   {t(link.key)}
                 </Link>

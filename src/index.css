@@ -115,6 +115,84 @@ p {
   }
 }
 
+@media (max-width: 640px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-24 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .py-20 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  .pt-36 {
+    padding-top: 6.5rem !important;
+  }
+
+  .pb-24,
+  .pb-20 {
+    padding-bottom: 4rem !important;
+  }
+
+  .gap-16,
+  .gap-12,
+  .gap-10,
+  .gap-8 {
+    gap: 1.5rem !important;
+  }
+
+  .mb-24,
+  .mb-16 {
+    margin-bottom: 3rem !important;
+  }
+
+  .mt-24,
+  .mt-20,
+  .mt-16 {
+    margin-top: 3rem !important;
+  }
+
+  .p-8,
+  .md\:p-10,
+  .md\:p-12 {
+    padding: 1.25rem !important;
+  }
+
+  .leaf-shape {
+    border-top-left-radius: 1.5rem !important;
+    border-bottom-right-radius: 1.5rem !important;
+  }
+
+  .leaf-shape-lg {
+    border-top-left-radius: 2.5rem !important;
+    border-bottom-right-radius: 2.5rem !important;
+  }
+
+  .hero-slide-title {
+    font-size: 32px !important;
+    line-height: 1.35 !important;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 /* Custom premium scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

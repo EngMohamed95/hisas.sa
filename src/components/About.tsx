@@ -205,7 +205,7 @@ export const About: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.15 }}
           transition={{ duration: 0.8 }}
-          className="relative mt-24 md:mt-32 w-full bg-[#012d35] text-white py-12 md:py-16 px-6 md:px-12 leaf-shape-lg overflow-visible border border-gold/25 shadow-2xl"
+          className="relative mt-20 md:mt-32 w-full bg-[#012d35] text-white py-10 md:py-16 px-4 sm:px-6 md:px-12 leaf-shape-lg overflow-hidden md:overflow-visible border border-gold/25 shadow-2xl"
         >
           {/* Background Image Overlay (clipped to leaf-shape-lg) */}
           <div className="absolute inset-0 overflow-hidden z-0 leaf-shape-lg">
@@ -217,28 +217,28 @@ export const About: React.FC = () => {
           </div>
 
           {/* Content Grid */}
-          <div className="grid md:grid-cols-12 gap-8 items-center w-full relative z-10" dir="ltr">
+          <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-center w-full relative z-10" dir="ltr">
             {/* Text column - occupies 7-8 cols on desktop to prevent overlap */}
-            <div className={`col-span-12 md:col-span-6 lg:col-span-7 xl:col-span-6 flex flex-col justify-center ${isRTL ? 'text-right md:pr-8 lg:pr-12' : 'text-left md:pl-8 lg:pl-12'}`} dir={isRTL ? "rtl" : "ltr"}>
-              <span className="text-slate-300 font-bold uppercase tracking-widest text-xs sm:text-sm block mb-2">
+            <div className={`col-span-12 md:col-span-6 lg:col-span-7 xl:col-span-6 flex flex-col justify-center ${isRTL ? 'text-center md:text-right md:pr-8 lg:pr-12' : 'text-center md:text-left md:pl-8 lg:pl-12'}`} dir={isRTL ? "rtl" : "ltr"}>
+              <span className="text-slate-300 font-bold uppercase tracking-widest text-xs sm:text-sm block mb-3">
                 {t('ceo.title')}
               </span>
-              <h4 className="text-2xl sm:text-4xl font-black text-[#b69f6a] mb-6 font-heading leading-tight">
+              <h4 className="text-[22px] sm:text-3xl md:text-4xl font-black text-[#b69f6a] mb-5 md:mb-6 font-heading leading-normal">
                 {t('ceo.name')}
               </h4>
-              <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-6 font-normal max-w-xl opacity-95">
+              <p className="text-slate-200 leading-loose mb-6 font-normal max-w-none md:max-w-xl opacity-95">
                 "{t('ceo.text')}"
               </p>
-              <div className="border-t border-white/10 pt-4 mt-2 max-w-md">
-                <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+              <div className="border-t border-white/10 pt-4 mt-2 max-w-full md:max-w-md">
+                <p className="text-slate-400 font-semibold tracking-wide leading-relaxed break-words">
                   {isRTL ? 'الرئيس التنفيذي - شركة حصص العقارية' : 'Chief Executive Officer - HISAS Real Estate'}
                 </p>
               </div>
             </div>
 
             {/* Mobile placeholder image (no overlap) */}
-            <div className="col-span-12 flex justify-center md:hidden mt-6">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-2 border-[#b69f6a]/40 bg-[#02464f]/40 shadow-lg">
+            <div className="col-span-12 flex justify-center md:hidden mt-4">
+              <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-[#b69f6a]/40 bg-[#02464f]/40 shadow-lg">
                 <img 
                   src="/media/ceo.9ff3399b9d75f987441a.png" 
                   alt={t('ceo.name')} 

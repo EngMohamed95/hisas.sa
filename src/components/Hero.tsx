@@ -91,9 +91,10 @@ export const Hero: React.FC = () => {
         loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/hero_video.mp4" type="video/mp4" />
+        <source src="/new.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -107,7 +108,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-6 px-4 py-1.5 rounded-full border border-gold/30 bg-white/10 backdrop-blur-md text-gold text-xs font-semibold uppercase tracking-widest flex items-center gap-2 shadow-sm"
+          className="mb-6 px-4 py-1.5 rounded-full border border-white/25 bg-slate-950/35 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-widest flex items-center gap-2 shadow-sm"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>{t('info.address.title')}</span>
@@ -127,7 +128,7 @@ export const Hero: React.FC = () => {
               {/* Slide Title */}
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight max-w-5xl">
                 {t(slides[currentSlide].titleKey)}{' '}
-                <span className="text-gold-gradient block mt-2">
+                <span className="block mt-2 text-white drop-shadow-[0_3px_16px_rgba(0,0,0,0.75)]">
                   {t(slides[currentSlide].highlightKey)}
                 </span>
               </h1>

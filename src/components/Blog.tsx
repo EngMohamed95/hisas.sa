@@ -40,7 +40,7 @@ export const Blog: React.FC = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-gold font-bold tracking-widest uppercase text-sm block mb-3 font-sans"
+            className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4 font-sans"
           >
             {isRTL ? 'المقالات والتحليلات' : 'Insights & News'}
           </motion.span>
@@ -65,7 +65,7 @@ export const Blog: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="bg-white rounded-xl border border-slate-200 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
+              className="bg-white leaf-shape border border-slate-200 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
             >
               <div className="p-8">
                 {/* Meta details */}

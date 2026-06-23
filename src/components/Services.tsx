@@ -29,14 +29,6 @@ export const Services: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-gold font-bold tracking-widest uppercase text-sm block mb-3"
-          >
-            {t('nav.services')}
-          </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +36,7 @@ export const Services: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight"
           >
-            {t('services.subtitle')}
+            {t('nav.services')}
           </motion.h2>
           <div className="w-16 h-[2px] bg-gold-gradient mx-auto" />
         </div>
@@ -52,20 +44,20 @@ export const Services: React.FC = () => {
         {/* Services Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
+             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
               whileHover={{ y: -8 }}
-              className="glass-card p-8 rounded-xl relative group transition-all duration-300 overflow-hidden hover:border-gold/50 cursor-pointer"
+              className="glass-card p-8 leaf-shape relative group transition-all duration-300 overflow-hidden hover:border-gold/50 cursor-pointer"
             >
               {/* Background gradient hint on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Animated Icon Ring */}
-              <div className="w-16 h-16 rounded-xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold-gradient transition-all duration-500 p-3.5">
+              <div className="w-16 h-16 leaf-shape bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold-gradient transition-all duration-500 p-3.5">
                 <img 
                   src={service.icon} 
                   alt="" 

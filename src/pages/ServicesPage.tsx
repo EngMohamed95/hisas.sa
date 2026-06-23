@@ -80,10 +80,10 @@ export const ServicesPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="bg-white rounded-2xl border border-slate-200 p-8 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white leaf-shape border border-slate-200 p-8 shadow-md hover:shadow-xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-6">
+                  <div className="w-12 h-12 leaf-shape bg-gold/10 flex items-center justify-center text-gold mb-6">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
@@ -110,7 +110,7 @@ export const ServicesPage: React.FC = () => {
         </div>
 
         {/* Development Lifecycle Road */}
-        <div className="bg-white p-8 md:p-12 rounded-2xl border border-slate-200 shadow-lg">
+        <div className="bg-white p-8 md:p-12 leaf-shape-lg border border-slate-200 shadow-lg">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               {isRTL ? 'منهجية التطوير في حصص' : 'Development Lifecycle Methodology'}
@@ -163,7 +163,7 @@ export const ServicesPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-gold/5 text-slate-800 p-8 rounded-2xl border border-gold/25 shadow-md relative overflow-hidden">
+          <div className="bg-gold/5 text-slate-800 p-8 leaf-shape border border-gold/25 shadow-md relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-2xl pointer-events-none" />
             <h4 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-gold" />

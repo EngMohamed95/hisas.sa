@@ -65,7 +65,7 @@ export const Contact: React.FC = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-gold font-bold tracking-widest uppercase text-sm block mb-3 font-sans"
+            className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4 font-sans"
           >
             {t('nav.contact')}
           </motion.span>
@@ -92,7 +92,7 @@ export const Contact: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-2 space-y-8"
           >
-            <div className="p-8 bg-gold/5 text-slate-800 rounded-2xl border border-gold/25 shadow-md relative overflow-hidden">
+            <div className="p-8 bg-gold/5 text-slate-800 leaf-shape border border-gold/25 shadow-md relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-2xl pointer-events-none" />
               
               <h3 className="text-xl font-bold text-slate-900 mb-6 border-b border-gold/15 pb-3">
@@ -102,7 +102,7 @@ export const Contact: React.FC = () => {
               <div className="space-y-6">
                 {/* Phone */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
+                  <div className="w-10 h-10 leaf-shape bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -115,7 +115,7 @@ export const Contact: React.FC = () => {
 
                 {/* Email */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
+                  <div className="w-10 h-10 leaf-shape bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -128,7 +128,7 @@ export const Contact: React.FC = () => {
 
                 {/* Address */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
+                  <div className="w-10 h-10 leaf-shape bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -141,7 +141,7 @@ export const Contact: React.FC = () => {
 
                 {/* CR */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
+                  <div className="w-10 h-10 leaf-shape bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
@@ -155,14 +155,14 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Simulated Interactive HQ Map */}
-            <div className="aspect-[4/3] rounded-2xl border border-slate-200 bg-white p-4 relative overflow-hidden group shadow-md">
+            <div className="aspect-[4/3] leaf-shape border border-slate-200 bg-white p-4 relative overflow-hidden group shadow-md">
               <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:16px_16px]" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                 <div className="relative">
                   <span className="absolute -inset-3 rounded-full bg-gold/30 animate-ping" />
                   <MapPin className="w-10 h-10 text-gold drop-shadow-lg" />
                 </div>
-                <span className="bg-slate-800 text-gold text-[10px] font-bold py-1.5 px-3 rounded shadow-md mt-3 whitespace-nowrap">
+                <span className="bg-slate-800 text-white text-[10px] font-bold py-1.5 px-3 rounded shadow-md mt-3 whitespace-nowrap">
                   {isRTL ? 'موقع مكاتب حصص' : 'HISAS Executive Offices'}
                 </span>
               </div>
@@ -178,7 +178,7 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-3 p-8 bg-white border border-slate-200 rounded-2xl shadow-md"
+            className="lg:col-span-3 p-8 bg-white border border-slate-200 leaf-shape shadow-md"
           >
             <h3 className="text-xl font-bold text-slate-900 mb-6">
               {isRTL ? 'إرسال طلب استفسار' : 'Submit Inquiry Request'}
@@ -190,7 +190,7 @@ export const Contact: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  className="p-8 text-center bg-emerald-500/10 border border-emerald-500/30 rounded-xl"
+                  className="p-8 text-center bg-emerald-500/10 border border-emerald-500/30 leaf-shape"
                 >
                   <CheckCircle2 className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
                   <h4 className="text-xl font-bold text-slate-900 mb-3">
@@ -296,7 +296,7 @@ export const Contact: React.FC = () => {
                     <button
                       disabled={isSubmitting}
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 rounded-lg shadow-xl disabled:opacity-50 hover:scale-[1.01] transition-transform cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 leaf-shape shadow-xl disabled:opacity-50 hover:scale-[1.01] transition-transform cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span className="w-5 h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" />

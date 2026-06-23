@@ -85,6 +85,9 @@
   :lang(ar) h1, :lang(ar) h2, :lang(ar) h3, :lang(ar) h4, :lang(ar) h5, :lang(ar) h6,
   [dir="rtl"] .font-heading, .rtl .font-heading, :lang(ar) .font-heading {
     font-family: 'iwanzaza', 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+    letter-spacing: 0.01em;
+    line-height: 1.45;
+    word-spacing: 0.04em;
   }
 }
 
@@ -109,6 +112,21 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #b69f6a;
+}
+
+/* Leaf Shape Border Radius Utilities */
+.leaf-shape {
+  border-top-left-radius: 2rem !important;
+  border-bottom-right-radius: 2rem !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.leaf-shape-lg {
+  border-top-left-radius: 5rem !important;
+  border-bottom-right-radius: 5rem !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
 /* Luxury Glassmorphism Utilities */

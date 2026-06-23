@@ -6,11 +6,11 @@ export const Partners: React.FC = () => {
   const { t } = useLanguage();
 
   const partners = [
-    { name: 'Eastern Province Development', arName: 'هيئة تطوير المنطقة الشرقية', initial: 'E' },
-    { name: 'Wafi Program Registry', arName: 'برنامج وافي للبيع على الخارطة', initial: 'W' },
-    { name: 'Sharqia Municipality Authority', arName: 'أمانة المنطقة الشرقية', initial: 'M' },
-    { name: 'Al Rowad Wael Design', arName: 'الرواد / وائل ديزاين', initial: 'D' },
-    { name: 'Rkaz Aljesser Real Estate', arName: 'ركاز الجسر للاستثمار', initial: 'R' }
+    { name: 'Wafi Program Registry', logo: '/media/partners/wafi.png' },
+    { name: 'Sharqia Municipality Authority', logo: '/media/partners/sharqia-municipality.png' },
+    { name: 'Al Rowad Wael Design', logo: '/media/partners/wael-design.png' },
+    { name: 'Rkaz Aljesser Real Estate', logo: '/media/partners/rkaz-aljesser.png' },
+    { name: 'Sharqia Development Authority', logo: '/media/partners/sharqia-development-authority.png' }
   ];
 
   // Duplicate for seamless infinite marquee scroll loop
@@ -23,15 +23,15 @@ export const Partners: React.FC = () => {
       <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 mb-12 text-center relative z-10">
-        <motion.span 
+        <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-gold font-bold tracking-widest uppercase text-xs block mb-3 font-sans"
+          className="text-gold font-bold tracking-widest uppercase text-base md:text-lg block mb-4 font-sans"
         >
           {t('partners.title')}
         </motion.span>
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -47,22 +47,14 @@ export const Partners: React.FC = () => {
           {marqueeItems.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 px-8 py-5 bg-white border border-slate-200 rounded-xl hover:border-gold/45 transition-colors duration-300 shadow-sm"
+              className="flex h-36 w-44 md:w-52 items-center justify-center bg-white leaf-shape hover:shadow-lg transition-all duration-300 shadow-sm"
             >
-              {/* Gold initial emblem */}
-              <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center border border-gold/20 flex-shrink-0">
-                <span className="text-gold font-extrabold text-lg font-sans">
-                  {partner.initial}
-                </span>
-              </div>
-              <div className="flex flex-col items-start">
-                <span className="text-sm font-bold text-slate-800 font-sans tracking-wide">
-                  {partner.name}
-                </span>
-                <span className="text-[10px] text-slate-400 font-arabic tracking-normal mt-0.5">
-                  {partner.arName}
-                </span>
-              </div>
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="max-h-20 max-w-[78%] object-contain"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>

@@ -108,7 +108,7 @@ export const ContactPage: React.FC = () => {
             viewport={{ once: true }}
             className="lg:col-span-2 space-y-8"
           >
-            <div className="p-8 bg-gold/5 text-slate-800 rounded-2xl border border-gold/25 shadow-md relative overflow-hidden">
+            <div className="p-8 bg-gold/5 text-slate-800 leaf-shape border border-gold/25 shadow-md relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-2xl pointer-events-none" />
               
               <h3 className="text-xl font-bold text-slate-900 mb-6 border-b border-gold/15 pb-3">
@@ -118,7 +118,7 @@ export const ContactPage: React.FC = () => {
               <div className="space-y-6">
                 {/* Phone */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
+                  <div className="w-10 h-10 leaf-shape bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -131,7 +131,7 @@ export const ContactPage: React.FC = () => {
 
                 {/* Email */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
+                  <div className="w-10 h-10 leaf-shape bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -144,7 +144,7 @@ export const ContactPage: React.FC = () => {
 
                 {/* Address */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
+                  <div className="w-10 h-10 leaf-shape bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -157,7 +157,7 @@ export const ContactPage: React.FC = () => {
 
                 {/* CR */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
+                  <div className="w-10 h-10 leaf-shape bg-gold/10 flex items-center justify-center text-gold border border-gold/20 flex-shrink-0">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
@@ -171,7 +171,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* HQ Map Indicator */}
-            <div className="aspect-[4/3] rounded-2xl border border-slate-200 bg-white p-4 relative overflow-hidden group shadow-md">
+            <div className="aspect-[4/3] leaf-shape border border-slate-200 bg-white p-4 relative overflow-hidden group shadow-md">
               <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:16px_16px]" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                 <div className="relative">
@@ -193,7 +193,7 @@ export const ContactPage: React.FC = () => {
             initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-3 p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-md"
+            className="lg:col-span-3 p-6 sm:p-8 bg-white border border-slate-200 leaf-shape shadow-md"
           >
             <h3 className="text-xl font-bold text-slate-900 mb-6">
               {isRTL ? 'إرسال طلب استفسار عقاري' : 'Submit Property Inquiry'}
@@ -205,7 +205,7 @@ export const ContactPage: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  className="p-8 text-center bg-emerald-500/10 border border-emerald-500/30 rounded-xl"
+                  className="p-8 text-center bg-emerald-500/10 border border-emerald-500/30 leaf-shape"
                 >
                   <CheckCircle2 className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
                   <h4 className="text-xl font-bold text-slate-900 mb-3">
@@ -311,7 +311,7 @@ export const ContactPage: React.FC = () => {
                     <button
                       disabled={isSubmitting}
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 rounded-lg shadow-md disabled:opacity-50 hover:scale-[1.01] transition-transform cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 leaf-shape shadow-md disabled:opacity-50 hover:scale-[1.01] transition-transform cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span className="w-5 h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" />

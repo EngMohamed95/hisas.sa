@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Building, Activity, X, Compass, ChevronRight, SlidersHorizontal } from 'lucide-react';
+import { Building, Activity, Compass, ChevronRight, SlidersHorizontal } from 'lucide-react';
 import { SEO } from '../components/SEO';
 
 interface Project {
@@ -19,13 +20,14 @@ interface Project {
     ar: string[];
     en: string[];
   };
+  logo?: string;
 }
 
 export const ProjectsPage: React.FC = () => {
   const { t, isRTL } = useLanguage();
-  const [filter, setFilter] = useState<'all' | 'single' | 'cluster'>('all');
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
-  const [activeImgIndex, setActiveImgIndex] = useState(0);
+  const navigate = useNavigate();
+  const [filter, setFilter] = useState<'single' | 'cluster'>('single');
+  const [activeImages, setActiveImages] = useState<Record<number, string>>({});
 
   const projectsList: Project[] = [
     {
@@ -33,9 +35,9 @@ export const ProjectsPage: React.FC = () => {
       category: 'single',
       brandKey: 'projects.brand.alvera',
       descKey: 'projects.brand.alvera.desc',
-      image: '/images/alvera_tower_luxury.png',
+      image: '/media/project1_1.ef2b9d45d51c07165a83.jpg',
       images: [
-        '/images/alvera_tower_luxury.png',
+        '/media/project1_1.ef2b9d45d51c07165a83.jpg',
         '/media/project1_2.c84732b8d920fc7e373c.jpg',
         '/media/project1_3.efc7860b465b8a3c3c49.jpg'
       ],
@@ -44,8 +46,8 @@ export const ProjectsPage: React.FC = () => {
       roi: '18.4%',
       statusKey: 'projects.status.active',
       specs: {
-        ar: ['إطلالة بحرية كاملة ومباشرة على كورنيش الخبر', 'تصميم عصري جريء بارتفاع شاهق ونوعي', 'مواصفات تشطيبات فاخرة للغاية (درجة ممتازة)', 'أنظمة ذكية لإدارة الطاقة والتحكم المنزلي'],
-        en: ['Full & direct waterfront views on Al-Khobar Corniche', 'Bold high-rise modern architecture design', 'Super luxury finishes of premium grade materials', 'Smart energy-saving and home automation systems']
+        ar: ['إطلالة بحرية كاملة ومباشرة على كورنيش الخبر', 'تصميم معماري عصري فريد ومبتكر', 'تشطيبات فاخرة بأعلى معايير الجودة العالمية', 'أنظمة منزلية ذكية متكاملة وموفرة للطاقة'],
+        en: ['Full and direct waterfront views on Al-Khobar Corniche', 'Unique and innovative modern architectural design', 'Premium luxury finishes with highest international standards', 'Integrated smart home and energy-saving systems']
       }
     },
     {
@@ -53,9 +55,9 @@ export const ProjectsPage: React.FC = () => {
       category: 'cluster',
       brandKey: 'projects.brand.nexus',
       descKey: 'projects.brand.nexus.desc',
-      image: '/images/nexus_tower_luxury.png',
+      image: '/media/project2_1.b7b422fe98293d6a3c2e.jpg',
       images: [
-        '/images/nexus_tower_luxury.png',
+        '/media/project2_1.b7b422fe98293d6a3c2e.jpg',
         '/media/project2_2.91ad708de53284847b8b.jpg',
         '/media/project2_3.7f2805650cc7b0517eef.jpg'
       ],
@@ -64,31 +66,15 @@ export const ProjectsPage: React.FC = () => {
       roi: '22.8%',
       statusKey: 'projects.status.upcoming',
       specs: {
-        ar: ['موقع استراتيجي متميز في حي النخيل بالرياض', 'مجمع متكامل يضم 2 إلى 6 أبراج سكنية ذكية', 'مناطق ترفيهية وخدمات مشتركة خاصة بالنخبة', 'مواقف سيارات تحت الأرض مجهزة بمحطات شحن'],
-        en: ['Strategic landmark location in Al-Nakheel, Riyadh', 'Integrated complex comprising 2 to 6 smart residential towers', 'Dedicated leisure facilities & premium clubhouses', 'Underground parking equipped with EV chargers']
-      }
+        ar: ['موقع استراتيجي نادر في حي النخيل بالرياض', 'مجمع سكني ذكي يضم أبراجاً متكاملة الخدمات', 'مرافق ترفيهية وصحية خاصة واستثنائية', 'مواقف سيارات مجهزة بمحطات شحن كهربائية'],
+        en: ['Rare strategic location in Al-Nakheel, Riyadh', 'Smart residential complex with full-service towers', 'Private and exceptional health and leisure facilities', 'Underground parking equipped with EV charging stations']
+      },
+      logo: '/media/projectLogo2.6d1e741685f74dde03e9.png'
     }
   ];
 
-  const handleOpenProject = (project: Project) => {
-    setActiveImgIndex(0);
-    setActiveProject(project);
-  };
-
-  const handlePrevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!activeProject) return;
-    setActiveImgIndex((prev) => (prev === 0 ? activeProject.images.length - 1 : prev - 1));
-  };
-
-  const handleNextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!activeProject) return;
-    setActiveImgIndex((prev) => (prev === activeProject.images.length - 1 ? 0 : prev + 1));
-  };
-
   const filteredProjects = projectsList.filter(
-    (p) => filter === 'all' || p.category === filter
+    (p) => p.category === filter
   );
 
   return (
@@ -123,7 +109,7 @@ export const ProjectsPage: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {(['all', 'single', 'cluster'] as const).map((type) => (
+            {(['single', 'cluster'] as const).map((type) => (
               <button
                 key={type}
                 onClick={() => setFilter(type)}
@@ -133,7 +119,6 @@ export const ProjectsPage: React.FC = () => {
                     : 'bg-white text-slate-700 border-slate-200 hover:border-gold/50'
                 }`}
               >
-                {type === 'all' && t('projects.category.all')}
                 {type === 'single' && t('projects.category.1')}
                 {type === 'cluster' && t('projects.category.2')}
               </button>
@@ -141,187 +126,116 @@ export const ProjectsPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Projects Cards List */}
-        <div className="grid md:grid-cols-2 gap-10">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <motion.div
-                layout
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5 }}
-                className="group relative bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-md hover:shadow-xl hover:border-gold/40 transition-all duration-500 cursor-pointer flex flex-col justify-between"
-                onClick={() => handleOpenProject(project)}
-              >
-                <div>
-                  {/* Image Render */}
-                  <div className="aspect-[16/10] overflow-hidden relative bg-slate-950">
-                    <img
-                      src={project.image}
-                      alt={t(project.brandKey)}
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/10 transition-colors duration-500" />
-                    
-                    {/* Tag */}
-                    <span className="absolute top-4 left-4 bg-slate-900/90 text-gold border border-gold/30 px-3 py-1 text-xs font-semibold uppercase rounded-md backdrop-blur-sm">
-                      {project.category === 'single' ? t('projects.category.1') : t('projects.category.2')}
-                    </span>
-                  </div>
-
-                  {/* Copy Details */}
-                  <div className="p-6 md:p-8">
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 group-hover:text-gold transition-colors duration-300">
-                      {t(project.brandKey)}
-                    </h3>
-                    <p className="text-slate-600 text-base md:text-lg lg:text-xl leading-relaxed mb-6 line-clamp-3">
-                      {t(project.descKey)}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="px-6 md:px-8 pb-6 md:pb-8">
-                  <div className="flex items-center justify-between border-t border-slate-100 pt-5 gap-4">
-                    <div className="flex items-center gap-2 text-slate-500 text-xs md:text-sm">
-                      <MapPin className="w-4 h-4 text-gold flex-shrink-0" />
-                      <span className="truncate">{t(project.locationKey)}</span>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 text-gold font-bold text-xs md:text-sm hover:underline group-hover:translate-x-1 transition-transform flex-shrink-0">
-                      <span>{t('projects.explore')}</span>
-                      <ChevronRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-      </div>
-
-      {/* Fullscreen Overlay Detail Modal - Fully Mobile Optimized */}
-      <AnimatePresence>
-        {activeProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-slate-950/80 backdrop-blur-md"
-          >
-            <motion.div
-              initial={{ scale: 0.95, y: 20, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.95, y: 20, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-full max-w-4xl bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setActiveProject(null)}
-                className="absolute top-4 right-4 z-20 p-2 bg-slate-950/80 hover:bg-gold hover:text-slate-950 text-white rounded-full transition-colors backdrop-blur-md"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="overflow-y-auto flex-grow">
-                {/* Hero / Slider Container */}
-                <div className="aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] w-full relative bg-slate-950">
-                  <img
-                    src={activeProject.images[activeImgIndex]}
-                    alt={t(activeProject.brandKey)}
-                    className="w-full h-full object-cover transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                  
-                  {/* Image Navigation */}
-                  {activeProject.images.length > 1 && (
-                    <>
-                      <button
-                        onClick={handlePrevImage}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 p-1.5 bg-slate-950/80 hover:bg-gold text-white hover:text-slate-950 rounded-full transition-all duration-200 z-10"
-                      >
-                        <ChevronRight className="w-5 h-5 rotate-180" />
-                      </button>
-                      <button
-                        onClick={handleNextImage}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 bg-slate-950/80 hover:bg-gold text-white hover:text-slate-950 rounded-full transition-all duration-200 z-10"
-                      >
-                        <ChevronRight className="w-5 h-5" />
-                      </button>
-                    </>
-                  )}
-
-                  {/* Title & Tag */}
-                  <div className="absolute bottom-6 left-6 right-6 z-10">
-                    <span className="bg-gold text-white font-bold px-2.5 py-0.5 rounded text-[10px] sm:text-xs mb-2 inline-block">
-                      {activeProject.category === 'single' ? t('projects.category.1') : t('projects.category.2')}
-                    </span>
-                    <h2 className="text-xl sm:text-3xl font-bold text-white leading-tight">
-                      {t(activeProject.brandKey)}
-                    </h2>
-                  </div>
-                </div>
-
-                {/* Info and Specifications Body */}
-                <div className="p-5 sm:p-8">
-                  {/* Grid Specs */}
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                    <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
-                      <span className="text-[10px] text-slate-500 block mb-1">{t('projects.location.label')}</span>
-                      <div className="flex items-center gap-1 font-bold text-slate-800 text-xs sm:text-sm">
-                        <Compass className="w-4 h-4 text-gold flex-shrink-0" />
-                        <span className="truncate">{t(activeProject.locationKey)}</span>
+        {/* Projects Showcase - Full Width of Content Grid */}
+        <div className="mt-12">
+          <AnimatePresence mode="wait">
+            {filteredProjects.map((project) => {
+              const currentImage = activeImages[project.id] || project.image;
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="grid lg:grid-cols-12 gap-8 lg:gap-12 bg-white leaf-shape border border-slate-200 p-6 md:p-10 shadow-lg relative items-start"
+                >
+                  {/* Left Column - Large Image Showcase (5 Columns) with Thumbnail Selector */}
+                  <div className="lg:col-span-5 w-full flex flex-col gap-4">
+                    <div className="w-full overflow-hidden relative leaf-shape group">
+                      <div className="aspect-[3/4] w-full overflow-hidden relative bg-slate-950">
+                        <img
+                          src={currentImage}
+                          alt={t(project.brandKey)}
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                        />
+                        <div className="absolute inset-0 bg-slate-950/25" />
+                        
+                        {/* Category Tag */}
+                        <span className="absolute top-4 left-4 bg-slate-900/90 text-gold border border-gold/30 px-3 py-1 text-xs font-semibold uppercase rounded-md backdrop-blur-sm">
+                          {project.category === 'single' ? t('projects.category.1') : t('projects.category.2')}
+                        </span>
                       </div>
                     </div>
 
-                    <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
-                      <span className="text-[10px] text-slate-500 block mb-1">{t('projects.units.label')}</span>
-                      <div className="flex items-center gap-1 font-bold text-slate-800 text-xs sm:text-sm">
-                        <Building className="w-4 h-4 text-gold flex-shrink-0" />
-                        <span>{activeProject.units}</span>
+                    {/* Thumbnail Selector */}
+                    {project.images && project.images.length > 1 && (
+                      <div className="flex gap-3 overflow-x-auto py-1 justify-center lg:justify-start">
+                        {project.images.map((imgUrl, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setActiveImages(prev => ({ ...prev, [project.id]: imgUrl }))}
+                            className={`w-12 h-16 sm:w-16 sm:h-20 leaf-shape overflow-hidden border-2 transition-all duration-300 flex-shrink-0 cursor-pointer ${
+                              currentImage === imgUrl ? 'border-gold scale-105 shadow-md' : 'border-slate-200 hover:border-gold/50'
+                            }`}
+                          >
+                            <img src={imgUrl} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+                          </button>
+                        ))}
                       </div>
-                    </div>
+                    )}
+                  </div>
 
-                    <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
-                      <span className="text-[10px] text-slate-500 block mb-1">{t('invest.calc.roi')}</span>
-                      <div className="flex items-center gap-1 font-bold text-slate-800 text-xs sm:text-sm">
-                        <Activity className="w-4 h-4 text-gold flex-shrink-0" />
-                        <span className="text-emerald-500">{activeProject.roi}</span>
-                      </div>
-                    </div>
-
-                    <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
-                      <span className="text-[10px] text-slate-500 block mb-1">{t('projects.status.label')}</span>
-                      <span className="text-[9px] sm:text-xs font-bold px-2 py-0.5 bg-gold/15 text-gold border border-gold/30 rounded inline-block truncate max-w-full">
-                        {t(activeProject.statusKey)}
+                  {/* Right Column - Project Content & Metrics & Specs (7 Columns) */}
+                  <div className={`lg:col-span-7 flex flex-col justify-between h-full ${isRTL ? 'text-right' : 'text-left'}`}>
+                    <div>
+                      {project.logo && (
+                        <div className="mb-4 h-12 flex items-center justify-start">
+                          <img src={project.logo} alt="Project Logo" className="h-full object-contain" />
+                        </div>
+                      )}
+                      <span className="text-gold font-bold text-xs uppercase tracking-wider block mb-2">
+                        {project.category === 'single' ? t('projects.category.1') : t('projects.category.2')}
                       </span>
-                    </div>
-                  </div>
-
-                  {/* Overview Text */}
-                  <div className="grid md:grid-cols-5 gap-8">
-                    <div className="md:col-span-3">
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-3 border-b border-slate-200 pb-2">
-                        {isRTL ? 'نظرة عامة على المشروع' : 'Project Overview'}
-                      </h4>
-                      <p className="text-slate-700 leading-relaxed text-base sm:text-lg lg:text-xl">
-                        {t(activeProject.descKey)}
+                      <h3 className="text-2xl lg:text-3xl font-extrabold text-slate-900 mb-4">
+                        {t(project.brandKey)}
+                      </h3>
+                      <p className="text-slate-650 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                        {t(project.descKey)}
                       </p>
+
+                    {/* Metrics Box Grid */}
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="bg-slate-50 p-4 leaf-shape border border-slate-200 shadow-sm">
+                        <span className="text-[10px] text-slate-500 block mb-1 uppercase font-semibold">{t('projects.location.label')}</span>
+                        <div className="flex items-center gap-1.5 font-bold text-slate-800 text-xs sm:text-sm">
+                          <Compass className="w-4 h-4 text-gold flex-shrink-0" />
+                          <span className="truncate">{t(project.locationKey)}</span>
+                        </div>
+                      </div>
+
+                      <div className="bg-slate-50 p-4 leaf-shape border border-slate-200 shadow-sm">
+                        <span className="text-[10px] text-slate-500 block mb-1 uppercase font-semibold">{t('projects.units.label')}</span>
+                        <div className="flex items-center gap-1.5 font-bold text-slate-800 text-xs sm:text-sm">
+                          <Building className="w-4 h-4 text-gold flex-shrink-0" />
+                          <span>{project.units} {isRTL ? 'وحدة' : 'Units'}</span>
+                        </div>
+                      </div>
+
+                      <div className="bg-slate-50 p-4 leaf-shape border border-slate-200 shadow-sm">
+                        <span className="text-[10px] text-slate-500 block mb-1 uppercase font-semibold">{t('invest.calc.roi')}</span>
+                        <div className="flex items-center gap-1.5 font-bold text-slate-800 text-xs sm:text-sm">
+                          <Activity className="w-4 h-4 text-gold flex-shrink-0" />
+                          <span className="text-emerald-500">{project.roi}</span>
+                        </div>
+                      </div>
+
+                      <div className="bg-slate-50 p-4 leaf-shape border border-slate-200 shadow-sm">
+                        <span className="text-[10px] text-slate-500 block mb-1 uppercase font-semibold">{t('projects.status.label')}</span>
+                        <span className="text-[10px] font-bold px-2 py-0.5 bg-gold/15 text-gold border border-gold/30 rounded inline-block truncate">
+                          {t(project.statusKey)}
+                        </span>
+                      </div>
                     </div>
 
-                    {/* Features list */}
-                    <div className="md:col-span-2">
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-3 border-b border-slate-200 pb-2">
-                        {isRTL ? 'المواصفات الاستثنائية' : 'Premium Features'}
+                    {/* Premium Specifications */}
+                    <div className="border-t border-slate-100 pt-5 mt-6">
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-3">
+                        {isRTL ? 'المواصفات الاستثنائية' : 'Premium Specifications'}
                       </h4>
                       <ul className="space-y-2.5">
-                        {(isRTL ? activeProject.specs.ar : activeProject.specs.en).map((spec, i) => (
-                          <li key={i} className="flex gap-2 text-xs sm:text-sm text-slate-600">
+                        {(isRTL ? project.specs.ar : project.specs.en).map((spec, i) => (
+                          <li key={i} className="flex gap-2 text-xs sm:text-sm text-slate-650 font-normal">
                             <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
                             <span>{spec}</span>
                           </li>
@@ -329,12 +243,31 @@ export const ProjectsPage: React.FC = () => {
                       </ul>
                     </div>
                   </div>
+
+                  {/* Action CTA Button */}
+                  <div className="border-t border-slate-100 pt-5 mt-6">
+                    <button
+                      onClick={() => {
+                        const prefillMessage = isRTL 
+                          ? `أرغب في مناقشة فرصة الاستثمار في مشروع ${t(project.brandKey)}.`
+                          : `I would like to discuss investing in ${t(project.brandKey)}.`;
+                        
+                        navigate('/contact', { state: { prefillMessage, classification: 'investor' } });
+                      }}
+                      className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-3.5 px-6 leaf-shape shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+                    >
+                      <span>{isRTL ? 'تواصل معنا للمناقشة' : 'Contact Us for Details'}</span>
+                      <ChevronRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </motion.div>
+            );
+          })}
+          </AnimatePresence>
+        </div>
+
+      </div>
     </div>
   );
 };

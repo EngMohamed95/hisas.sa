@@ -20,7 +20,7 @@ export const About: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8 }}
-          className="mb-24 p-8 md:p-12 rounded-2xl text-slate-800 relative overflow-hidden border border-gold/30 shadow-md bg-cover bg-center"
+          className="mb-24 p-8 md:p-12 leaf-shape-lg text-slate-800 relative overflow-hidden border border-gold/30 shadow-md bg-cover bg-center"
           style={{ backgroundImage: `url(${language === 'ar' ? '/media/visionBgAr.4e591c8841c702e189fc.png' : '/media/visionBg.ab7899944ba28a26c648.png'})` }}
         >
           {/* Overlay to darken background image */}
@@ -64,12 +64,12 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="flex flex-col items-center justify-center relative rounded-xl overflow-hidden border border-gold/30 shadow-md group aspect-[4/5] bg-slate-100 max-w-[240px] mx-auto w-full"
+              className="flex flex-col items-center justify-center relative leaf-shape overflow-hidden border border-gold/30 shadow-md group aspect-[4/5] bg-slate-100 max-w-[240px] mx-auto w-full"
             >
               <img 
                 src="/media/mbs.5e6835360ca59b176b86.jpg" 
                 alt="HRH Crown Prince Mohammed bin Salman" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 brightness-100 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-700 brightness-100 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-center">
@@ -92,7 +92,7 @@ export const About: React.FC = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-gold font-bold tracking-widest uppercase text-sm block mb-3"
+              className="text-gold font-bold tracking-[0.12em] uppercase text-base md:text-lg block mb-4"
             >
               {t('about.title')}
             </motion.span>
@@ -101,7 +101,7 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-snug"
+              className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-normal tracking-[0.03em]"
             >
               {t('about.subtitle')}
             </motion.h2>
@@ -119,7 +119,7 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 items-start shadow-sm"
+              className="flex gap-4 p-4 bg-white leaf-shape border border-slate-200 items-start shadow-sm"
             >
               <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
               <p className="text-base md:text-lg lg:text-xl font-medium text-slate-700">
@@ -136,7 +136,7 @@ export const About: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="relative flex justify-center items-center"
           >
-            <div className="w-full max-w-lg aspect-[4/3] bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between shadow-md overflow-hidden relative group">
+            <div className="w-full max-w-lg aspect-[4/3] bg-white leaf-shape-lg border border-slate-200 p-6 flex flex-col justify-between shadow-md overflow-hidden relative group">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 relative z-10">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">{isRTL ? 'خريطة التواجد الاستراتيجي' : 'Strategic Footprint Map'}</span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
@@ -166,9 +166,9 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="p-8 rounded-xl border border-slate-200 bg-white shadow-sm hover:border-gold/50 transition-colors duration-300 group"
+            className="p-8 leaf-shape border border-slate-200 bg-white shadow-sm hover:border-gold/50 transition-colors duration-300 group"
           >
-            <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:scale-105 transition-transform duration-300">
+            <div className="w-12 h-12 leaf-shape bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:scale-105 transition-transform duration-300">
               <Eye className="w-6 h-6" />
             </div>
             <h4 className="text-xl font-bold text-slate-900 mb-4">
@@ -185,9 +185,9 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="p-8 rounded-xl border border-slate-200 bg-white shadow-sm hover:border-gold/50 transition-colors duration-300 group"
+            className="p-8 leaf-shape border border-slate-200 bg-white shadow-sm hover:border-gold/50 transition-colors duration-300 group"
           >
-            <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:scale-105 transition-transform duration-300">
+            <div className="w-12 h-12 leaf-shape bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:scale-105 transition-transform duration-300">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <h4 className="text-xl font-bold text-slate-900 mb-4">
@@ -199,42 +199,64 @@ export const About: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* CEO Message section */}
+        {/* CEO Message section - Card layout inside container */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8 }}
-          className="p-8 md:p-12 rounded-2xl text-slate-800 border border-gold/30 shadow-md relative overflow-hidden bg-cover bg-center"
-          style={{ backgroundImage: "url('/media/ceoBg.797127596c7907ec61a0.jpg')" }}
+          className="relative mt-24 md:mt-32 w-full bg-[#012d35] text-white py-12 md:py-16 px-6 md:px-12 leaf-shape-lg overflow-visible border border-gold/25 shadow-2xl"
         >
-          {/* Blur Overlay */}
-          <div className="absolute inset-0 bg-white/95 backdrop-blur-[2px]" />
+          {/* Background Image Overlay (clipped to leaf-shape-lg) */}
+          <div className="absolute inset-0 overflow-hidden z-0 leaf-shape-lg">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay"
+              style={{ backgroundImage: "url('/media/ceoBg.797127596c7907ec61a0.jpg')" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#012d35] via-[#012d35]/65 to-[#01404a]/85" />
+          </div>
 
-          <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-start">
-            {/* CEO Portrait */}
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden border-2 border-gold flex-shrink-0 bg-slate-100 shadow-md">
-              <img 
-                src="/media/ceo.9ff3399b9d75f987441a.png" 
-                alt={t('ceo.name')} 
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            
-            <div className={`flex-grow text-center ${isRTL ? 'md:text-right' : 'md:text-left'}`}>
-              <span className="text-gold font-bold uppercase tracking-widest text-xs block mb-2">{t('ceo.title')}</span>
-              <p className="text-slate-700 text-lg md:text-xl lg:text-2xl italic leading-relaxed mb-6 font-normal">
+          {/* Content Grid */}
+          <div className="grid md:grid-cols-12 gap-8 items-center w-full relative z-10" dir="ltr">
+            {/* Text column - occupies 7-8 cols on desktop to prevent overlap */}
+            <div className={`col-span-12 md:col-span-7 lg:col-span-8 flex flex-col justify-center ${isRTL ? 'text-right' : 'text-left'} ${isRTL ? 'pr-4 md:pr-8 lg:pr-12' : 'pl-4 md:pl-8 lg:pl-12'}`} dir={isRTL ? "rtl" : "ltr"}>
+              <span className="text-slate-300 font-bold uppercase tracking-widest text-xs sm:text-sm block mb-2">
+                {t('ceo.title')}
+              </span>
+              <h4 className="text-2xl sm:text-4xl font-black text-[#b69f6a] mb-6 font-heading leading-tight">
+                {t('ceo.name')}
+              </h4>
+              <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed mb-6 font-normal max-w-2xl opacity-95">
                 "{t('ceo.text')}"
               </p>
-              
-              <div className="border-t border-slate-200 pt-4 mt-6">
-                <h5 className="text-lg font-bold text-slate-900">{t('ceo.name')}</h5>
-                <p className="text-xs text-gold font-semibold uppercase tracking-wider">{isRTL ? 'الرئيس التنفيذي - شركة حصص العقارية' : 'Chief Executive Officer - HISAS Real Estate'}</p>
+              <div className="border-t border-white/10 pt-4 mt-2 max-w-md">
+                <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                  {isRTL ? 'الرئيس التنفيذي - شركة حصص العقارية' : 'Chief Executive Officer - HISAS Real Estate'}
+                </p>
+              </div>
+            </div>
+
+            {/* Mobile placeholder image (no overlap) */}
+            <div className="col-span-12 flex justify-center md:hidden mt-6">
+              <div className="w-48 h-48 rounded-full overflow-hidden border-2 border-[#b69f6a]/40 bg-[#02464f]/40 shadow-lg">
+                <img 
+                  src="/media/ceo.9ff3399b9d75f987441a.png" 
+                  alt={t('ceo.name')} 
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
           </div>
-        </motion.div>
 
+          {/* Overlapping cut-out CEO Portrait (Desktop only) */}
+          <div className="absolute bottom-0 right-6 lg:right-16 h-[115%] lg:h-[130%] w-auto pointer-events-none z-20 hidden md:block">
+            <img 
+              src="/media/ceo.9ff3399b9d75f987441a.png" 
+              alt={t('ceo.name')} 
+              className="h-full w-auto object-contain object-bottom"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

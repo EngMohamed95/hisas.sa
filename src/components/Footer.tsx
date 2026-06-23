@@ -35,9 +35,9 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-2 space-y-6">
             <div className="flex items-center gap-3">
               <img 
-                src={isRTL ? '/media/logoAr.0172cb44b0f8e289a021fa0170c5cecd.svg' : '/media/logo.3bd38394fef4850d36326cef27b3bc07.svg'} 
+                src="/media/logo-hisas-black.png" 
                 alt="HISAS Footer Logo" 
-                className="h-16 w-auto logo-black"
+                className="h-16 w-auto"
               />
             </div>
             
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col items-start md:items-end p-2">
               <span className="text-xs text-slate-500 uppercase tracking-widest block mb-2">{isRTL ? 'يتوافق مع رؤية' : 'Aligns with'}</span>
               <img 
-                src={isRTL ? '/media/visionAr.8ea2518142f2b5561868.png' : '/media/vision.390db8987ebc3ae87adc.png'} 
+                src="/media/vision-2030-footer.png" 
                 alt="Saudi Vision 2030" 
                 className="h-16 w-auto object-contain"
               />

@@ -14,6 +14,8 @@ export const Navbar: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const showWhiteText = isHome && !isScrolled;
+  const whiteLogoSrc = '/media/logo-hisas-white.png';
+  const blackLogoSrc = '/media/logo-hisas-black.png';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,9 +89,9 @@ export const Navbar: React.FC = () => {
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img 
-            src={language === 'ar' ? '/media/logoAr.0172cb44b0f8e289a021fa0170c5cecd.svg' : '/media/logo.3bd38394fef4850d36326cef27b3bc07.svg'} 
+            src={showWhiteText ? whiteLogoSrc : blackLogoSrc} 
             alt="HISAS Logo" 
-            className={`h-11 w-auto transition-all duration-300 ${!showWhiteText ? 'logo-black' : 'logo-white'}`}
+            className={`${showWhiteText ? 'h-16' : 'h-11'} w-auto transition-all duration-300`}
           />
         </Link>
 

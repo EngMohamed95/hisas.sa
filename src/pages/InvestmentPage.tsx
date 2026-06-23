@@ -8,11 +8,11 @@ export const InvestmentPage: React.FC = () => {
   const { t, isRTL } = useLanguage();
   const navigate = useNavigate();
   const [investValue, setInvestValue] = useState<number>(1000000); // 1 Million SAR default
-  const [selectedProject, setSelectedProject] = useState<'alvera' | 'nexus'>('alvera');
+  const [selectedProject, setSelectedProject] = useState<'narme' | 'hsquare'>('narme');
 
   // ROI parameters
-  const irr = selectedProject === 'alvera' ? 0.184 : 0.228;
-  const durationMonths = selectedProject === 'alvera' ? 36 : 42;
+  const irr = selectedProject === 'narme' ? 0.184 : 0.228;
+  const durationMonths = selectedProject === 'narme' ? 36 : 42;
   const profit = Math.round(investValue * irr * (durationMonths / 12));
   const totalPayout = investValue + profit;
 
@@ -22,8 +22,8 @@ export const InvestmentPage: React.FC = () => {
 
   const handleCTA = () => {
     const prefillMessage = isRTL 
-      ? `أرغب في مناقشة فرصة استثمارية بقيمة ${formatCurrency(investValue)} في مشروع ${selectedProject === 'alvera' ? 'أبراج ألفيرا' : 'أبراج نكسيوس'}.`
-      : `I would like to discuss an investment opportunity of ${formatCurrency(investValue)} in project ${selectedProject === 'alvera' ? 'Alvera Towers' : 'Nexus Towers'}.`;
+      ? `أرغب في مناقشة فرصة استثمارية بقيمة ${formatCurrency(investValue)} في مشروع ${selectedProject === 'narme' ? 'نارمي' : 'H Square'}.`
+      : `I would like to discuss an investment opportunity of ${formatCurrency(investValue)} in project ${selectedProject === 'narme' ? 'Narme Project' : 'H Square Project'}.`;
     
     navigate('/contact', { state: { prefillMessage, classification: 'investor' } });
   };
@@ -79,7 +79,7 @@ export const InvestmentPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <div className="bg-white p-8 leaf-shape border border-slate-200 shadow-sm">
             <h3 className="text-lg font-bold text-slate-900 mb-4">
               {isRTL ? 'مزايا الشراكة الاستثمارية مع حصص' : 'Advantages of HISAS Alliances'}
             </h3>
@@ -104,7 +104,7 @@ export const InvestmentPage: React.FC = () => {
         <div className="grid lg:grid-cols-5 gap-10 items-stretch">
           
           {/* ROI Calculator Inputs */}
-          <div className="lg:col-span-2 p-8 bg-white rounded-2xl border border-slate-200 flex flex-col justify-between shadow-md">
+          <div className="lg:col-span-2 p-8 bg-white leaf-shape border border-slate-200 flex flex-col justify-between shadow-md">
             <div>
               <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                 <Landmark className="w-5 h-5 text-gold" />
@@ -118,9 +118,9 @@ export const InvestmentPage: React.FC = () => {
                 </label>
                 <div className="grid grid-cols-2 gap-3 bg-slate-100 p-1 rounded-lg">
                   <button
-                    onClick={() => setSelectedProject('alvera')}
+                    onClick={() => setSelectedProject('narme')}
                     className={`py-2 px-3 text-xs font-bold rounded-md transition-colors ${
-                      selectedProject === 'alvera'
+                      selectedProject === 'narme'
                         ? 'bg-gold text-white shadow-md font-bold'
                         : 'text-slate-700 hover:text-gold'
                     }`}
@@ -128,9 +128,9 @@ export const InvestmentPage: React.FC = () => {
                     {t('projects.brand.alvera').split(' (')[0]}
                   </button>
                   <button
-                    onClick={() => setSelectedProject('nexus')}
+                    onClick={() => setSelectedProject('hsquare')}
                     className={`py-2 px-3 text-xs font-bold rounded-md transition-colors ${
-                      selectedProject === 'nexus'
+                      selectedProject === 'hsquare'
                         ? 'bg-gold text-white shadow-md font-bold'
                         : 'text-slate-700 hover:text-gold'
                     }`}
@@ -182,7 +182,7 @@ export const InvestmentPage: React.FC = () => {
           </div>
 
           {/* Calculator Output Displays */}
-          <div className="lg:col-span-3 p-8 bg-gold/5 text-slate-800 rounded-2xl border border-gold/25 shadow-md flex flex-col justify-between">
+          <div className="lg:col-span-3 p-8 bg-gold/5 text-slate-800 leaf-shape border border-gold/25 shadow-md flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-center border-b border-gold/15 pb-5 mb-8">
                 <span className="text-slate-800 font-bold tracking-widest text-xs uppercase">{isRTL ? 'تقديرات عوائد التطوير والاستثمار' : 'Development yield projections'}</span>
@@ -239,7 +239,7 @@ export const InvestmentPage: React.FC = () => {
             <div>
               <button
                 onClick={handleCTA}
-                className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 px-6 rounded-lg shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                className="w-full flex items-center justify-center gap-2 bg-gold-gradient text-white font-extrabold py-4 px-6 leaf-shape shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 <span>{t('invest.calc.btn')}</span>
                 <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />

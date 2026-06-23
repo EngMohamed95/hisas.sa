@@ -13,6 +13,8 @@ jobs:
   build-and-deploy:
     name: Build & Deploy via SFTP
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_PORT: ${{ secrets.FTP_PORT || '65002' }}
 
     steps:
       - name: Get latest code
@@ -30,12 +32,16 @@ jobs:
       - name: Build Project
         run: npm run build
 
+      - name: Check SFTP connection
+        run: nc -vz -w 20 "${{ secrets.FTP_SERVER }}" "${{ env.DEPLOY_PORT }}"
+
       - name: Deploy files via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        timeout-minutes: 10
         with:
           username: ${{ secrets.FTP_USERNAME }}
           server: ${{ secrets.FTP_SERVER }}
-          port: 65002
+          port: ${{ env.DEPLOY_PORT }}
           password: ${{ secrets.FTP_PASSWORD }}
           local_path: './dist/*'
           remote_path: 'domains/hisas.devmo.pro/public_html'

@@ -35,10 +35,10 @@ export const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const stats = [
-    { value: 750, suffix: '+', textKey: 'hero.stat.units', icon: Building2 },
+    { value: 250, suffix: '+', textKey: 'hero.stat.units', icon: Building2 },
     { value: 7, suffix: '+', textKey: 'hero.stat.projects', icon: Briefcase },
     { value: 5, suffix: '+', textKey: 'hero.stat.investors', icon: Users },
-    { value: 1.8, suffix: 'B+', textKey: 'stats.value.label', isDecimal: true, icon: TrendingUp },
+    { value: 500, suffix: ' M', textKey: 'stats.value.label', icon: TrendingUp },
   ];
 
   const slides = [
@@ -186,16 +186,10 @@ export const Hero: React.FC = () => {
               <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 bg-gold/10 rounded-full flex items-center justify-center text-gold group-hover:scale-110 transition-transform duration-300">
                 <stat.icon className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold text-white mb-2 tracking-tight">
-                {stat.isDecimal ? (
-                  <span>
-                    1.8{stat.suffix}
-                  </span>
-                ) : (
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                )}
+              <h3 className="!text-3xl sm:!text-4xl md:!text-5xl font-extrabold text-white mb-2 tracking-tight whitespace-nowrap">
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </h3>
-              <p className="text-xs md:text-sm text-slate-300 font-semibold tracking-wide">
+              <p className="!text-xs md:!text-sm text-slate-300 font-semibold tracking-wide">
                 {t(stat.textKey)}
               </p>
             </motion.div>

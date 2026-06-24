@@ -27,7 +27,7 @@ export const SEO: React.FC<SEOProps> = ({
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "name": language === 'ar' ? "شركة حصص العقارية" : "HISAS Real Estate",
-    "image": "https://hisas.sa/images/alvera_tower_luxury.png",
+    "image": "https://hisas.sa/images/narmi_1.jpeg",
     "@id": "https://hisas.sa/#organization",
     "url": "https://hisas.sa/",
     "telephone": "+966555625502",
@@ -62,7 +62,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:type" content={type} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="/images/alvera_tower_luxury.png" />
+      <meta property="og:image" content="/images/narmi_1.jpeg" />
       <meta property="og:url" content="https://hisas.sa/" />
       <meta property="og:site_name" content={language === 'ar' ? 'حصص العقارية' : 'HISAS Real Estate'} />
 
@@ -70,7 +70,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content="/images/alvera_tower_luxury.png" />
+      <meta name="twitter:image" content="/images/narmi_1.jpeg" />
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">

@@ -7,12 +7,11 @@ import { SEO } from '../components/SEO';
 export const InvestmentPage: React.FC = () => {
   const { t, isRTL } = useLanguage();
   const navigate = useNavigate();
-  const [investValue, setInvestValue] = useState<number>(1000000); // 1 Million SAR default
-  const [selectedProject, setSelectedProject] = useState<'narme' | 'hsquare'>('narme');
+  const [investValue, setInvestValue] = useState<number>(5000000); // 5 Million SAR default
 
   // ROI parameters
-  const irr = selectedProject === 'narme' ? 0.184 : 0.228;
-  const durationMonths = selectedProject === 'narme' ? 36 : 42;
+  const irr = 0.18; // 18% target annual yield
+  const durationMonths = 36; // 36 months / 3 years expected period
   const profit = Math.round(investValue * irr * (durationMonths / 12));
   const totalPayout = investValue + profit;
 
@@ -22,8 +21,8 @@ export const InvestmentPage: React.FC = () => {
 
   const handleCTA = () => {
     const prefillMessage = isRTL 
-      ? `أرغب في مناقشة فرصة استثمارية بقيمة ${formatCurrency(investValue)} في مشروع ${selectedProject === 'narme' ? 'نارمي' : 'H Square'}.`
-      : `I would like to discuss an investment opportunity of ${formatCurrency(investValue)} in project ${selectedProject === 'narme' ? 'Narme Project' : 'H Square Project'}.`;
+      ? `أرغب في مناقشة فرصة استثمارية بقيمة ${formatCurrency(investValue)} في شركة حصص العقارية.`
+      : `I would like to discuss an investment opportunity of ${formatCurrency(investValue)} in HISAS Real Estate Company.`;
     
     navigate('/contact', { state: { prefillMessage, classification: 'investor' } });
   };
@@ -111,35 +110,6 @@ export const InvestmentPage: React.FC = () => {
                 <span>{isRTL ? 'تخصيص قيمة الاستثمار' : 'Customize Investment Value'}</span>
               </h3>
 
-              {/* Project Toggle */}
-              <div className="mb-8">
-                <label className="text-xs text-slate-500 block mb-3 uppercase tracking-wider">
-                  {isRTL ? 'اختر علامة المشروع العقاري' : 'Select Project Brand'}
-                </label>
-                <div className="grid grid-cols-2 gap-3 bg-slate-100 p-1 rounded-lg">
-                  <button
-                    onClick={() => setSelectedProject('narme')}
-                    className={`py-2 px-3 text-xs font-bold rounded-md transition-colors ${
-                      selectedProject === 'narme'
-                        ? 'bg-gold text-white shadow-md font-bold'
-                        : 'text-slate-700 hover:text-gold'
-                    }`}
-                  >
-                    {t('projects.brand.alvera').split(' (')[0]}
-                  </button>
-                  <button
-                    onClick={() => setSelectedProject('hsquare')}
-                    className={`py-2 px-3 text-xs font-bold rounded-md transition-colors ${
-                      selectedProject === 'hsquare'
-                        ? 'bg-gold text-white shadow-md font-bold'
-                        : 'text-slate-700 hover:text-gold'
-                    }`}
-                  >
-                    {t('projects.brand.nexus').split(' (')[0]}
-                  </button>
-                </div>
-              </div>
-
               {/* Slider Input */}
               <div className="mb-6">
                 <div className="flex justify-between items-center mb-3">
@@ -152,19 +122,19 @@ export const InvestmentPage: React.FC = () => {
                 </div>
                 <input
                   type="range"
-                  min={500000}
+                  min={5000000}
                   max={50000000}
                   step={500000}
                   value={investValue}
                   onChange={(e) => setInvestValue(Number(e.target.value))}
                   className="w-full accent-gold h-1.5 bg-slate-200 rounded-lg cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-slate-500 font-sans mt-2">
-                  <span>500K</span>
-                  <span>10M</span>
-                  <span>25M</span>
-                  <span>50M</span>
-                </div>
+              <div className="flex justify-between text-[10px] text-slate-500 font-sans mt-2">
+                <span>5M</span>
+                <span>20M</span>
+                <span>35M</span>
+                <span>50M</span>
+              </div>
               </div>
             </div>
 

@@ -19,7 +19,7 @@ export const articles: Article[] = [
   {
     id: 1,
     slug: 'luxury-towers-vision-2030',
-    image: '/media/project1_1.ef2b9d45d51c07165a83.jpg',
+    image: '/images/narmi_1.jpeg',
     ar: {
       title: 'مستقبل الأبراج الفاخرة في الخبر والدمام بالتماشي مع رؤية 2030',
       excerpt: 'تسليط الضوء على اتجاهات الاستثمار السكني الفاخر على الواجهات البحرية والطلب المتزايد من النخبة والمستثمرين الدوليين.',
@@ -47,35 +47,6 @@ export const articles: Article[] = [
   },
   {
     id: 2,
-    slug: 'wafi-off-plan-license',
-    image: '/media/project1_2.c84732b8d920fc7e373c.jpg',
-    ar: {
-      title: 'برنامج وافي يمنح حصص العقارية رخصة البيع على الخارطة لمشروعها الساحلي الجديد',
-      excerpt: 'خطوة تعزز مستوى الموثوقية والأمان المالي للمستثمرين والملاك في حجز وتملك الوحدات السكنية.',
-      badge: 'أخبار الشركة',
-      readTime: '٣ دقائق قراءة',
-      date: '١٤ يونيو ٢٠٢٦',
-      body: [
-        'يمثل ترخيص البيع على الخارطة من برنامج وافي خطوة مهمة في مسار تطوير المشاريع السكنية، لأنه يمنح المشترين والمستثمرين مستوى أعلى من الشفافية والتنظيم وحماية التدفقات المالية.',
-        'تلتزم حصص العقارية بإدارة مشاريعها وفق أطر تنظيمية واضحة، تشمل حسابات الضمان، المتابعة الفنية، والتقارير الدورية التي تعزز ثقة المستثمرين في مراحل التطوير المختلفة.',
-        'هذا الترخيص لا يعكس فقط جاهزية المشروع من الناحية النظامية، بل يؤكد أيضاً حرص الشركة على تقديم تجربة تملك واستثمار أكثر أماناً واحترافية، بما يتماشى مع تطور السوق العقاري السعودي.'
-      ]
-    },
-    en: {
-      title: 'Wafi Program Grants HISAS Real Estate Off-Plan Sales License for New Coastal Project',
-      excerpt: 'A key step reinforcing trust and financial security for early-stage investors booking premium residential units.',
-      badge: 'Company News',
-      readTime: '3 min read',
-      date: 'June 14, 2026',
-      body: [
-        'Receiving an off-plan sales license from Wafi is an important milestone in residential project development. It gives buyers and investors stronger transparency, governance, and financial protection.',
-        'HISAS Real Estate is committed to managing its developments under clear regulatory frameworks, including escrow accounts, technical monitoring, and periodic reporting that strengthen investor confidence.',
-        'This license reflects not only regulatory readiness, but also the company’s commitment to delivering a safer and more professional ownership and investment experience in line with the evolution of the Saudi real estate market.'
-      ]
-    }
-  },
-  {
-    id: 3,
     slug: 'sustainable-luxury-construction',
     image: '/media/project2_1.b7b422fe98293d6a3c2e.jpg',
     ar: {

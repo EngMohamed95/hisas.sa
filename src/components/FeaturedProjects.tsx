@@ -28,15 +28,15 @@ export const FeaturedProjects: React.FC = () => {
       category: 'single',
       brandKey: 'projects.brand.alvera',
       descKey: 'projects.brand.alvera.desc',
-      image: '/media/project1_1.ef2b9d45d51c07165a83.jpg',
+      image: '/images/narmi_1.jpeg',
       images: [
-        '/media/project1_1.ef2b9d45d51c07165a83.jpg',
-        '/media/project1_2.c84732b8d920fc7e373c.jpg',
-        '/media/project1_3.efc7860b465b8a3c3c49.jpg'
+        '/images/narmi_1.jpeg',
+        '/images/narmi_2.jpeg',
+        '/images/narmi_3.jpeg'
       ],
       locationKey: 'projects.location.khobar',
       units: '180',
-      roi: '18.4%',
+      roi: '15.7%',
       statusKey: 'projects.status.active'
     },
     {
@@ -44,11 +44,14 @@ export const FeaturedProjects: React.FC = () => {
       category: 'cluster',
       brandKey: 'projects.brand.nexus',
       descKey: 'projects.brand.nexus.desc',
-      image: '/media/project2_1.b7b422fe98293d6a3c2e.jpg',
+      image: '/images/h_square_1.jpeg',
       images: [
-        '/media/project2_1.b7b422fe98293d6a3c2e.jpg',
-        '/media/project2_2.91ad708de53284847b8b.jpg',
-        '/media/project2_3.7f2805650cc7b0517eef.jpg'
+        '/images/h_square_1.jpeg',
+        '/images/h_square_2.jpeg',
+        '/images/h_square_3.jpeg',
+        '/images/h_square_4.jpeg',
+        '/images/h_square_5.jpeg',
+        '/images/h_square_6.jpeg'
       ],
       locationKey: 'projects.location.riyadh',
       units: '570',
@@ -128,7 +131,7 @@ export const FeaturedProjects: React.FC = () => {
                         <img
                           src={currentImage}
                           alt={t(project.brandKey)}
-                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                          className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                         />
                         <div className="absolute inset-0 bg-slate-950/25" />
                         

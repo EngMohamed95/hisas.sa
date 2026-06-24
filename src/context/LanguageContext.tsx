@@ -30,8 +30,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta': 'استكشف الفرص الاستثمارية',
     'hero.secondaryCta': 'تواصل معنا الآن',
     'hero.stat.units': 'وحدة سكنية فاخرة',
-    'hero.stat.projects': 'مشاريع تطويرية عملاقة',
-    'hero.stat.investors': 'شركاء استثمار رئيسيين',
+    'hero.stat.projects': 'مشاريع تطويرية',
+    'hero.stat.investors': 'مستثمرين',
     'hero.stat.experience': 'عاماً من التميز العقاري',
 
     // Vision Leader
@@ -104,7 +104,7 @@ const translations: Record<Language, Record<string, string>> = {
     'projects.category.all': 'كل المشاريع',
     'projects.category.1': 'مشروع نارمي',
     'projects.category.2': 'مشروع H Square',
-    'projects.brand.alvera': 'مشروع نارمي (Narme Project)',
+    'projects.brand.alvera': 'مشروع نارمي (Narmi Project)',
     'projects.brand.alvera.desc': 'مشروع نارمي يعيد صياغة السكن الساحلي الفاخر على كورنيش الخبر، حيث يلتقي التصميم الهندسي المبتكر بالإطلالة البحرية المفتوحة لخلق بيئة معيشية استثنائية للنخبة.',
     'projects.brand.nexus': 'مشروع H Square (H Square Project)',
     'projects.brand.nexus.desc': 'مشروع H Square يمثل نبض الفخامة في قلب العاصمة الرياض، مجمع سكني ذكي متكامل الخدمات يدمج بين الخصوصية التامة وجودة الحياة العصرية بالتماشي مع رؤية المملكة 2030.',
@@ -124,10 +124,10 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Investment Opportunity Calculator
     'invest.title': 'بوابة الفرص الاستثمارية',
-    'invest.subtitle': 'احسب عوائدك المتوقعة مع مشاريع حصص العقارية الفاخرة',
+    'invest.subtitle': 'احسب عوائدك المتوقعة مع الاستثمار في شركة حصص العقارية',
     'invest.calc.label': 'قيمة الاستثمار المستهدف (ريال سعودي)',
     'invest.calc.roi': 'معدل العائد الداخلي المتوقع (IRR)',
-    'invest.calc.duration': 'مدة التطوير الاستثمارية المتوقعة',
+    'invest.calc.duration': 'مدة الاستثمار المتوقعة',
     'invest.calc.profit': 'الأرباح الرأسمالية المتوقعة',
     'invest.calc.total': 'إجمالي التدفقات النقدية عند التصفية',
     'invest.calc.btn': 'طلب مناقشة هيكلة الفرصة الاستثمارية',
@@ -196,8 +196,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta': 'Explore Investment Opportunities',
     'hero.secondaryCta': 'Contact Us Now',
     'hero.stat.units': 'Luxury Residential Units',
-    'hero.stat.projects': 'Gigantic Projects',
-    'hero.stat.investors': 'Key Investment Partners',
+    'hero.stat.projects': 'Development Projects',
+    'hero.stat.investors': 'Investors',
     'hero.stat.experience': 'Years of Real Estate Excellence',
 
     // Vision Leader
@@ -268,10 +268,10 @@ const translations: Record<Language, Record<string, string>> = {
     'projects.title': 'Our Pioneering Projects',
     'projects.subtitle': 'Luxury architectural icons reshaping the landscape of modern living and investment',
     'projects.category.all': 'All Projects',
-    'projects.category.1': 'Narme Project',
+    'projects.category.1': 'Narmi Project',
     'projects.category.2': 'H Square Project',
-    'projects.brand.alvera': 'Narme Project',
-    'projects.brand.alvera.desc': 'Narme Project redefines luxury coastal living on Al-Khobar Corniche, where innovative engineering design meets open waterfront views to create an exceptional living environment for elites.',
+    'projects.brand.alvera': 'Narmi Project',
+    'projects.brand.alvera.desc': 'Narmi Project redefines luxury coastal living on Al-Khobar Corniche, where innovative engineering design meets open waterfront views to create an exceptional living environment for elites.',
     'projects.brand.nexus': 'H Square Project',
     'projects.brand.nexus.desc': 'H Square Project represents the heartbeat of luxury in the center of Riyadh, an integrated smart residential complex combining absolute privacy with modern quality of life in line with Saudi Vision 2030.',
     'projects.explore': 'Explore Project Details',
@@ -290,10 +290,10 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Investment Opportunity Calculator
     'invest.title': 'Investment Gateway',
-    'invest.subtitle': 'Calculate your target yields with HISAS premium real estate projects',
+    'invest.subtitle': 'Calculate your target yields with investment in HISAS Real Estate',
     'invest.calc.label': 'Target Investment Amount (SAR)',
     'invest.calc.roi': 'Expected Internal Rate of Return (IRR)',
-    'invest.calc.duration': 'Expected Investment Development Period',
+    'invest.calc.duration': 'Expected Investment Period',
     'invest.calc.profit': 'Expected Capital Profit',
     'invest.calc.total': 'Total Exit Cash Flows',
     'invest.calc.btn': 'Request Discussion on Investment Structuring',

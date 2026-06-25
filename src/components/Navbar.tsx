@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { Globe, Menu, X, ArrowDownToLine } from 'lucide-react';
-import confetti from 'canvas-confetti';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar: React.FC = () => {
@@ -31,35 +30,6 @@ export const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleDownloadProfile = () => {
-    // Elegant luxury golden confetti trigger
-    const duration = 2 * 1000;
-    const end = Date.now() + duration;
-
-    const frame = () => {
-      confetti({
-        particleCount: 3,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-        colors: ['#02464f', '#086E7B', '#011c20']
-      });
-      confetti({
-        particleCount: 3,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-        colors: ['#02464f', '#086E7B', '#011c20']
-      });
-
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    };
-
-    frame();
-  };
 
   const navLinks = [
     { key: 'nav.home', path: '/' },
@@ -135,7 +105,6 @@ export const Navbar: React.FC = () => {
           <a
             href="/company-profile.pdf"
             download="HISAS-company-profile.pdf"
-            onClick={handleDownloadProfile}
             className="flex items-center gap-2 bg-gold-gradient text-white font-semibold px-5 py-2.5 rounded-lg shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 hover:shadow-gold/20"
           >
             <ArrowDownToLine className="w-4 h-4" />
@@ -193,7 +162,6 @@ export const Navbar: React.FC = () => {
                 href="/company-profile.pdf"
                 download="HISAS-company-profile.pdf"
                 onClick={() => {
-                  handleDownloadProfile();
                   setIsMobileMenuOpen(false);
                 }}
                 className="flex items-center justify-center gap-2 bg-gold-gradient text-white font-bold w-full py-3.5 rounded-lg shadow-lg"

@@ -42,7 +42,7 @@ const translations: Record<Language, Record<string, string>> = {
     // About
     'about.title': 'عن الشركة',
     'about.subtitle': 'حصص العقارية.. ريادة في تطوير الأبراج الفاخرة',
-    'about.text': 'حصص العقارية هي مطور عقاري سعودي رائد متخصص في تشييد الأبراج السكنية الفاخرة والمشاريع الساحلية ذات الإطلالات البحرية الخلابة. نسعى لخلق قيمة عقارية مستدامة لعملائنا وعوائد استثمارية استثنائية لشركائنا من خلال تبني أعلى المعايير الهندسية والجمالية. تلتزم الشركة بتقديم حلول تطويرية متكاملة تنسجم كلياً مع مستهدفات التنمية العمرانية الشاملة في ضوء رؤية المملكة 2030.',
+    'about.text': 'حصص العقارية هي مطور عقاري سعودي رائد متخصص في المشاريع التجارية الفاخرة،  نسعى لخلق قيمة عقارية مستدامة لعملائنا وعوائد استثمارية استثنائية لشركائنا من خلال تبني أعلى المعايير الهندسية والجمالية. تلتزم الشركة بتقديم حلول تطويرية متكاملة تنسجم كلياً مع مستهدفات التنمية العمرانية الشاملة في ضوء رؤية المملكة 2030.',
     'about.map': 'تغطية جغرافية استراتيجية ممتدة بين العاصمة الرياض والمنطقة الشرقية (الخبر).',
     'about.vision.title': 'رؤيتنا',
     'about.vision.text': 'أن نكون الخيار الأول والاسم الموثوق في المملكة لتطوير الأبراج السكنية الساحلية الفاخرة، وصناعة معالم معمارية تدمج الفخامة بجودة الحياة.',
@@ -208,7 +208,7 @@ const translations: Record<Language, Record<string, string>> = {
     // About
     'about.title': 'About Company',
     'about.subtitle': 'HISAS Real Estate.. Leading Luxury Tower Development',
-    'about.text': 'HISAS Real Estate is a premier Saudi developer specialized in crafting luxury high-rise residential towers and coastal projects with stunning waterfront views. We seek to generate sustainable property value for our clients and exceptional capital gains for our investment partners by adhering to top-tier structural and aesthetic standards. The company is committed to providing integrated development solutions that align fully with the comprehensive urban development goals of Saudi Vision 2030.',
+    'about.text': 'HISAS Real Estate is a leading Saudi real estate developer specialized in luxury commercial projects. We seek to create sustainable real estate value for our clients and exceptional investment returns for our partners by adopting the highest engineering and aesthetic standards. The company is committed to providing integrated development solutions that align fully with the goals of comprehensive urban development in light of Saudi Vision 2030.',
     'about.map': 'Strategic geographic footprint spanning the capital Riyadh and the Eastern Province (Al-Khobar).',
     'about.vision.title': 'Our Vision',
     'about.vision.text': 'To be the premier choice and trusted developer for luxury coastal residential towers in the Kingdom, building landmarks that fuse architectural elegance with quality of life.',

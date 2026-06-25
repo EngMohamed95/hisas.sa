@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
             </div>
             
             <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-md mx-auto md:mx-0">
-              {t('about.text').slice(0, 220)}...
+              {t('about.text')}
             </p>
           </div>
 

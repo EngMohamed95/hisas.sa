@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { Loader } from './components/Loader';
@@ -64,9 +64,9 @@ export default function App() {
     <HelmetProvider>
       <ThemeProvider>
         <LanguageProvider>
-          <HashRouter>
+          <BrowserRouter>
             <MainLayout />
-          </HashRouter>
+          </BrowserRouter>
         </LanguageProvider>
       </ThemeProvider>
     </HelmetProvider>

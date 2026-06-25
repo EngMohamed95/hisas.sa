@@ -14,7 +14,7 @@ jobs:
     name: Build & Deploy via SFTP
     runs-on: ubuntu-latest
     env:
-      DEPLOY_PORT: ${{ secrets.FTP_PORT || '65002' }}
+      DEPLOY_PORT: ${{ secrets.FTP_PORT || '22' }}
 
     steps:
       - name: Get latest code
@@ -44,5 +44,5 @@ jobs:
           port: ${{ env.DEPLOY_PORT }}
           password: ${{ secrets.FTP_PASSWORD }}
           local_path: './dist/*'
-          remote_path: 'domains/hisas.devmo.pro/public_html'
+          remote_path: 'public_html'
           sftp_only: true

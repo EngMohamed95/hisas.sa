@@ -7,17 +7,17 @@ export const Services: React.FC = () => {
 
   const services = [
     {
-      icon: '/media/serviceIcon1.38ec53ca7cfada8c8211b07c2629279b.svg',
+      icon: '/media/serviceIcon1.38ec53ca7cfada8c8211b07c2629279b.svg?v=2',
       titleKey: 'services.1.title',
       descKey: 'services.1.desc'
     },
     {
-      icon: '/media/serviceIcon2.e033cdacee222647d2adfa5d5e4d14d3.svg',
+      icon: '/media/serviceIcon2.e033cdacee222647d2adfa5d5e4d14d3.svg?v=2',
       titleKey: 'services.2.title',
       descKey: 'services.2.desc'
     },
     {
-      icon: '/media/serviceIcon3.c981364fb2badda4b4762114a79c92a8.svg',
+      icon: '/media/serviceIcon3.c981364fb2badda4b4762114a79c92a8.svg?v=2',
       titleKey: 'services.3.title',
       descKey: 'services.3.desc'
     }

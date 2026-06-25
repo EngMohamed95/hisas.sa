@@ -66,7 +66,7 @@ export const ProjectsPage: React.FC = () => {
       ],
       locationKey: 'projects.location.riyadh',
       units: '570',
-      roi: '22.8%',
+      roi: '15.77%',
       statusKey: 'projects.status.upcoming',
       specs: {
         ar: ['موقع استراتيجي نادر في حي النخيل بالرياض', 'مجمع سكني ذكي يضم أبراجاً متكاملة الخدمات', 'مرافق ترفيهية وصحية خاصة واستثنائية', 'مواقف سيارات مجهزة بمحطات شحن كهربائية'],

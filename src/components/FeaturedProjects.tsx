@@ -55,7 +55,7 @@ export const FeaturedProjects: React.FC = () => {
       ],
       locationKey: 'projects.location.riyadh',
       units: '570',
-      roi: '22.8%',
+      roi: '15.77%',
       statusKey: 'projects.status.upcoming',
       logo: '/media/projectLogo2.6d1e741685f74dde03e9.png'
     }

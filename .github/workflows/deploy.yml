@@ -11,10 +11,8 @@ on:
 
 jobs:
   build-and-deploy:
-    name: Build & Deploy via SFTP
+    name: Build & Deploy via FTP
     runs-on: ubuntu-latest
-    env:
-      DEPLOY_PORT: ${{ secrets.FTP_PORT || '22' }}
 
     steps:
       - name: Get latest code
@@ -35,14 +33,11 @@ jobs:
       - name: Skip large profile PDF in deploy
         run: rm -f dist/company-profile.pdf
 
-      - name: Deploy files via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        timeout-minutes: 10
+      - name: Deploy files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
-          username: ${{ secrets.FTP_USERNAME }}
           server: ${{ secrets.FTP_SERVER }}
-          port: ${{ env.DEPLOY_PORT }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_path: './dist/*'
-          remote_path: 'public_html'
-          sftp_only: true
+          local-dir: './dist/'
+          server-dir: 'public_html/'

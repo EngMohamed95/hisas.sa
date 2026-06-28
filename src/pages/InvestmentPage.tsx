@@ -10,8 +10,8 @@ export const InvestmentPage: React.FC = () => {
   const [investValue, setInvestValue] = useState<number>(5000000); // 5 Million SAR default
 
   // ROI parameters
-  const irr = 0.18; // 18% target annual yield
-  const durationMonths = 36; // 36 months / 3 years expected period
+  const irr = 0.1577; // 15.77% target annual yield
+  const durationMonths = 60; // 60 months / 5 years expected period
   const profit = Math.round(investValue * irr * (durationMonths / 12));
   const totalPayout = investValue + profit;
 
@@ -135,6 +135,42 @@ export const InvestmentPage: React.FC = () => {
                 <span>35M</span>
                 <span>50M</span>
               </div>
+              
+              <div className="mt-6">
+                <label className="text-xs text-slate-500 font-bold block mb-2 uppercase tracking-wider">
+                  {isRTL ? 'أو أدخل مبلغاً مخصصاً (ريال سعودي):' : 'Or enter a custom amount (SAR):'}
+                </label>
+                <input
+                  type="number"
+                  value={investValue || ''}
+                  min={5000000}
+                  max={50000000}
+                  onChange={(e) => {
+                    const val = e.target.value === '' ? 0 : Number(e.target.value);
+                    setInvestValue(val);
+                  }}
+                  onBlur={() => {
+                    if (investValue < 5000000) {
+                      setInvestValue(5000000);
+                    } else if (investValue > 50000000) {
+                      setInvestValue(50000000);
+                    }
+                  }}
+                  placeholder={isRTL ? 'مثال: 5,000,000' : 'Example: 5,000,000'}
+                  className={`w-full bg-slate-50 border rounded-lg px-4 py-3 text-base text-slate-800 placeholder:text-slate-400 focus:outline-none font-sans transition-colors duration-200 ${
+                    (investValue > 0 && investValue < 5000000) || investValue > 50000000
+                      ? 'border-red-500 focus:border-red-500'
+                      : 'border-slate-200 focus:border-gold'
+                  }`}
+                />
+                {((investValue > 0 && investValue < 5000000) || investValue > 50000000) && (
+                  <p className="text-red-500 text-xs mt-1.5 font-medium">
+                    {isRTL 
+                      ? 'المبلغ يجب أن يكون بين 5,000,000 و 50,000,000 ريال سعودي'
+                      : 'Amount must be between 5,000,000 and 50,000,000 SAR'}
+                  </p>
+                )}
+              </div>
               </div>
             </div>
 
@@ -169,7 +205,7 @@ export const InvestmentPage: React.FC = () => {
                     <span className="text-xs uppercase font-medium tracking-wide">{t('invest.calc.roi')}</span>
                   </div>
                   <h4 className="text-2xl sm:text-3xl font-extrabold text-gold-gradient tracking-tight">
-                    {(irr * 100).toFixed(1)}%
+                    {(irr * 100).toFixed(2)}%
                   </h4>
                 </div>
 

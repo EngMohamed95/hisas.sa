@@ -30,65 +30,19 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
     <div className="fixed inset-0 z-[100] bg-slate-50 flex flex-col items-center justify-center">
       <div className="text-center max-w-sm px-6">
         
-        {/* Animated Golden Logo Monogram SVG */}
-        <div className="w-20 h-20 mx-auto mb-8 relative">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-full h-full stroke-gold stroke-[6] fill-none stroke-linecap-round stroke-linejoin-round">
-            <defs>
-              <linearGradient id="logo-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#02464f" />
-                <stop offset="50%" stop-color="#086E7B" />
-                <stop offset="100%" stop-color="#011c20" />
-              </linearGradient>
-            </defs>
-            {/* Draw Path Animation using Framer Motion */}
-            <motion.path
-              d="M30,30 L30,70"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, ease: 'easeInOut' }}
-              stroke="url(#logo-gold)"
-            />
-            <motion.path
-              d="M70,30 L70,70"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.2 }}
-              stroke="url(#logo-gold)"
-            />
-            <motion.path
-              d="M30,50 L70,50"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.2, ease: 'easeInOut', delay: 0.5 }}
-              stroke="url(#logo-gold)"
-            />
-            <motion.path
-              d="M30,30 L50,15 L70,30"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.8 }}
-              stroke="url(#logo-gold)"
-            />
-          </svg>
-        </div>
-
-        {/* Brand Name */}
-        <motion.h2
-          initial={{ opacity: 0, y: 10 }}
+        {/* Brand Logo Image */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-xl font-bold tracking-widest text-slate-900 mb-2 uppercase"
+          transition={{ duration: 0.8 }}
+          className="flex justify-center mb-8"
         >
-          HISAS REAL ESTATE
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ delay: 0.5 }}
-          className="text-[10px] tracking-[0.2em] text-gold font-bold uppercase mb-6"
-        >
-          Saudi Developer • نطور بثقة
-        </motion.p>
+          <img 
+            src="/media/logo-hisas-black.png" 
+            alt="HISAS Logo" 
+            className="h-20 sm:h-24 w-auto object-contain"
+          />
+        </motion.div>
 
         {/* Progress Value */}
         <div className="font-sans text-xs font-semibold tracking-widest text-slate-500">

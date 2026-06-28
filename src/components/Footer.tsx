@@ -41,10 +41,6 @@ export const Footer: React.FC = () => {
                 className="h-14 sm:h-16 w-auto"
               />
             </div>
-            
-            <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-md mx-auto md:mx-0">
-              {t('about.text')}
-            </p>
           </div>
 
           {/* Links Grid */}
